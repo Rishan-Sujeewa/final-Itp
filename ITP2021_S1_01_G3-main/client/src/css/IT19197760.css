@@ -1,0 +1,148 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #828282;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn1 {
+  background-color: #828282; /* Green */
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+
+.btn2 {
+  background-color: #828282; /* Green */
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+.btn1:hover {
+  background-color: rgba(156, 126, 141, 0.178);
+  color: black;
+}
+
+.btn2:hover {
+  background-color: rgba(156, 126, 141, 0.178);
+  color: black;
+}
+
+
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+  background: 	 #d9d9d9;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+th, td {
+  padding: 15px;
+}
+
+
+  .btn{  
+    background-color: gray; 
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 150px;
+    float:right 100;
+    
+    
+  }
+
+  .btn{padding: 14px 25px;}
+
+  .btn:hover {
+    background-color: rgba(156, 126, 141, 0.178);
+    color: black;
+  }
+
+  h2 {
+   
+    font-size: 2.5em;
+    color: gray;
+    margin-top: 40;
+    margin-left: 100;
+    
+  }
+
+  .navbar navbar-expand-lg navbar-light bg-light{
+    background-color: #828282;
+  }
+
+  form-group{
+
+
+  }
+
+  input[type=text] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #828282;
+  }
+
+ 
+
+  h1{
+    color: #828282;
+    
+  }
