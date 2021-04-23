@@ -18,10 +18,10 @@ const employee = require('./routes/employee');
 const employeeproblem = require('./routes/employeeproblem');
 
 //Salary
-const salaryRouter = require("./routes/salarys.js");
+const salaryRoute = require('./routes/salary.route')
 
 //Vehicle
-const vehicleRouter =require("./routes/vehicles.js");
+const vehicleRoute = require('./routes/vehicle.route')
  
 //stock
 const authRoutes = require("./routes/auth");
@@ -34,6 +34,17 @@ const pageRoutes = require("./routes/admin/page");
 // const addressRoutes = require("./routes/address");
 // const orderRoutes = require("./routes/order");
 // const adminOrderRoute = require("./routes/admin/order.routes");
+
+
+//constructions - routes
+const customizedRouter = require("./routes/customizedRequests.js");
+const systemizedRouter = require("./routes/systemizedRequests.js");
+const systemizedDRouter = require("./routes/systemizedDesigns.js");
+
+//Orders
+const order = require('./routes/order.js');
+const cart = require('./routes/cart.js');
+const adminDash = require('./routes/admin/order.routes.js');
 
 
 //creating app
@@ -73,11 +84,10 @@ app.use("/employee",employee);
 app.use("/employeeProblem",employeeproblem);
 
 //Salary
-app.use("/salary",salaryRouter);
+app.use('/salaries', salaryRoute);
 
 //Vehicle
-app.use("/vehicle",vehicleRouter);
-
+app.use('/vehicles', vehicleRoute);
 
 //stock 
 app.use("/public", express.static(path.join(__dirname, "uploads")));
@@ -91,3 +101,15 @@ app.use("/api", pageRoutes);
 //app.use("/api", addressRoutes);
 //app.use("/api", orderRoutes);
 //app.use("/api", adminOrderRoute);
+
+
+//constructions
+app.use("/customizedReq",customizedRouter);
+app.use("/systemizedReq",systemizedRouter);
+app.use("/systemizedDesig",systemizedDRouter);
+
+//Orders
+// app.use('/api', order);
+// app.use('/api', cart);
+// app.use('/api',adminDash);
+

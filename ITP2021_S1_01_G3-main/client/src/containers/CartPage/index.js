@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Layout from "../../componentsFlip/Layout";
-import Card from "../../componentsFlip/UI/Card";
-import CartItem from "./CartItem";
+// import Card from "../../componentsFlip/UI/Card";
+// import CartItem from "./CartItem";
 import { addToCart, getCartItems, removeCartItem } from "../../actions";
 import PriceDetails from "../../componentsFlip/PriceDetails";
 
@@ -56,25 +56,25 @@ const CartPage = (props) => {
     dispatch(removeCartItem({ productId: _id }));
   };
 
-  if (props.onlyCartItems) {
-    return (
-      <>
-        {Object.keys(cartItems).map((key, index) => (
-          <CartItem
-            key={index}
-            cartItem={cartItems[key]}
-            onQuantityInc={onQuantityIncrement}
-            onQuantityDec={onQuantityDecrement}
-          />
-        ))}
-      </>
-    );
-  }
+  // if (props.onlyCartItems) {
+  //   return (
+  //     <>
+  //       {Object.keys(cartItems).map((key, index) => (
+  //         // <CartItem
+  //         //   key={index}
+  //         //   cartItem={cartItems[key]}
+  //         //   onQuantityInc={onQuantityIncrement}
+  //         //   onQuantityDec={onQuantityDecrement}
+  //         // />
+  //       ))}
+  //     </>
+  //   );
+  // }
 
   return (
     <Layout>
-      <div className="cartContainer" style={{ alignItems: "flex-start" }}>
-        <Card
+      {/* <div className="cartContainer" style={{ alignItems: "flex-start" }}> */}
+        {/* <Card
           headerLeft={`My Cart`}
           headerRight={<div>Deliver to</div>}
           style={{ width: "calc(100% - 400px)", overflow: "hidden" }}
@@ -107,8 +107,8 @@ const CartPage = (props) => {
               />
             </div>
           </div>
-        </Card>
-        <PriceDetails
+        </Card> */}
+        {/* <PriceDetails
           totalItem={Object.keys(cart.cartItems).reduce(function (qty, key) {
             return qty + cart.cartItems[key].qty;
           }, 0)}
@@ -117,7 +117,7 @@ const CartPage = (props) => {
             return totalPrice + price * qty;
           }, 0)}
         />
-      </div>
+      </div> */}
     </Layout>
   );
 };

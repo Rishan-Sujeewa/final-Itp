@@ -1,0 +1,24 @@
+.DNbody {
+    background: linear-gradient(200deg, #BBDEFB 60%, #42A5F5 60%)
+  }
+  
+.cartHeadTitle{
+  text-align:center;
+}
+
+  .second a:hover {
+    color: rgb(92, 92, 92)
+  }
+  
+  .active-2 {
+    color: rgb(92, 92, 92)
+  }
+  
+  .breadcrumb>li+li:before {
+    content: ">>" !important
+  }
+
+  .DNa {
+    text-decoration: none !important;
+    color: #aaa
+  }

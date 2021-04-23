@@ -36,7 +36,7 @@ const OrderPage = (props) => {
           ]}
           breedIcon={<IoIosArrowForward />}
         />
-        {user.orders.map((order) => {
+        {/* {user.orders.map((order) => {
           return order.items.map((item) => (
             <Card style={{ display: "block", margin: "5px 0" }}>
               <Link
@@ -60,7 +60,7 @@ const OrderPage = (props) => {
               </Link>
             </Card>
           ));
-        })}
+        })} */}
       </div>
     </Layout>
   );

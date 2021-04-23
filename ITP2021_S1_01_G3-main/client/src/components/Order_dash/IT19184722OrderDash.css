@@ -1,0 +1,57 @@
+.IT19184722body{
+  background: linear-gradient(110deg, #BBDEFB 60%, #42A5F5 60%)
+} 
+
+.IT19184722DashTitle{
+  text-align: center;
+}
+
+.card-h-label{
+  text-align: center;
+}
+
+.IT19184722btn{
+  text-align: right;
+}
+
+.IT19184722form{
+  margin-top: 2%;
+}
+
+
+
+
+
+
+/* #regForm {
+    background-color: rgba(196, 207, 218, 0.6);
+    margin: 15px auto;
+    font-family: Raleway;
+    padding: 30px;
+    width: 80%;
+    min-width: 300px;
+    border-radius: 10px;
+  }
+
+  h4 {
+    text-align: center;  
+  }
+  
+  strong {
+      float: left;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding: 30px 20px;
+    margin-left: 20px;
+    font-size: 17px;
+    font-family: Raleway;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  } */
