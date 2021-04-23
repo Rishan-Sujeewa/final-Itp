@@ -46,6 +46,7 @@ exports.signup = (req, res) => {
 };
 
 exports.signin = (req, res) => {
+  console.log("hit signin");
   User.findOne({ email: req.body.email }).exec(async (error, user) => {
     if (error) return res.status(400).json({ error });
     if (user) {

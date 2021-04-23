@@ -76,7 +76,7 @@ function App() {
       dispatch(isUserLoggedIn());
     }
     if (authAdmin.authenticate) {
-      dispatch(getInitialData());
+      //dispatch(getInitialData());
     }
   }, [authAdmin.authenticate]);
 

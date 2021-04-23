@@ -37,7 +37,7 @@ const pageRoutes = require("./routes/admin/page");
 
 
 //creating app
-const app = express();
+//const app = express();
 // MONGO_URL = mongodb+srv://pasindu:pasindu@cluster0.5d7e1.mongodb.net/DATABASE?retryWrites=true&w=majority
 //MONGO_URL = mongodb+srv://y2s2:y2s2@hardwaremanagementsys.pjucy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 //configuring dotenv 

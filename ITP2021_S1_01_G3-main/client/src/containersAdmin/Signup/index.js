@@ -4,7 +4,7 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import Input from "../../componentsAdmin/UI/Input";
 import { Redirect } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { signup } from "../../actionsAdmin";
+import { signup } from "../../actions";
 import { useEffect } from "react";
 
 /**
@@ -18,8 +18,8 @@ const Signup = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const auth = useSelector((state) => state.authAdmin);
-  const user = useSelector((state) => state.userAdmin);
+  const auth = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const Signup = (props) => {
       firstName,
       lastName,
       email,
-      password
+      password,
     };
 
     dispatch(signup(user));
@@ -68,6 +68,16 @@ const Signup = (props) => {
                     type="text"
                     onChange={(e) => setFirstName(e.target.value)}
                   />
+                  <Button variant="primary" type="submit">
+                Submit
+              </Button>
+              <Input
+                label="Password"
+                placeholder="Password"
+                value={password}
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
                 </Col>
                 <Col md={6}>
                   <Input
@@ -95,9 +105,7 @@ const Signup = (props) => {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <Button variant="primary" type="submit">
-                Submit
-              </Button>
+              
             </Form>
           </Col>
         </Row>
