@@ -65,31 +65,18 @@ const Signup = (props) => {
                     label="First Name"
                     placeholder="First Name"
                     value={firstName}
-                    type="text"
                     onChange={(e) => setFirstName(e.target.value)}
                   />
-                  <Button variant="primary" type="submit">
-                Submit
-              </Button>
-              <Input
-                label="Password"
-                placeholder="Password"
-                value={password}
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
                 </Col>
                 <Col md={6}>
                   <Input
                     label="Last Name"
                     placeholder="Last Name"
                     value={lastName}
-                    type="text"
                     onChange={(e) => setLastName(e.target.value)}
                   />
                 </Col>
               </Row>
-
               <Input
                 label="Email"
                 placeholder="Email"
@@ -97,7 +84,6 @@ const Signup = (props) => {
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
               />
-
               <Input
                 label="Password"
                 placeholder="Password"
@@ -105,7 +91,19 @@ const Signup = (props) => {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              
+              <div
+                style={{
+                  float: "left",
+                }}
+              >
+                <Button
+                  variant="primary"
+                  type="submit"
+                  style={{ backgroundColor: "#007bff", borderColor: "#007bff" }}
+                >
+                  Submit
+                </Button>
+              </div>
             </Form>
           </Col>
         </Row>

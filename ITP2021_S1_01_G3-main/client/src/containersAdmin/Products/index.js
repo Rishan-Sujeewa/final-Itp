@@ -78,9 +78,9 @@ const Products = (props) => {
         </thead>
         <tbody>
           {product.products.length > 0
-            ? product.products.map((product) => (
+            ? product.products.map((product, index) => (
                 <tr key={product._id}>
-                  <td>#</td>
+                  <td>{index + 1}</td>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
                   <td>{product.quantity}</td>
@@ -92,7 +92,7 @@ const Products = (props) => {
                     <button
                       onClick={() => {
                         const payload = {
-                          productId: product._id
+                          productId: product._id,
                         };
                         dispatch(deleteProductById(payload));
                       }}

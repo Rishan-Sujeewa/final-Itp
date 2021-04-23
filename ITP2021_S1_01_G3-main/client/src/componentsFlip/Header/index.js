@@ -144,7 +144,7 @@ const Header = (props) => {
     <div className="header">
       <Modal visible={loginModal} onClose={() => setLoginModal(false)}>
         <div className="authContainer">
-          <div className="row">
+          <div className="flip-row">
             <div className="leftspace">
               <h2>Login</h2>
               <p>Get access to your Orders, Wishlist and Recommendations</p>
