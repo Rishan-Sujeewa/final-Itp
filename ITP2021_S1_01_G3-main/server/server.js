@@ -14,8 +14,8 @@ const authRouter = require('./routes/auth.routes');
 const branchRouter = require('./routes/branch.routes');
 
 //employee
-const employee = require('./routes/employee');
-const employeeproblem = require('./routes/employeeproblem');
+const employee = require('./routes/Employee.route');
+
 
 //Salary
 const salaryRoute = require('./routes/salary.route')
@@ -81,7 +81,7 @@ app.use("/branch", branchRouter);
 
 //employee
 app.use("/employee",employee);
-app.use("/employeeProblem",employeeproblem);
+
 
 //Salary
 app.use('/salaries', salaryRoute);

@@ -3,13 +3,13 @@
 *{margin: 0; padding: 0; font-family: 'Quicksand', 'sans-serif'; font-weight: bold;}
 
 /*style header*/
-#it19197760-header{
+#it19142456-header{
     background-color:#828282 ;
     color: #ffffff;
 }
 
 /*style forms*/
-.it19197760-myForm{
+.it19142456-myForm{
     width: 50%;
     margin: 50px auto;
     border: 1px solid transparent;
@@ -18,19 +18,19 @@
     top: 50%;
 }
 
-.it19197760-myForm h2{
+.it19142456-myForm h2{
     text-align: center;
     font-weight: bolder;
 }
 
-.it19197760-myForm .it19197760-my-btn{
+.it19142456-myForm .it19142456-my-btn{
     display: block;
     margin: 5px auto;
     background-color:#4caf50 ;
     color: #ffffff;
 }
 
-.it19197760-assignForm{
+.it19142456-assignForm{
     width: 30%;
     margin: 50px 90px;
     border: 1px solid transparent;
@@ -41,65 +41,57 @@
 }
 
 
-.it19197760-assignForm .it19197760-my-btn{
+.it19142456-assignForm .it19142456-my-btn{
     display: block;
     margin: 5px auto;
-    background-color: #4caf50;
+    background-color:#4caf50 ;
     color: #ffffff;
 }
 
 /*style tables*/
-.it19197760-displayTable{
+.it19142456-displayTable{
     width: 80%;
-    margin: 50px auto;
+   margin:0 auto ;
+   
     border: 1px solid transparent;
     box-shadow: 5px 8px 20px #888888;
-    padding: 25px;
-    top: 50%;
+    margin-top: 1cm;
+    
 }
 
-.it19197760-displayTable .it19197760-my-btn{
+.it19142456-displayTable .it19519364-my-btn{
     display: block;
     margin: 5px auto;
-    background-color: #4caf50 ;
+    background-color:#4caf50 ;
     color: #ffffff;
 }
 
-.it19197760-displayTable tr{
+.it19142456-displayTable tr{
     border: 20px solid white;
     box-shadow: 5px 8px 10px  #888888;
 }
+.it19142456-displayTable th{
+    color: #ffffff;
+    background-color: #4caf50;
+}
 
-.it19197760-displayTable td{
+.it19142456-displayTable td{
     /* border: 1px solid #d1c8c8; */
     padding: 8px;
     font-weight: normal;
-   
 }
 
-
-/*style display views AND download view*/
-.it19197760-display-Employee-view{
-    width: 80%;
-    margin: 50px auto;
-    border: 1px solid transparent;
-    box-shadow: 1px 1px 1px 1px #888888; 
-    padding: 25px;
-    top: 50%;
-}
-
-
-.it19197760-display-view-download{
+.it19142456-display-view-download{
     width: 70%;
     margin: 50px auto;
     border: 1px solid transparent;
     padding: 25px;
     top: 50%;
 }
-.it19197760-display-view-download td{
+.it19142456-display-view-download td{
     font-weight: normal;
 }
-.it19197760-display-view-download .it19197760-my-btn{
+.it19142456-display-view-download .it19142456-my-btn{
     display: block;
     margin: 5px auto;
     background-color:#828282 ;
@@ -107,46 +99,49 @@
 }
 
 
- .it19197760-view-download{
+ .it19142456-view-download{
     width: 70%;
     margin: 25px auto;
-    border: 1px solid #888888;
+    border: 1px solid #4caf50;
     padding: 10px;
 } 
-.it19197760-view-download .it19197760-my-btn{
+.it19142456-view-download .it19142456-my-btn{
     display: block;
     margin: 5px auto;
-    background-color:#828282 ;
+    background-color:#4caf50 ;
     color: #ffffff;
     float: right;
 }
+.it19142456-delete-button{
+    display: block;
+    margin: 5px auto;
+    background-color:#4caf50 ;
+    color: #ffffff;
 
-.it19197760-add-link{
+}
+.it1914256-add-link{
 
     background-color: #4caf50;
     border-color: none;
     color: white;
     padding: 10px 10px;
     border-radius: 0.2rem;
-    margin-top: 25px;
-    
+    margin-top: 50px;
 }
-
-    .it19197760-add-link:hover{
-
-        background-color: #024025;
-    }
-
-     .it19197760-head{
-
-        color:  #4caf50;
-        text-align: center;
-        
-    }
-
-
-    .it19197760-displayTable th{
-        color: white;
-        background-color: #4caf50;
-       
-    }
+.it1914256-add-link:hover{
+    background-color: #4caf50;
+    color: white;
+}
+.it19142456-heading{
+    text-align: center;
+    color: #000000;
+    font-variant-caps: petite-caps;
+    font-size:1.5cm;
+}
+.it19142456-edit-btn{
+    display: block;
+    margin: 5px auto;
+    background-color:#4caf50 ;
+    color: #ffffff;
+    border-radius: 4px;
+}

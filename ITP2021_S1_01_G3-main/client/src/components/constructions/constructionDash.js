@@ -1,12 +1,14 @@
 import React, {useState, Component, useEffect} from "react";
 import axios from "axios";
 import {Link} from 'react-router-dom';
-import img1 from '../images/1.0.jpg'
-import img2 from '../images/2.0.jpg'
-import img3 from '../images/3.0.jpg'
-import img4 from '../images/4.0.jpg'
-import img5 from '../images/5.0.jpg'
-import img6 from '../images/6.0.jpg'
+import img1 from '../../images/1.0.jpg'
+import img2 from '../../images/2.0.jpg'
+import img3 from '../../images/3.0.jpg'
+import img4 from '../../images/4.0.jpg'
+import img5 from '../../images/5.0.jpg'
+import img6 from '../../images/6.0.jpg'
+import './../../css/IT19140162.css';
+import  HeaderCom from './header';
 
 export default function ConstructionDasdhboard(){
 
@@ -14,7 +16,7 @@ export default function ConstructionDasdhboard(){
     useEffect(() => {
         function getConst(){
 
-            axios.get("http://localhost:8070/systemizedDesig/")
+            axios.get("http://localhost:5000/systemizedDesig/")
             .then(res => {
                setConstructions(res.data); 
                
@@ -33,21 +35,19 @@ export default function ConstructionDasdhboard(){
          return(
     
             <div className="container">
-    
-                    <div className= "sub1">
-                        <p className = "topic1">Get Ready To Discover Your Dream Home..</p>  
-                    <Link to ="/userDashCons">
-                        <button type= "submit" id = "userDashCons" className = "btn btn-success" >My Constructions</button>
-                    </Link>
+                    <HeaderCom/>
+                    <div className= "it19140162-sub1">
+                    <br/><p className = "it19140162-topic1">Get Ready To Discover Your Dream Home..</p>  
+                    
                     <br/><br/><br/> <br/><br/><br/>
                         
                     </div><br/>
     
-                <div className="mainDiv2">
+                <div className="it19140162-mainDiv2">
     
-                    <div className="row1md2">
+                    <div className="it19140162-row1md2">
     
-                        <div className="col1r2">
+                        <div className="it19140162-col1r2">
     
                             <div className="card">
                             <Link to ="/AddSystemizedReq">
@@ -60,7 +60,7 @@ export default function ConstructionDasdhboard(){
     
                         </div>
     
-                        <div className="col1r2">
+                        <div className="it19140162-col1r2">
     
                             <div className="card">
                                     <img className="card-img-top" src={img2} alt="Card image cap"/>
@@ -71,7 +71,7 @@ export default function ConstructionDasdhboard(){
     
                         </div>
     
-                        <div className="col1r2">
+                        <div className="it19140162-col1r2">
     
                             <div className="card">
                                     <img className="card-img-top" src={img3} alt="Card image cap"/>
@@ -84,9 +84,9 @@ export default function ConstructionDasdhboard(){
     
                     </div>
     
-                    <div className="row1md2">
+                    <div className="it19140162-row1md2">
     
-                        <div className="col1r2">
+                        <div className="it19140162-col1r2">
     
                             <div className="card">
                             <Link to ="/AddSystemizedReq">
@@ -99,7 +99,7 @@ export default function ConstructionDasdhboard(){
     
                         </div>
     
-                        <div className="col1r2">
+                        <div className="it19140162-col1r2">
     
                             <div className="card">
                                     <img className="card-img-top" src={img5} alt="Card image cap"/>
@@ -110,7 +110,7 @@ export default function ConstructionDasdhboard(){
     
                         </div>
     
-                        <div className="col1r2">
+                        <div className="it19140162-col1r2">
     
                             <div className="card">
                                     <img className="card-img-top" src={img6} alt="Card image cap"/>

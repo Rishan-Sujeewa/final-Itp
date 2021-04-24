@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import '../../css/it19142456.css';
 export default class EditVehicle extends Component {
   
   constructor(props) {
@@ -140,11 +141,13 @@ export default class EditVehicle extends Component {
   
   render() {
       return (<div className="form-wrapper">
-      <Form onSubmit={this.onSubmit}>
+        <br/>
+         <h2 className="it19142456-heading">Edit vehicle</h2>
+      <Form onSubmit={this.onSubmit} className="it19142456-myForm">
 
       <Form.Group controlId="vehicleId">
           <Form.Label>Vehicle Id</Form.Label>
-          <Form.Control type="text" value={this.state.vehicleId} onChange={this.onChangeVehicleId}/>
+          <Form.Control type="text" value={this.state.vehicleId}/>
         </Form.Group>
 
         <Form.Group controlId="registrationNum">
@@ -202,7 +205,7 @@ export default class EditVehicle extends Component {
           <Form.Control type="number" value={this.state.branchId} onChange={this.onChangeBranchId}/>
         </Form.Group>
 
-        <Button size="lg" block="block" type="submit">
+        <Button size="lg" block="block" type="submit" className="btn it19142456-my-btn">
           Update vehicle
         </Button>
       </Form>

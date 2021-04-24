@@ -2,6 +2,7 @@ import React, {useState,useEffect}  from 'react';
 import axios from 'axios';
 import {getUser, removeUser} from '../../../utils/common';
 import '../../../css/it19951386.css';
+import {Link} from 'react-router-dom';
 
 
 export default function CustomerUserProfile(props) {
@@ -85,8 +86,8 @@ export default function CustomerUserProfile(props) {
     }
     return (
         <div name="userDetails-form">
-            <button className="btn it19951386-green-btn">My Constructions</button>
-            <button className="btn it19951386-green-btn">My Orders</button>
+            <Link to ="/userDashCons" className="btn it19951386-green-btn">My Constructions</Link>
+            <Link to ="/myHistory" className="btn it19951386-green-btn">My Orders</Link>
             <form className="form-group it19951386-myForm">
                 <h2>User Profile</h2>
                 <button className="btn-danger btn it19951386-red-btn" id="it19951386-logout-btn" onClick={logoutHandler}>Log out</button>

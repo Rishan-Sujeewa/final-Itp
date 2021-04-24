@@ -1,7 +1,8 @@
 import React from 'react';
+import './../../css/IT19140162.css';
 
 
-export default function home() {
+export default function adminHeader() {
     
         return (
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -13,28 +14,28 @@ export default function home() {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">Stock |</a>
+                  <a className="nav-link active" aria-current="page" href="#">Stock |</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/vehicle-list">Delivery & Vehicles |</a>
+                  <a className="nav-link" href="#">Delivery & Vehicles |</a>
                 </li>
                 <li className="nav-item">
                 <a className="nav-link" href="/admin/orders">Order |</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="/Employee-list">Employees |</a>
+                <a className="nav-link" href="#">Employees |</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="/branches">Branches |</a>
+                <a className="nav-link" href="#">Branches |</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="/salary-list">Salary |</a>
+                <a className="nav-link" href="#">Payment |</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="/adminConsDash">Constructions |</a>
+                <a className="nav-link" href="#">Constructions |</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="/customers">Customers |</a>
+                <a className="nav-link" href="#">Customers |</a>
                 </li>
               </ul>
             </div>

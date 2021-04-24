@@ -13,7 +13,7 @@
     
 }
 .it19951386-myTable{
-    /* overflow-x: auto; */
+    margin-top: 30px;
     
 }
 .it19951386-myTable h2 {
@@ -119,6 +119,7 @@ font-weight: bolder;
 .it19951386-headerSection{
     width: 100%;
     margin-bottom: 20px;
+    text-align: center;
 }
 .it19951386-headerSection #it19951386-search-filter{
     float: right;
@@ -156,4 +157,7 @@ font-weight: bolder;
 .it19951386-red-btn:hover{
     background-color: transparent;
     color: red;
+}
+.it19951386-floatLeft{
+float: left;
 }

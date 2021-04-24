@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import './../../css/IT19140162.css';
 
 export default function InsertSystemizedDesigns(){
 
@@ -23,7 +24,7 @@ export default function InsertSystemizedDesigns(){
             img
         }
         
-        axios.post("http://localhost:8070/systemizedDesig/addDesign",newSysDesigns).then(()=>{
+        axios.post("http://localhost:5000/systemizedDesig/addDesign",newSysDesigns).then(()=>{
             alert("req added")
             
         } ).catch((err)=>{
@@ -37,15 +38,15 @@ export default function InsertSystemizedDesigns(){
 
         <div className="container"> 
            <br/>
-            <div className = "mainDiv">  
-                <p className = "topic1">Insert System Design Details</p><br/>   
+            <div className = "it19140162-mainDiv">  
+                <p className = "it19140162-topic1">Insert System Design Details</p><br/>   
                 
-                <div className = "sub4">
+                <div className = "it19140162-sub4">
                      <form onSubmit={sendData}>  
 
                      <div className="form-group">
-                        <label for="designNum">Design Number</label>
-                        <input type="text" className="form-control" id="designNum" placeholder="SP0000"
+                        <label for="it19140162-designNum">Design Number</label>
+                        <input type="text" className="form-control" id="it19140162-designNum" placeholder="SP0000"
                         
                             onChange={(e) => {
                                 setDesignNum(e.target.value);
@@ -54,8 +55,8 @@ export default function InsertSystemizedDesigns(){
                     </div>
 
                     <div className="form-group">
-                        <label for="landArea">Land Area</label>
-                        <input type="text" className="form-control" id="landArea" 
+                        <label for="it19140162-landArea">Land Area</label>
+                        <input type="text" className="form-control" id="it19140162-landArea" 
                         
                             onChange={(e) => {
                                 setLandArea(e.target.value);
@@ -64,8 +65,8 @@ export default function InsertSystemizedDesigns(){
                     </div>
 
                     <div className="form-group">
-                        <label for="buildingArea">Building Area</label>
-                        <input type="text" className="form-control" id="buildingArea" 
+                        <label for="it19140162-buildingArea">Building Area</label>
+                        <input type="text" className="form-control" id="it19140162-buildingArea" 
                         
                         onChange={(e) => {
                             setBuildingArea(e.target.value);
@@ -73,8 +74,8 @@ export default function InsertSystemizedDesigns(){
                     </div>
                     
                     <div className="form-group">
-                        <label for="bedRooms">Bed Rooms</label>
-                        <input type="text" className="form-control" id="bedRooms" 
+                        <label for="it19140162-bedRooms">Bed Rooms</label>
+                        <input type="text" className="form-control" id="it19140162-bedRooms" 
                         
                         onChange={(e) => {
                             setBedRooms(e.target.value);
@@ -82,8 +83,8 @@ export default function InsertSystemizedDesigns(){
                     </div>
 
                     <div className="form-group">
-                        <label for="bathRooms">Bathrooms</label>
-                        <input type="text" className="form-control" id="bathRooms" 
+                        <label for="it19140162-bathRooms">Bathrooms</label>
+                        <input type="text" className="form-control" id="it19140162-bathRooms" 
                         
                             onChange={(e) => {
                                 setBathRooms(e.target.value);
@@ -92,8 +93,8 @@ export default function InsertSystemizedDesigns(){
                     </div>
 
                     <div className="form-group"> 
-                        <label for="bathRooms">Insert Images</label>
-                        <input type="file" className="form-control-file" id="image"/> 
+                        <label for="it19140162-bathRooms">Insert Images</label>
+                        <input type="file" className="form-control-file" id="it19140162-image"/> 
                     </div>
                     <br/>
                     <div>

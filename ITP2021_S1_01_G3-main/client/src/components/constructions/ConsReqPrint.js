@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import axios from "axios";
 import {Link} from 'react-router-dom';
+import './../../css/IT19140162.css';
+import  HeaderCom from './header';
 
 
 export default function PrintConstruction(){
@@ -23,7 +25,7 @@ export default function PrintConstruction(){
             comments
         }
         
-        axios.post("http://localhost:8070/customizedReq/add",newCRequest).then(()=>{
+        axios.post("http://localhost:5000/customizedReq/add",newCRequest).then(()=>{
             alert("req added")
             
         } ).catch((err)=>{
@@ -34,25 +36,25 @@ export default function PrintConstruction(){
     return(
 
         <div className="container">
-
-        <div className="topicPrint">
-            <div className= "tp1">
-                <p className = "topic1">My Construction Requests</p>
+        <HeaderCom/>
+        <div className="it19140162-topicPrint">
+            <div className= "it19140162-tp1">
+                <p className = "it19140162-topic1">My Construction Requests</p>
             </div>
 
-            <div className="tp1"> 
-                <button className="btn btn-success" id="prbtn">Download</button>
+            <div className="it19140162-tp1"> 
+                <button className="btn btn-success" id="it19140162-prbtn">Download</button>
             </div>
 
         </div> 
 
         <br/>
 
-        <div className="formPrint">
+        <div className="it19140162-formPrint">
 
                         <div className="form-group">
-                            <label for="reqName">Request Name</label>
-                            <input type="text" className="form-control" id="reqName" 
+                            <label for="it19140162-reqName">Request Name</label>
+                            <input type="text" className="form-control" id="it19140162-reqName" 
                             
                                 onChange={(e) => {
                                     setReqName(e.target.value);
@@ -61,8 +63,8 @@ export default function PrintConstruction(){
                         </div>
 
                         <div className="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" className="form-control" id="name" 
+                            <label for="it19140162-name">Name</label>
+                            <input type="text" className="form-control" id="it19140162-name" 
                             
                                 onChange={(e) => {
                                     setName(e.target.value);
@@ -71,8 +73,8 @@ export default function PrintConstruction(){
                         </div>
 
                         <div className="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" className="form-control" id="email" 
+                            <label for="it19140162-email">Email address</label>
+                            <input type="email" className="form-control" id="it19140162-email" 
                             
                             onChange={(e) => {
                                 setEmail(e.target.value);
@@ -80,8 +82,8 @@ export default function PrintConstruction(){
                         </div>
                         
                         <div className="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="text" className="form-control" id="phone" 
+                            <label for="it19140162-phone">Phone</label>
+                            <input type="text" className="form-control" id="it19140162-phone" 
                             
                             onChange={(e) => {
                                 setPhone(e.target.value);
@@ -89,8 +91,8 @@ export default function PrintConstruction(){
                         </div>
 
                         <div className="form-group">
-                                <label for="comments">Other Comments</label>
-                                <textarea className="form-control" id="comments" rows="3" 
+                                <label for="it19140162-comments">Other Comments</label>
+                                <textarea className="form-control" id="it19140162-comments" rows="3" 
                                 onChange={(e) => {
                                     setComments(e.target.value);
                                 }}>      

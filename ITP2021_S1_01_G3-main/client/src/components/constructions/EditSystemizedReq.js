@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
+import './../../css/IT19140162.css';
+import  HeaderCom from './header';
 
 export default function EditCustemizedReq(){
 
@@ -21,7 +23,7 @@ export default function EditCustemizedReq(){
             comments
         }
         
-        axios.post("http://localhost:8070/customizedReq/add",newCRequest).then(()=>{
+        axios.post("http://localhost:5000/customizedReq/add",newCRequest).then(()=>{
             alert("req added")
             
         } ).catch((err)=>{
@@ -33,18 +35,18 @@ export default function EditCustemizedReq(){
     return(
     
 
-        <div className="container"> 
+        <div className="container"> <HeaderCom/>
             <br/>
-            <div className= "sub1">
-                <p className = "topic1">Edit Systemized Requests</p><br/><br/><br/><br/><br/><br/>
+            <div className= "it19140162-sub1">
+                <p className = "it19140162-topic1">Edit Systemized Requests</p><br/><br/><br/><br/><br/><br/>
             </div><br/><br/>
-            <div className = "mainDiv">        
+            <div className = "it19140162-mainDiv">        
                 
                      <form onSubmit={sendData}>  
                         
                         <div className="form-group">
-                            <label for="planNumber">Plan Number</label>
-                            <input type="text" className="form-control" id="planNumber" placeholder="SP0000"
+                            <label for="it19140162-planNumber">Plan Number</label>
+                            <input type="text" className="form-control" id="it19140162-planNumber" placeholder="SP0000"
                         
                             onChange={(e) => {
                                 setPlanNumber(e.target.value);
@@ -53,8 +55,8 @@ export default function EditCustemizedReq(){
                         </div>
 
                     <div className="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" className="form-control" id="name" placeholder="Enter your name"
+                        <label for="it19140162-name">Name</label>
+                        <input type="text" className="form-control" id="it19140162-name" placeholder="Enter your name"
                         
                             onChange={(e) => {
                                 setName(e.target.value);
@@ -63,8 +65,8 @@ export default function EditCustemizedReq(){
                     </div>
 
                     <div className="form-group">
-                        <label for="email">Email address</label>
-                        <input type="email" className="form-control" id="email" placeholder="name@example.com"
+                        <label for="it19140162-email">Email address</label>
+                        <input type="email" className="form-control" id="it19140162-email" placeholder="name@example.com"
                         
                         onChange={(e) => {
                             setEmail(e.target.value);
@@ -72,8 +74,8 @@ export default function EditCustemizedReq(){
                     </div>
                     
                     <div className="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="text" className="form-control" id="phone" placeholder="Enter your phone number"
+                        <label for="it19140162-phone">Phone</label>
+                        <input type="text" className="form-control" id="it19140162-phone" placeholder="Enter your phone number"
                         
                         onChange={(e) => {
                             setPhone(e.target.value);
@@ -82,8 +84,8 @@ export default function EditCustemizedReq(){
 
 
                     <div className="form-group">
-                            <label for="comments">Other Comments</label>
-                            <textarea className="form-control" id="comments" rows="3" 
+                            <label for="it19140162-comments">Other Comments</label>
+                            <textarea className="form-control" id="it19140162-comments" rows="3" 
                             onChange={(e) => {
                                 setComments(e.target.value);
                             }}>      

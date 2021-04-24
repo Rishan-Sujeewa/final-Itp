@@ -21,12 +21,9 @@ import DownloadBranches from './components/Branches/downloadBranch';
 
 //employee
 
-import Addemployee from './components/Addemployee';
-import AllEmployee from './components/AllEmployee';
-import editEmployee from './components/editEmployee';
-import deleteEmployee from './components/deleteEmployee';
-import EmployeeProblem from './components/EmployeeProblem';
-import AddProblem from './components/AddProblem';
+import CreateEmployee from "./components/Employee/create-Employee.component";
+import EditEmployee from "./components/Employee/edit-Employee.component";
+import EmployeeList from "./components/Employee/Employee-list.component";
 
 //Salary
 import CreateSalary from "./components/Salaries/create-salary.component";
@@ -68,15 +65,16 @@ import OrderDetailsPage from "./containers/OrderDetailsPage";
 
 
 //constructions
-import AddCustomizedReqCom from './components/AddCustomizedReq'
-import findHome from './components/constructionDash';
-import AddSystemizedReq from './components/AddSystemizedReq';
-import editSysReq from './components/EditSystemizedReq';
-import editCusReq from './components/EditCustomizedReq';
-import myConsreq from './components/UserDashConstruction';
-import myConsreqPrint from './components/ConsReqPrint';
-import AdminConstructionDash from './components/adminDash';
-import insertDesign from './components/InsertSystemizedDesigns';
+import HeaderCom from './components/constructions/header';
+import AddCustomizedReqCom from './components/constructions/AddCustomizedReq';
+import findHome from './components/constructions/constructionDash';
+import AddSystemizedReq from './components/constructions/AddSystemizedReq';
+import editSysReq from './components/constructions/EditSystemizedReq';
+import editCusReq from './components/constructions/EditCustomizedReq';
+import myConsreq from './components/constructions/UserDashConstruction';
+import myConsreqPrint from './components/constructions/ConsReqPrint';
+import AdminConstructionDash from './components/constructions/adminDash';
+import insertDesign from './components/constructions/InsertSystemizedDesigns';
 
 
 //Orders
@@ -120,8 +118,8 @@ function App() {
     <div className = "App">
         <Router>
 
-
-      <Route path="/signin" exact component={Signin} />
+        
+      <Route path="/signin" exact component={Signin} /> 
       {/*customers */}
       <Route exact path="/customers" component = {CustomerTable} exact></Route>
       <Route path="/customer/add" component = {AddCustomer} exact></Route>
@@ -139,13 +137,10 @@ function App() {
       <Route path="/branches" exact component={AllBranches}/>
 
       {/*employee */}
-
-      <Route path ="/employee/add" exact component ={Addemployee} />
-      <Route path ="/employee" exact component ={AllEmployee} />
-      <Route path = "/employee/update/:id" exact component ={editEmployee} />
-      <Route path = "/employee/delete/:id" exact component ={deleteEmployee} />
-      <Route path ="/addC" exact component ={AddProblem} />
-      <Route path ="/employee/display" exact component ={EmployeeProblem} />
+      <Route exact path='/Employee/' component={CreateEmployee} />
+      <Route path="/create-Employee"  component= {CreateEmployee} />
+      <Route path="/edit-Employee/:id"  component= {EditEmployee} />
+      <Route path="/Employee-list"  component= {EmployeeList} />
 
       {/*Salary */}
       <Route path= "/generate-salary" exact component= {GenerateSalaryRepo}/>
@@ -193,6 +188,7 @@ function App() {
       </Switch> */}
       
       {/*constructions*/}
+      
       <Route path="/Creq" exact component={AddCustomizedReqCom}/>
       <Route path="/findHome" exact component={findHome}/>
       <Route path="/AddSystemizedReq" exact component={AddSystemizedReq}/>

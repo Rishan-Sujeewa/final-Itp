@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Link} from 'react-router-dom';
-import img1 from '../images/edit.png';
-import img2 from '../images/delete.png';
-
+import img2 from '../../images/delete.png';
+import './../../css/IT19140162.css';
 
 export default function AdminConstruction(){
 
@@ -12,7 +11,7 @@ export default function AdminConstruction(){
     
     useEffect(() =>{
         function fetchAdminReq(){
-            axios.get("http://localhost:8070/customizedReq/")
+            axios.get("http://localhost:5000/customizedReq/")
             .then(res => {
                 setReqAdmin(res.data); 
                
@@ -72,17 +71,17 @@ export default function AdminConstruction(){
     
             <div className="container">
                     <br/><br/>
-                    <div className= "sub1AdminDash">
-                        <p className = "topic1AdminDash">Construction Requests</p>
+                    <div className= "it19140162-sub1AdminDash">
+                        <p className = "it19140162-topic1AdminDash">Construction Requests</p>
                     </div>
                     
-                    <div className="mainDiv33">
+                    <div className="it19140162-mainDiv33">
     
-                        <div className="row1col11">
+                        <div className="it19140162-row1col11">
 
                         <h5><b>Systemized Requests</b></h5>
 
-                        <div className="row1colone"></div> <div className="row1colone"></div> <div className="row1colone"></div>
+                        <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div>
                             <table className="table">
                             <thead>
                                 <tr>
@@ -111,7 +110,7 @@ export default function AdminConstruction(){
                             </td>
                             <td>
                                 <button onClick = {()=>deletesystemizedReq(SysReq._id)} type="button">
-                                <img className="imgd" src={img2} />Delete
+                                <img className="it19140162-imgd" src={img2} />Delete
                                 </button>
                             </td>
                             
@@ -124,9 +123,9 @@ export default function AdminConstruction(){
                       
                        
                         
-                        <div className="row1col11">  
+                        <div className="it19140162-row1col11">  
                         <h5><b>Customized Requests</b></h5>
-                            <div className="row1colone"></div> <div className="row1colone"></div> <div className="row1colone"></div>
+                            <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div>
                             <table className="table">
                             <thead>
                                 <tr>
@@ -155,7 +154,7 @@ export default function AdminConstruction(){
                             </td>
                             <td>
                                 <button onClick = {()=>deleteCustomizedReq(CusReq._id)} type="button">
-                                <img className="imgd" src={img2} />Delete
+                                <img className="it19140162-imgd" src={img2} />Delete
                                 </button>
                             </td>
                             
@@ -170,18 +169,18 @@ export default function AdminConstruction(){
     
                     <br/> <br/>
     
-                    <div className="dpr">
+                    <div className="it19140162-dpr">
     
-                        <p className="printS"><b>Enter Request Number To Get A Printed Copy </b>  </p>
+                        <p className="it19140162-printS"><b>Enter Request Number To Get A Printed Copy </b>  </p>
                         
-                        <div className="prB">
+                        <div className="it19140162-prB">
                         
-                        <div className="pb"><input type="text" className="rNumber" id="rNum"
+                        <div className="it19140162-pb"><input type="text" className="it19140162-rNumber" id="it19140162-rNum"
                                 
                                  /> </div>
                             <div className="pb">
                             <Link to ="/userConsPrint">
-                                <button type= "submit" id = "userConsPrint" className = "btn btn-success" >OK</button>
+                                <button type= "submit" id = "it19140162-userConsPrint" className = "btn btn-success" >OK</button>
                             </Link> </div>
     
                         </div>

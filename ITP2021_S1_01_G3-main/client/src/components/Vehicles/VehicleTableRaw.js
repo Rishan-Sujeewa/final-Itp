@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
+import '../../css/it19142456.css';
 
 export default class VehicleTableRaw extends Component {
 
@@ -22,6 +23,7 @@ export default class VehicleTableRaw extends Component {
 
     render() {
         return (
+        
             <tr>
                 <td>{this.props.obj.vehicleId}</td>
                 <td>{this.props.obj.registrationNum}</td>
@@ -33,13 +35,14 @@ export default class VehicleTableRaw extends Component {
                 <td>{this.props.obj.chassiNumber}</td>
                 <td>{this.props.obj.engineNumber}</td>
                 <td>{this.props.obj.adminId}</td>
+                <td>{this.props.obj.licenseNo}</td>
                 <td>{this.props.obj.branchId}</td>
                 
                 <td>
-                    <Link className="vehicle-edit-link" to={"/edit-vehicle/" + this.props.obj._id}>
+                    <Link className="it19142456-edit-btn" size="sm"  to={"/edit-vehicle/" + this.props.obj._id}>
                         Edit
                     </Link>
-                    <Button onClick={this.deleteVehicle} size="sm">Delete</Button>
+                    <Button onClick={this.deleteVehicle} size="sm" className="it19142456-delete-button">Delete</Button>
                 
                 </td>
             </tr>

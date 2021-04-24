@@ -1,81 +1,46 @@
-const mongoose = require ("mongoose");
-
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const employeeSchema = new Schema({
-
-    EmployeeId: {
-
+let EmployeeSchema = new Schema({
+    EmployeeId : {
         type : String,
-        required : true // backend validation
+        required : true
     },
     FirstName : {
-
-        type :String,
+        type : String,
         required : true
-
-
     },
-
     LastName : {
-
-        type :String,
+        type : String,
         required : true
-
-
     },
     NIC : {
-
-        type :String,
+        type : String,
         required : true
-
-
     },
-
     position : {
-
-        type :String,
+        type : String,
         required : true
-
-
     },
-
     phoneNo : {
-
-        type :Number,
+        type : Number,
         required : true
-
-
     },
-
     email : {
-
-        type :String,
+        type : String,
         required : true
-
-
     },
-
+    
     address : {
-
-        type :String,
+        type : String,
         required : true
-
-
     },
-
     branch : {
-
-        type :String,
+        type : String,
         required : true
+    }
+}, {
+    collection: 'Employee'
+  })
 
-
-    },
-
-
-
-})
-
-const employee = mongoose.model("employee",employeeSchema);
-
-module.exports = employee;
+module.exports = mongoose.model('Employee', EmployeeSchema)
