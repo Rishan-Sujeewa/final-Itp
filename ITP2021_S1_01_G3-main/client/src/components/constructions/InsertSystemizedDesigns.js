@@ -39,10 +39,10 @@ export default function InsertSystemizedDesigns(){
         <div className="container"> 
            <br/>
             <div className = "it19140162-mainDiv">  
-                <p className = "it19140162-topic1">Insert System Design Details</p><br/>   
+            <p className = "it19140162-topic1">Insert System Design Details</p> <br/>   
                 
                 <div className = "it19140162-sub4">
-                     <form onSubmit={sendData}>  
+                     <form className="shadow p-3 mb-5 bg-white rounded" onSubmit={sendData}>  
 
                      <div className="form-group">
                         <label for="it19140162-designNum">Design Number</label>

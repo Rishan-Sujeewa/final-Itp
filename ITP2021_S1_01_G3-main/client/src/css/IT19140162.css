@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'Quicksand', 'sans-serif';
 }
 
 .App-link {
@@ -40,11 +41,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   box-sizing: border-box;
+ 
 }
 .it19140162-topic1{
   font-size: 25px;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  margin-left:50px;
+  font-family:'Quicksand', 'sans-serif';
+  margin-left:100px;
 }
 
 #it19140162-findHome{
@@ -125,7 +127,7 @@
 }
 
 #it19140162-userConsPrint{
-  width: auto;
+  width: 80px;
   height: 30px;
 }
 
@@ -161,10 +163,18 @@
   color: white;
 }
 
+
+
+
 .it19140162-topic1AdminDash{
-  font-size: 25px;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  font-family:'Quicksand', 'sans-serif';
   margin-left:6px;
+}
+
+.it19140162-adminDash-reqTopic{
+  font-size: 24px;
+  font-family:'Quicksand', 'sans-serif';
 }
 
 
@@ -173,4 +183,9 @@
 }
 .it19140162-row2colone{
   margin-left: 500px;
+}
+
+.it19140162-printS{
+  font-size: 20px;
+  font-family:'Quicksand', 'sans-serif';
 }

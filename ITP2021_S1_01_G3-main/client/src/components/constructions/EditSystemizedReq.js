@@ -42,7 +42,7 @@ export default function EditCustemizedReq(){
             </div><br/><br/>
             <div className = "it19140162-mainDiv">        
                 
-                     <form onSubmit={sendData}>  
+                     <form className="shadow p-3 mb-5 bg-white rounded" onSubmit={sendData}>  
                         
                         <div className="form-group">
                             <label for="it19140162-planNumber">Plan Number</label>

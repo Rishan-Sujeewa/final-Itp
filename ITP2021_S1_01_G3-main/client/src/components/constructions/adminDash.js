@@ -71,15 +71,18 @@ export default function AdminConstruction(){
     
             <div className="container">
                     <br/><br/>
-                    <div className= "it19140162-sub1AdminDash">
-                        <p className = "it19140162-topic1AdminDash">Construction Requests</p>
-                    </div>
                     
+                    <div className= "it19140162-sub1AdminDash">
+                       <center> <p className = "it19140162-topic1AdminDash">Construction Requests</p> </center> <br/><br/>
+                    </div>
+                   
+                    <form className="shadow p-3 mb-5 bg-white rounded">  <br/>
                     <div className="it19140162-mainDiv33">
     
                         <div className="it19140162-row1col11">
+                            
 
-                        <h5><b>Systemized Requests</b></h5>
+                        <h5><b className="it19140162-adminDash-reqTopic">Systemized Requests</b></h5>
 
                         <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div>
                             <table className="table">
@@ -109,8 +112,8 @@ export default function AdminConstruction(){
                                   
                             </td>
                             <td>
-                                <button onClick = {()=>deletesystemizedReq(SysReq._id)} type="button">
-                                <img className="it19140162-imgd" src={img2} />Delete
+                                <button className="btn btn-danger" onClick = {()=>deletesystemizedReq(SysReq._id)} type="button">
+                                DELETE
                                 </button>
                             </td>
                             
@@ -124,7 +127,7 @@ export default function AdminConstruction(){
                        
                         
                         <div className="it19140162-row1col11">  
-                        <h5><b>Customized Requests</b></h5>
+                        <h5><b className="it19140162-adminDash-reqTopic">Customized Requests</b></h5>
                             <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div>
                             <table className="table">
                             <thead>
@@ -153,8 +156,8 @@ export default function AdminConstruction(){
 
                             </td>
                             <td>
-                                <button onClick = {()=>deleteCustomizedReq(CusReq._id)} type="button">
-                                <img className="it19140162-imgd" src={img2} />Delete
+                                <button className="btn btn-danger" onClick = {()=>deleteCustomizedReq(CusReq._id)} type="button">
+                                DELETE
                                 </button>
                             </td>
                             
@@ -180,13 +183,15 @@ export default function AdminConstruction(){
                                  /> </div>
                             <div className="pb">
                             <Link to ="/userConsPrint">
-                                <button type= "submit" id = "it19140162-userConsPrint" className = "btn btn-success" >OK</button>
+                                <button type= "submit" id = "it19140162-userConsPrint" className = "btn btn-success" >  OK  </button>
                             </Link> </div>
     
                         </div>
     
                     </div>
-    
+
+                    
+                    </form>
             </div>
     
         )
