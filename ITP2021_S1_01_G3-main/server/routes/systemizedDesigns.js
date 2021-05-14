@@ -1,7 +1,7 @@
 const router = require("express").Router();
 let systemizedDe = require("../models/systemizedDesign");
 const multer = require('multer');
-const upload = multer({storage: storage});
+
 const storage = multer.diskStorage({
     destination:function(req,file,cb){
         cb(null, './ProImg');
@@ -10,6 +10,8 @@ const storage = multer.diskStorage({
         cb(null, new Date().toISOString() + file.originalname);
     }
 });
+
+const upload = multer({storage: storage});
 
 router.route("/addDesign").post(upload.single('productImage'),(req,res)=>{
 
