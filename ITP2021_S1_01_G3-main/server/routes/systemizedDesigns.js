@@ -1,19 +1,34 @@
 const router = require("express").Router();
 let systemizedDe = require("../models/systemizedDesign");
+const multer = require('multer');
+const upload = multer({storage: storage});
+const storage = multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null, './ProImg');
+    },
+    filename:function(req,file,cb){
+        cb(null, new Date().toISOString() + file.originalname);
+    }
+});
 
-router.route("/addDesign").post((req,res)=>{
+router.route("/addDesign").post(upload.single('productImage'),(req,res)=>{
+
+    console.log(req.file);
     const designNum = req.body.designNum;
     const landArea = req.body.landArea;
     const buildingArea = req.body.buildingArea;
     const bedRooms = req.body.bedRooms;
     const bathRooms = req.body.bathRooms;
+    const productImage = req.file.path;
+    
 
     const newRequest = new systemizedDe({
         designNum,
         landArea,
         buildingArea,
         bedRooms,
-        bathRooms
+        bathRooms,
+        productImage
     })
 
     //javascript promise = then
