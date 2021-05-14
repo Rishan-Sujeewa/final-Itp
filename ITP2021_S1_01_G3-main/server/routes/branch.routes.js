@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Branch = require("../models/Branch");
 const con = require('../db');
 
+//add branch
 router.post('/add', (req,res) =>{
     const name = req.body.name;
     const address = req.body.address;
@@ -20,16 +21,19 @@ router.post('/add', (req,res) =>{
     }).catch((error) => {
         console.log(error);
     })
-});//add branch
+});
 
+//get all branches
 router.get('/', (req,res) =>{
     Branch.find().then((branches) =>{
         res.json(branches)
     }).catch((error) => {
         console.log(error);
     })
-});//get all customers
+});
 
+
+//update branches
 router.put('/update/:id', async(req,res) =>{
     let branchId = req.params.id;
     const name = req.body.name;
@@ -50,8 +54,10 @@ router.put('/update/:id', async(req,res) =>{
         console.log(error);
         res.status(500).send({status:"Error with updating data!"});
     }) 
-});//update branches
+});
 
+
+//delete branch
 router.delete('/delete/:id', async(req,res) =>{
     let branchId = req.params.id;
 
@@ -61,8 +67,10 @@ router.delete('/delete/:id', async(req,res) =>{
         console.log(error);
         res.status(500).send({status:"Error with deleting branch!"});
     })
-});//delete branch
+});
 
+
+//get one branch
 router.get('/get/:id', async(req,res) =>{
     let branchId = req.params.id;
 
@@ -72,6 +80,6 @@ router.get('/get/:id', async(req,res) =>{
         console.log(err);
         res.status(500).send({status:"Error with get branch!"});
     })
-});//get one branch
+});
 
 module.exports = router;
