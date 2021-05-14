@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import EmployeeTableRow from './EmployeeTableRow';
-import '../../css/it19197760.css';
+import '../../css/IT19197760.css'
 import { Link } from "react-router-dom";
 
 
