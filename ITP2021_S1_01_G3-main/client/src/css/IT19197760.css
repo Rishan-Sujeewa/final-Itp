@@ -150,3 +150,19 @@
         background-color: #4caf50;
        
     }
+
+    .IT19197760-down-link-link{
+
+        background-color: #4caf50;
+        border-color: none;
+        color: white;
+        padding: 10px 10px;
+        border-radius: 0.2rem;
+        margin-top: 25px;
+        
+    }
+
+    .IT19197760-down-link-lin:hover{
+
+        background-color: #024025;
+    }
