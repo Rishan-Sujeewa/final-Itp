@@ -78,7 +78,7 @@ export default class CreateSalary extends Component {
     e.preventDefault()
 
     console.log(`Salary successfully created!`);
-
+    console.log(this.state.totalSalary);
     const salaryObject = {
             salaryID: this.state.salaryID,
             fname: this.state.fname,
@@ -90,6 +90,7 @@ export default class CreateSalary extends Component {
             incentive: this.state.incentive,
             deduction: this.state.deduction,
             totalSalary: this.state.totalSalary
+            
       };
       axios.post('http://localhost:5000/salaries/create-salary', salaryObject)
         .then(res => console.log(res.data));
@@ -105,8 +106,20 @@ export default class CreateSalary extends Component {
     hourlyRate: Number,
     incentive: Number,
     deduction: Number,
-    totalSalary: Number})
+    totalSalary: Number
+  })
   }
+
+   calculate = () => {
+   
+    let basicSalary = parseFloat(this.state.workHours * this.state.hourlyRate); 
+    let salaryWithIncentive = basicSalary + parseFloat(this.state.incentive);
+    let tSalary =  salaryWithIncentive - parseFloat(this.state.deduction);
+  
+this.setState({totalSalary: tSalary});
+    //console.log(basicSalary, salaryWithIncentive, tSalary, this.state.totalSalary);
+
+   }
 
   render() {
     return (
@@ -161,12 +174,12 @@ export default class CreateSalary extends Component {
         </Form.Group>
 
         <center>
-        <button className="IT19167060-down-link">Calculate</button>
+        <button className="IT19167060-down-link" onClick={() => this.calculate()} type="button">Calculate</button>
         </center>
 
         <Form.Group controlId="totalSalary">
           <Form.Label>Total Salary (Rs)</Form.Label>
-          <Form.Control type="number" value={this.state.totalSalary} onChange={this.onChangeTotalSalary} required/>
+          <Form.Control disabled type="number" value={this.state.totalSalary} onChange={this.onChangeTotalSalary} />
         </Form.Group>
 
         <center>
