@@ -61,7 +61,7 @@ class ConstructionDasdhboard extends Component{
                 {design.map(getD=>(
                     <div className="it19140162-col1r2"  key={getD._id}>
                     <Link to ={`/AddSystemizedReq/${getD._id}`}>
-                        <div className="card">
+                        <div className="card" id="it19140162-card">
                         
                                 <img className="card-img-top" src={img1} alt="Card image cap"/>
                         
