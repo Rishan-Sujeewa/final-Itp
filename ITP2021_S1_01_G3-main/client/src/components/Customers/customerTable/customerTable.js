@@ -113,7 +113,7 @@ export default function CustomerTable() {
                 </svg><span className="spinner-border spinner-border-sm" id="loading" role="status" aria-hidden="true" style={{display:'none'}}></span> Download</button>
             </div>
             <div className="it19951386-floatRight it19951386-search-filter">
-            <input id="it19951386-search-filter" className="form-control" type="text" placeholder="Search by name or ID..." onChange={(e) => {setSearch(e.target.value)}} value={search}/>
+                <input id="it19951386-search-filter" className="form-control" type="text" placeholder="Search by name or ID..." onChange={(e) => {setSearch(e.target.value)}} value={search}/>
             </div>
         </div>
         <div className="it19951386-myTable">
