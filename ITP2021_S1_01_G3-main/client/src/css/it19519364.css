@@ -148,5 +148,16 @@
   border-color: none;
   color:white;
   border-radius: 0.2rem;
-  margin-left: 10px;
+}
+
+
+/* search filter */
+#it1951364-serach{
+    width: 25%;
+    float: right;
+}
+
+/* container */
+.iti9519364-container{
+   margin: 10px 10px;
 }
