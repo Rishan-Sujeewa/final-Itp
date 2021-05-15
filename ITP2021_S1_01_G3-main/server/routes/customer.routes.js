@@ -73,7 +73,7 @@ router.post('/edit/:id', validator.validate('editUser'), async(req, res) => {
             secure: true,
             auth: {
                 user: 'spremadasa334@gmail.com',
-                pass: 'sajith123'
+                pass: 'sajith@87654321'
             }
         });
         
