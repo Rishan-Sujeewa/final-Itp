@@ -59,28 +59,28 @@ export default function UpdateBranch(props){
                 <h2>Update Branch</h2>
                 <div className="form-group">
                     <label for="name">Branch name</label>
-                    <input type="text" className="form-control" id="name" value={name}
+                    <input required type="text" className="form-control" id="name" value={name}
                     onChange={(e) => {
                         setName(e.target.value);
                     }}/>
                 </div>
                 <div className="form-group">
                     <label for="address">Address</label>
-                    <input type="text" className="form-control" id="address" value={address}
+                    <input required type="text" className="form-control" id="address" value={address}
                     onChange={(e) => {
                         setAddress(e.target.value);
                     }}/>
                 </div>
                 <div className="form-group">
                     <label for="telephone">Telephone number</label>
-                    <input type="text" className="form-control" id="telephone"  value={telephone}
+                    <input required type="number" className="form-control" id="telephone"  value={telephone}
                     onChange={(e) => {
                         setTelephone(e.target.value);
                     }}/>
                 </div>
                 <div className="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" className="form-control" id="email"  value={email}
+                    <input required type="email" className="form-control" id="email"  value={email}
                     onChange={(e) => {
                         setEmail(e.target.value);
                     }}/>

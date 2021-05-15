@@ -58,7 +58,7 @@ export default function AddBranch(){
                 </div>
                 <div className="form-group">
                     <label for="telephone">Telephone number</label>
-                    <input required type="text" className="form-control" id="telephone" placeholder="Enter branch contact number"
+                    <input required type="number" className="form-control" id="telephone" placeholder="Enter branch contact number"
                     onChange= {(e)=> {
                         setTelephone(e.target.value);
                     }}/>
