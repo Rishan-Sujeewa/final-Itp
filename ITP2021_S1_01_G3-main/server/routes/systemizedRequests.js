@@ -3,10 +3,10 @@ let systemized = require("../models/systemizedRequest");
 
 router.route("/addS").post((req,res)=>{
     const planNumber = req.body.planNumber;
-    const name = req.body.name;
+    const name = req.body.Cname;
     const email = req.body.email;
     const phone = req.body.phone;
-    const otherComments = req.body.otherComments;
+    const otherComments = req.body.comments;
 
     const newRequest = new systemized({
         planNumber,

@@ -3,7 +3,7 @@ import axios from "axios";
 import './../../css/IT19140162.css';
 import  HeaderCom from './header';
 
-export default class AddSystemizedReq extends Component{
+class AddSystemizedReq extends Component{
 
     // const [planNumber,setPlanNumber] = useState("");
     // const [name,setName] = useState("");
@@ -13,33 +13,60 @@ export default class AddSystemizedReq extends Component{
 
     constructor(props){
         super(props);
-
-        this.state={
-            planNumber:'',
-            name:'',
+        //setting up state
+        this.state={            
+            Cname:'',
             email:'',
             phone:'',
-            comments:''
+            comments:'',
+            designD:''
         }
+
+    }
+
+    //component eka load weddi awith thiyenna oni data danne mekata
+    componentDidMount(){
+        
+        axios.get(`http://localhost:5000/systemizedDesig/${this.props.match.params.id}`) 
+            .then(res => {                
+               this.setState({designD:res.data.SystemizedD});
+               console.log('data is retreived');
+               console.log(res);
+               
+            }) 
+            .catch((err)=>{
+                console.log('error in fetching');
+                console.log(err);
+            })
+
+    }
+
+    handlerChange = (e) =>{
+
+        this.setState({[e.target.name] : e.target.value})
+
     }
     
      sendData=(e)=>{
+         alert("onna awa");
         e.preventDefault(); 
 
-        validateUserSystemizedReqForm();
+        //this.validateUserSystemizedReqForm();
 
         
+    
         const newCRequest = {
-            planNumber,
-            name,
-            email,
-            phone,
-            comments
+            planNumber : this.state.designD.designNum,
+            Cname : this.state.Cname,
+            email : this.state.email,
+            phone: this.state.phone,
+            comments : this.state.comments
+            
         }
         
         axios.post("http://localhost:5000/systemizedReq/addS",newCRequest).then(()=>{
             alert("req added");
-            window.location = "/AddSystemizedReq"
+            window.location = "/findHome"
             
         } ).catch((err)=>{
             alert(err)
@@ -47,16 +74,16 @@ export default class AddSystemizedReq extends Component{
     }
 
      validateUserSystemizedReqForm =() => {
-        var planNum = document.forms["it19140162-usereSystemizedReqForm"]["it19140162splanNum"].value;
-        var name = document.forms["it19140162-usereSystemizedReqForm"]["it19140162sname"].value;
-        var email = document.forms["it19140162-usereSystemizedReqForm"]["it19140162semail"].value;
-        var phone = document.forms["it19140162-usereSystemizedReqForm"]["it19140162sphone"].value;
+        var planNum = document.forms["it19140162-usereSystemizedReqForm"]["planNumber"].value;
+        var Cname = document.forms["it19140162-usereSystemizedReqForm"]["Cname"].value;
+        var email = document.forms["it19140162-usereSystemizedReqForm"]["email"].value;
+        var phone = document.forms["it19140162-usereSystemizedReqForm"]["phone"].value;
 
         if (planNum == "") {
             alert("Plan Number must be filled out");
             return false;
         }
-        if (name == "") {
+        if (Cname == "") {
           alert("Name must be filled out");
           return false;
         }
@@ -93,7 +120,7 @@ export default class AddSystemizedReq extends Component{
                 </div>  
                 <div className = "it19140162-sub4">
                 <br/><br/><br/>
-                     <form className="shadow p-3 mb-5 bg-white rounded" onSubmit={sendData}  name = "it19140162-usereSystemizedReqForm"> 
+                     <form className="shadow p-3 mb-5 bg-white rounded"  name = "it19140162-usereSystemizedReqForm"> 
 
                      <div className="form-group">
 
@@ -103,54 +130,50 @@ export default class AddSystemizedReq extends Component{
                         
                      <div className="form-group">
                         <label for="it19140162-planNumber">Plan Number</label>
-                        <input type="text" className="form-control" id="it19140162-planNumber" placeholder="SP0000" name="it19140162splanNum"
-                        
-                            onChange={(e) => {
-                                setPlanNumber(e.target.value);
-                            }}  />
+                        <input type="text" className="form-control" id="it19140162-planNumber"  value={this.state.designD.designNum} name="planNumber" readOnly/>
                     
                     </div>
 
                     <div className="form-group">
                         <label for="it19140162-name">Name</label>
-                        <input type="text" className="form-control" id="it19140162-name" placeholder="Enter your name" name="it19140162sname"
+                        <input type="text" className="form-control" id="it19140162-name" placeholder="Enter your name" name="Cname"
                         
-                            onChange={(e) => {
-                                setName(e.target.value);
-                            }}  />
+                        onChange={
+                            this.handlerChange
+                        }  />
                     
                     </div>
 
                     <div className="form-group">
                         <label for="it19140162-email">Email address</label>
-                        <input type="email" className="form-control" id="it19140162-email" placeholder="name@example.com" name="it19140162semail"
+                        <input type="email" className="form-control" id="it19140162-email" placeholder="name@example.com" name="email"
                         
-                        onChange={(e) => {
-                            setEmail(e.target.value);
-                        }} />
+                        onChange={
+                            this.handlerChange
+                        } />
                     </div>
                     
                     <div className="form-group">
                         <label for="it19140162-phone">Phone</label>
-                        <input type="text" className="form-control" id="it19140162-phone" placeholder="Enter your phone number" name="it19140162sphone"
+                        <input type="text" className="form-control" id="it19140162-phone" placeholder="Enter your phone number" name="phone"
                         
-                        onChange={(e) => {
-                            setPhone(e.target.value);
-                        }} />
+                        onChange={
+                            this.handlerChange
+                        }/>
                     </div>
 
 
                     <div className="form-group">
                             <label for="it19140162-comments">Other Comments</label>
-                            <textarea className="form-control" id="it19140162-comments" rows="3" 
-                            onChange={(e) => {
-                                setComments(e.target.value);
-                            }}>      
+                            <textarea className="form-control" id="it19140162-comments" rows="3" name="comments"
+                            onChange={
+                                this.handlerChange
+                            }>      
                             </textarea>
                     </div>
 
                     <div>
-                        <button type="submit" className="btn btn-success">SEND REQUEST</button>
+                        <button type="submit" className="btn btn-success"  onClick={this.sendData}>SEND REQUEST</button>
                     </div>
         </form>
                 </div>
@@ -162,3 +185,4 @@ export default class AddSystemizedReq extends Component{
     )}
 
 }
+export default AddSystemizedReq;
