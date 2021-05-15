@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import './../../css/IT19140162.css';
 import  HeaderCom from './header';
+import jsPDF from 'jspdf';
 
 class viewReq extends Component{
 
@@ -13,6 +14,83 @@ class viewReq extends Component{
         }
 
     }
+
+    // createPDF = () => {
+    //     // const loading = document.getElementById('loading');
+    //     // loading.style.display = "";//display loading icon
+    //     // const dwnIcon = document.getElementById('dwn-icon');
+    //     // dwnIcon.style.display = "none";//hide download icn
+
+    //     // setTimeout(() => {  
+    //     //     loading.style.display = "none";
+    //     //     dwnIcon.style.display = "";
+    //     // }, 1300);//display loading icon for 2 seconds  
+
+    //     let bodyData = [];
+    //     for(let i = 0; customers.length > i ; i++){
+    //         bodyData.push([customers[i].cus_id,customers[i].fname,customers[i].lname, customers[i].email, customers[i].address, "0"+customers[i].pNo]);
+    //     }//save json data to bodydata in order to print in the pdf table
+
+    //     const doc = new jsPDF({orientation:"portrait"});
+    //     var time = new Date().toLocaleString();
+    //     doc.setFontSize(27);
+    //     doc.text(`Customer Details Report`, 105, 13, null, null, "center");
+    //     doc.setFontSize(10);
+    //     doc.text(`(Generated on ${time})`, 105, 17, null, null, "center");
+    //     doc.setFontSize(12);
+    //     doc.text("Thilina Hardware - No 55, Main Road, Horana", 105, 22, null, null, "center");
+    //     //doc.text("No 55, Main Road, Horana", 105, 30, null, null, "center"); 
+    //     //doc.addImage(img, "JPEG",0,20);
+    //     doc.autoTable({
+    //         theme : 'grid',
+    //         styles: {halign:'center'},
+    //         headStyles:{fillColor:[71, 201, 76]},
+    //         startY:27,
+    //         head: [['Customer ID','Fname','Lname', 'Email', 'Address', 'Phone No']],
+    //         body: bodyData
+    //     })
+    //     doc.save('CustomerReport.pdf');
+    // }//report generation function
+
+    
+    createPDF = () =>{    
+
+        const unit = "pt";
+        const size = "A4"; //page size
+        const orientation = "landscape";
+        const marginLeft = 40;
+        const doc = new jsPDF( orientation , unit , size ); //create document
+
+
+        const title = `Construction Request - ${this.state.design._id}`;
+        const headers = [["Customer Name", "Customer Email","Customer Contact No", "Plan Number", "Comments" ]];
+               
+
+        const data =  [
+            this.state.design.name,
+            this.state.design.email,
+            this.state.design.phone,
+            this.state.design.planNumber,
+            this.state.design.otherComments
+        ]
+           
+
+        
+        let contents = {
+            startY : 50,
+            head : headers,
+            body : data
+        }
+
+        doc.setFontSize( 20 );
+        doc.text (title, marginLeft,40);
+        require('jspdf-autotable');
+        doc.autoTable(contents);
+        doc.save ("Request.pdf")
+
+    }
+
+
 
     //component eka load weddi awith thiyenna oni data danne mekata
     componentDidMount(){
@@ -100,7 +178,7 @@ class viewReq extends Component{
                     </div>
 
                     <div>
-                        <button type="submit" className="btn btn-success" >Download</button>
+                        <button type="submit" className="btn btn-success" onClick={this.createPDF}>Download</button>
                     </div>
         </form>
                 </div>

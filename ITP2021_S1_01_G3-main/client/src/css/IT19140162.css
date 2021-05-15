@@ -65,6 +65,11 @@
   border: 1px solid #4CAF50;
   border-radius: 8px;
 }
+.it19140162-downdiv{
+  display: grid;
+  grid-template-columns: 2.3fr 1fr;
+  box-sizing: border-box;
+}
 
 .it19140162-boarder1{
   width: 300px;

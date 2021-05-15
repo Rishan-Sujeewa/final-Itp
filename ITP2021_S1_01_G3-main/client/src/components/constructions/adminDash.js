@@ -3,6 +3,7 @@ import axios from "axios";
 import {Link} from 'react-router-dom';
 import img2 from '../../images/delete.png';
 import './../../css/IT19140162.css';
+import jsPDF from 'jspdf';
 
 export default function AdminConstruction(){
 
@@ -43,6 +44,80 @@ export default function AdminConstruction(){
 
         
     },[]);
+
+    
+    function createPDFCustom  () {  
+
+        const unit = "pt";
+        const size = "A4"; //page size
+        const orientation = "landscape";
+        const marginLeft = 40;
+        const doc = new jsPDF( orientation , unit , size ); //create document
+        const title = "All Customized Requests & Details";
+        const headers = [["Customer Name", "Email", "Phone" , "Comments","Order ID"]];
+  
+
+         const data = adminReqCus.map(
+
+            data => [
+                data.name,
+                data.email,
+                data.phone,
+                data.otherComments,
+                data._id
+                 ]
+         );
+        let contents = {
+            startY : 50,
+            head : headers,
+            body : data
+
+        }
+
+        doc.setFontSize( 20 );
+        doc.text (title, marginLeft,40);
+         require('jspdf-autotable');
+        doc.autoTable(contents);
+        doc.save ("customReq.pdf")
+
+    }
+    
+    function createPDF  () {  
+
+        const unit = "pt";
+        const size = "A4"; //page size
+        const orientation = "landscape";
+        const marginLeft = 40;
+        const doc = new jsPDF( orientation , unit , size ); //create document
+        const title = "All Systemized Requests & Details";
+        const headers = [["Customer Name", "plan Number", "Email", "Phone" , "Comments","Order ID"]];
+  
+
+         const data = adminReqSys.map(
+
+            data => [
+                data.name,
+                data.planNumber,
+                data.email,
+                data.phone,
+                data.otherComments,
+                data._id
+                 ]
+         );
+        let contents = {
+            startY : 50,
+            head : headers,
+            body : data
+
+        }
+
+        doc.setFontSize( 20 );
+        doc.text (title, marginLeft,40);
+         require('jspdf-autotable');
+        doc.autoTable(contents);
+        doc.save ("systemReq.pdf")
+
+    }
     
     const deleteCustomizedReq = async(id) => {
         
@@ -80,10 +155,13 @@ export default function AdminConstruction(){
                     <div className="it19140162-mainDiv33">
     
                         <div className="it19140162-row1col11">
-                            
-
+                    <div className="it19140162-downdiv">
+                    <div>
                         <h5><b className="it19140162-adminDash-reqTopic">Systemized Requests</b></h5>
-
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-success" onClick={createPDF}>  DOWNLOAD</button>
+                        </div></div>
                         <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div>
                             <table className="table">
                             <thead>
@@ -125,8 +203,11 @@ export default function AdminConstruction(){
                       
                        
                         
-                        <div className="it19140162-row1col11">  
-                        <h5><b className="it19140162-adminDash-reqTopic">Customized Requests</b></h5>
+                        <div className="it19140162-row1col11"> 
+                        <div className="it19140162-downdiv">
+                        <div><h5><b className="it19140162-adminDash-reqTopic">Customized Requests</b></h5></div>
+                        <div><button type="button" class="btn btn-success" onClick={createPDFCustom}>  DOWNLOAD</button></div>
+                        </div>
                             <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div> <div className="it19140162-row1colone"></div>
                             <table className="table">
                             <thead>
@@ -156,6 +237,7 @@ export default function AdminConstruction(){
                             </td>
                             <td>
                             <i id="it19140162-delFont" className ="fas fa-times" style={{cursor:'pointer',float:'right',color:'red',height : '30px'}} onClick = {()=>deleteCustomizedReq(CusReq._id)} ></i>
+                            <Link to = {`/viewreq/${CusReq._id}`}><button type="button" class="btn btn-outline-success">View Details</button></Link>
 
                                 
                             </td>
@@ -165,26 +247,6 @@ export default function AdminConstruction(){
                             
                             </tbody>
                             </table>
-                        </div>
-    
-                    </div>
-    
-                    <br/> <br/>
-    
-                    <div className="it19140162-dpr">
-    
-                        <p className="it19140162-printS"><b>Enter Request Number To Get A Printed Copy </b>  </p>
-                        
-                        <div className="it19140162-prB">
-                        
-                        <div className="it19140162-pb"><input type="text" className="it19140162-rNumber" id="it19140162-rNum"
-                                
-                                 /> </div>
-                            <div className="pb">
-                            <Link to ="/userConsPrint">
-                                <button type= "submit" id = "it19140162-userConsPrint" className = "btn btn-success" >  OK  </button>
-                            </Link> </div>
-    
                         </div>
     
                     </div>
