@@ -19,6 +19,8 @@ export default class SalaryTableRow extends Component {
             }).catch((error) => {
                 console.log(error)
             })
+
+            
     }
 
     render() {

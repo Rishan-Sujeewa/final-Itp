@@ -108,6 +108,9 @@ export default class CreateSalary extends Component {
     deduction: Number,
     totalSalary: Number
   })
+
+  this.props.history.push('/salary-list')
+  window.location.href=window.location.href;
   }
 
    calculate = () => {
