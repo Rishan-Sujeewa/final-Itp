@@ -6,11 +6,12 @@ import 'jspdf-autotable';
 import '../../css/it19519364.css';
 //import Header from './Header';
 
-//import { Table } from 'react-materialize';
 
 export default function AllBranches(){
 
-    const [branches, setBranches] = useState([]);
+    let [branches, setBranches] = useState([]);
+    let [search, setSearch] = useState("");
+
 
     //read
     useEffect(() => {
@@ -24,12 +25,21 @@ export default function AllBranches(){
         getBranches();
     }, [])
 
+
     //delete
     const deleteBranch = async(id) => {
         const deletion = await axios.delete(`http://localhost:5000/branch/delete/${id}`);
         if(deletion){
             window.location = "/branches"
         }
+    }
+
+
+    //search branches
+    if(search.length > 0){
+        branches = branches.filter((i) => {
+            return i.name.toLowerCase().match(search.toLowerCase());
+        });
     }
 
    
@@ -52,8 +62,8 @@ export default function AllBranches(){
 
         const doc = new jsPDF({orientation:"portrait"});
         var time = new Date().toLocaleString();
-        doc.setFontSize(27);
-        doc.text(`Branch Details Report`, 105, 13, null, null, "center");
+        doc.setFontSize(20);
+        doc.text(`Thilina Hardware - Branch Details Report`, 105, 13, null, null, "center");
         doc.setFontSize(10);
         doc.text(`(Generated on ${time})`, 105, 17, null, null, "center");
         doc.setFontSize(12);
@@ -73,9 +83,8 @@ export default function AllBranches(){
 
     return (
         <div className="container">
-            {/* <Header/> */}
 
-            <center><h2>Branch Management</h2></center>
+        <br/><center><h2>Branch Management</h2></center><br/>
         <Link to="/branches" className="btn it19519364-my-btn" >Branches</Link>
         <Link to="/add" className="btn it19519364-my-btn" >Create Branch</Link>
        
@@ -84,6 +93,13 @@ export default function AllBranches(){
             <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
             </svg><span className="spinner-border spinner-border-sm" id="loading" role="status" aria-hidden="true" style={{display:'none'}}>
         </span> Branch Report</button>
+
+        {/* branch Search filter */}
+        <input id="it1951364-serach" className="form-control" type="text" placeholder="Search by Name..."  value={search}
+        onChange={(e) => {
+            setSearch(e.target.value)
+        }}/>
+
 
         <table className= "it19519364-displayTable">
             <thead className="it19519364-thead">
@@ -118,20 +134,21 @@ export default function AllBranches(){
                             {branch.email}
                         </td>
                         <td> 
-                            {/* <Link to="/view" className="btn it19519364-my-btn" >VIEW</Link> */}
+                            {/* view button */}
                             <Link to={`/view/${branch._id}`} className="btn it19519364-my-btn" >View</Link>
                         </td> 
                         <td>
-                            {/* <Link to="/update" className="btn it19519364-my-btn" >UPDATE</Link>    */}
+                            {/* update button  */}
                             <Link to={`/update/${branch._id}`} className="btn it19519364-my-btn" ><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-pencil-square" viewBox="0 0 16 16">
                                 <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                 <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                            </svg>Update</Link>
+                            </svg></Link>
                         </td>
                         <td>
+                            {/* delete button */}
                             <button onClick={() => deleteBranch(branch._id)} type="button" className="btn it19519364-myRed-btn"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-trash-fill" viewBox="0 0 16 16">
                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                            </svg>Delete</button>
+                            </svg></button>
                         </td>
                         
                     </tr>
