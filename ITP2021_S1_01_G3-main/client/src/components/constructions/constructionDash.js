@@ -10,15 +10,15 @@ import img6 from '../../images/6.0.jpg'
 import './../../css/IT19140162.css';
 import  HeaderCom from './header';
 
-export default function ConstructionDasdhboard(){
+class ConstructionDasdhboard extends Component{
 
-    const [construction, setConstructions] = useState([]);    
-    useEffect(() => {
-        function getConst(){
+    //const [construction, setConstructions] = useState([]);    
+    
+    componentDidMount(){
 
-            axios.get("http://localhost:5000/systemizedDesig/")
+        axios.get("http://localhost:5000/systemizedDesig/")
             .then(res => {
-               setConstructions(res.data); 
+               console.log(res.data); 
                
                console.log('data is retreived');
                
@@ -27,11 +27,11 @@ export default function ConstructionDasdhboard(){
                 console.log('error in fetching');
                 console.log(err);
             })
-        }
-        getConst();
-    }, [])
+
+    }
+       
      
-    
+    render(){
          return(
     
             <div className="container">
@@ -130,5 +130,6 @@ export default function ConstructionDasdhboard(){
     
         )
        
-     }
+     }}
     
+     export default ConstructionDasdhboard;
