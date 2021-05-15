@@ -1,17 +1,29 @@
-import React, {useState} from "react";
+import React, {Component} from "react";
 import axios from "axios";
 import './../../css/IT19140162.css';
 import  HeaderCom from './header';
 
-export default function AddSystemizedReq(){
+export default class AddSystemizedReq extends Component{
 
-    const [planNumber,setPlanNumber] = useState("");
-    const [name,setName] = useState("");
-    const [email,setEmail] = useState("");
-    const [phone,setPhone] = useState("");
-    const [comments,setComments] = useState("");
+    // const [planNumber,setPlanNumber] = useState("");
+    // const [name,setName] = useState("");
+    // const [email,setEmail] = useState("");
+    // const [phone,setPhone] = useState("");
+    // const [comments,setComments] = useState("");
+
+    constructor(props){
+        super(props);
+
+        this.state={
+            planNumber:'',
+            name:'',
+            email:'',
+            phone:'',
+            comments:''
+        }
+    }
     
-    function sendData(e){
+     sendData=(e)=>{
         e.preventDefault(); 
 
         validateUserSystemizedReqForm();
@@ -34,7 +46,7 @@ export default function AddSystemizedReq(){
         })
     }
 
-    function validateUserSystemizedReqForm() {
+     validateUserSystemizedReqForm =() => {
         var planNum = document.forms["it19140162-usereSystemizedReqForm"]["it19140162splanNum"].value;
         var name = document.forms["it19140162-usereSystemizedReqForm"]["it19140162sname"].value;
         var email = document.forms["it19140162-usereSystemizedReqForm"]["it19140162semail"].value;
@@ -59,10 +71,8 @@ export default function AddSystemizedReq(){
          
       }
 
-
-    return(
-    
-
+      render(){
+        return(
         <div className="container"> 
         <HeaderCom/>
             <br/>
@@ -149,6 +159,6 @@ export default function AddSystemizedReq(){
             </div>          
       
 
-    )
+    )}
 
 }
