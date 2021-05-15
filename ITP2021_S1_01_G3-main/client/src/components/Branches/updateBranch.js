@@ -18,7 +18,7 @@ export default function UpdateBranch(props){
             const response = (await axios.get(`http://localhost:5000/branch/get/${id}`)).data;
             setName(response.branch.name);
             setAddress(response.branch.address);
-            setTelephone(response.branch.telephone);
+            setTelephone("0"+response.branch.telephone);
             setEmail(response.branch.email);
         }
         fetchData();
