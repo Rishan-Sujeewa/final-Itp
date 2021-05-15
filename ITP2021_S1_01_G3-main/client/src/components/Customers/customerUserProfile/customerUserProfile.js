@@ -15,10 +15,13 @@ export default function CustomerUserProfile(props) {
     const [errors, seterrors] = useState([]);
     const [emailerror, setemailerror] = useState("");   
     const[loginMsg] = useState(localStorage.getItem("loginMsg"));//this sets logout msg if any
-    const[success,setsuccess] = useState("")
+    const[success,setsuccess] = useState("" || localStorage.getItem("success"));
 
     window.onload = function() {
-        localStorage.removeItem("loginMsg")
+        localStorage.removeItem("loginMsg");
+        localStorage.removeItem('success');
+        setemailerror('');
+        setsuccess('');
     }//this resets the state on refreshing
 
   
