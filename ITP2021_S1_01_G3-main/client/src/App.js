@@ -191,7 +191,7 @@ function App() {
       
       <Route path="/Creq" exact component={AddCustomizedReqCom}/>
       <Route path="/findHome" exact component={findHome}/>
-      <Route path="/AddSystemizedReq" exact component={AddSystemizedReq}/>
+      <Route path="/AddSystemizedReq/:id" exact component={AddSystemizedReq}/>
       <Route path="/editSreq" exact component={editSysReq}/>
       <Route path="/editCreq/:id" exact component={editCusReq}/>
       <Route path="/userDashCons" exact component={myConsreq}/>

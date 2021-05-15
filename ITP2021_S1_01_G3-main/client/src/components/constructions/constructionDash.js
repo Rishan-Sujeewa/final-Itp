@@ -1,4 +1,4 @@
-import React, {useState, Component, useEffect} from "react";
+import React, { Component} from "react";
 import axios from "axios";
 import {Link} from 'react-router-dom';
 import img1 from '../../images/1.0.jpg'
@@ -13,13 +13,21 @@ import  HeaderCom from './header';
 class ConstructionDasdhboard extends Component{
 
     //const [construction, setConstructions] = useState([]);    
+    //class componentwala hooks use karanna ba, a nisa useState pawichchi karanna ba
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            design:[]
+        }
+    }
     
     componentDidMount(){
 
         axios.get("http://localhost:5000/systemizedDesig/")
             .then(res => {
                console.log(res.data); 
-               
+               this.setState({design:res.data});
                console.log('data is retreived');
                
             }) 
@@ -32,6 +40,9 @@ class ConstructionDasdhboard extends Component{
        
      
     render(){
+        
+        const{design} = this.state; //destructuring. this.state eka athule thiyena design kiyana array eka aragena save karagaththa
+        
          return(
     
             <div className="container">
@@ -42,89 +53,33 @@ class ConstructionDasdhboard extends Component{
                     <br/><br/><br/> <br/><br/><br/>
                         
                     </div><br/>
-    
+           
+
                 <div className="it19140162-mainDiv2">
-    
-                    <div className="it19140162-row1md2">
-    
-                        <div className="it19140162-col1r2">
-    
-                            <div className="card">
-                            <Link to ="/AddSystemizedReq">
-                                    <img className="card-img-top" src={img1} alt="Card image cap"/>
-                            </Link>
-                                <div className="card-body">
-                                    <p className="card-text"><b>House Design SP2134</b><br/>Land Area:16p <br/>Building Area:3000sq.ft<br/>BedRooms:5<br/>Bathrooms:3</p>
-                                </div>
+                    
+                <div className="it19140162-row1md2">
+                {design.map(getD=>(
+                    <div className="it19140162-col1r2"  key={getD._id}>
+                    <Link to ={`/AddSystemizedReq/${getD._id}`}>
+                        <div className="card">
+                        
+                                <img className="card-img-top" src={img1} alt="Card image cap"/>
+                        
+                            <div className="card-body">
+                                <p className="card-text"><b>House Design {getD.designNum}</b><br/>Land Area: {getD.landArea} <br/>Building Area: {getD.buildingArea}sq.ft<br/>BedRooms:{getD.bedRooms}<br/>Bathrooms:{getD.bathRooms}</p>
                             </div>
-    
-                        </div>
-    
-                        <div className="it19140162-col1r2">
-    
-                            <div className="card">
-                                    <img className="card-img-top" src={img2} alt="Card image cap"/>
-                                <div className="card-body">
-                                    <p className="card-text"><b>House Design SP0085</b><br/>Land Area:40p <br/>Building Area:5200sq.ft<br/>BedRooms:6<br/>Bathrooms:6</p>
-                                </div>
-                            </div>
-    
-                        </div>
-    
-                        <div className="it19140162-col1r2">
-    
-                            <div className="card">
-                                    <img className="card-img-top" src={img3} alt="Card image cap"/>
-                                <div className="card-body">
-                                    <p className="card-text"><b>House Design SP1234</b><br/>Land Area:7.5p <br/>Building Area:947sq.ft<br/>BedRooms:2<br/>Bathrooms:1</p>
-                                </div>
-                            </div>
-    
-                        </div>
-    
+                        </div></Link>
+                       
                     </div>
-    
-                    <div className="it19140162-row1md2">
-    
-                        <div className="it19140162-col1r2">
-    
-                            <div className="card">
-                            <Link to ="/AddSystemizedReq">
-                                    <img className="card-img-top" src={img4} alt="Card image cap"/>
-                            </Link>
-                                <div className="card-body">
-                                    <p className="card-text"><b>House Design SP5674</b><br/>Land Area:80p <br/>Building Area:4000sq.ft<br/>BedRooms:5<br/>Bathrooms:4</p>
-                                </div>
-                            </div>
-    
-                        </div>
-    
-                        <div className="it19140162-col1r2">
-    
-                            <div className="card">
-                                    <img className="card-img-top" src={img5} alt="Card image cap"/>
-                                <div className="card-body">
-                                    <p className="card-text"><b>House Design SP9700</b><br/>Land Area:14p <br/>Building Area:2139sq.ft<br/>BedRooms:4<br/>Bathrooms:2</p>
-                                </div>
-                            </div>
-    
-                        </div>
-    
-                        <div className="it19140162-col1r2">
-    
-                            <div className="card">
-                                    <img className="card-img-top" src={img6} alt="Card image cap"/>
-                                <div className="card-body">
-                                    <p className="card-text"><b>House Design SP0456</b><br/>Land Area:12p <br/>Building Area:2675sq.ft<br/>BedRooms:5<br/>Bathrooms:3</p>
-                                </div>
-                            </div>
-    
-                        </div>
-    
-                    </div>
-    
-    
+
+                ))}
                 </div>
+
+
+                </div>
+
+            
+                
     
             </div>
     

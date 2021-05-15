@@ -93,18 +93,22 @@ router.route("/delete/:designId").delete(async(req,res) => {
         console.log(err.message);
         res.status(500).send({status: "Error with delete Systemized Design",error:err.message});
     })
-
+})
     //eka user kenekge witharak data gannawa
-    router.route("/get/:designId").get(async(req,res) => {
+    router.route("/:designId").get(async(req,res) => {
         let sDReqId = req.params.designId;
-        const syDReqId = await systemizedDe.findById(syDReqId).then((SystemizedD)=>{
+        console.log(sDReqId);
+        const syDReqId = await systemizedDe.findById(sDReqId)
+        .then((SystemizedD)=>{
             res.status(200).send({status:"Design Fetched", SystemizedD})
         }).catch((err)=>{
             console.log(err.message);
             res.status(500).send({status:"Error with get systemized design",error:err.message});
         })
-    })
-})
+     })
+
+   
+
 
 module.exports = router;
 
