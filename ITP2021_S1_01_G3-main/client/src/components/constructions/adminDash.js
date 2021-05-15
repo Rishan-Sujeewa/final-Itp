@@ -27,7 +27,7 @@ export default function AdminConstruction(){
 
 
         function fetchAdminReqSystemized(){
-            axios.get("http://localhost:8070/systemizedReq/")
+            axios.get("http://localhost:5000/systemizedReq/")
             .then(res => {
                 setReqAdminSys(res.data); 
                
@@ -46,7 +46,7 @@ export default function AdminConstruction(){
     
     const deleteCustomizedReq = async(id) => {
         
-        const deletereq = await axios.delete(`http://localhost:8070/customizedReq/delete/${id}`);
+        const deletereq = await axios.delete(`http://localhost:5000/customizedReq/delete/${id}`);
         
         if(deletereq){
             window.location ="/adminConsDash"
@@ -57,7 +57,7 @@ export default function AdminConstruction(){
 
     const deletesystemizedReq = async(id) => {
         
-        const deletereqS = await axios.delete(`http://localhost:8070/systemizedReq/delete/${id}`);
+        const deletereqS = await axios.delete(`http://localhost:5000/systemizedReq/delete/${id}`);
         
         if(deletereqS){
             window.location ="/adminConsDash"
@@ -112,9 +112,8 @@ export default function AdminConstruction(){
                                   
                             </td>
                             <td>
-                                <button className="btn btn-danger" onClick = {()=>deletesystemizedReq(SysReq._id)} type="button">
-                                DELETE
-                                </button>
+                            <i id="delFont" className ="fas fa-times" style={{cursor:'pointer',float:'right',color:'red'}} onClick = {()=>deletesystemizedReq(SysReq._id)}></i>
+                            <Link to = {`/viewreq/${SysReq._id}`}><button type="button" class="btn btn-outline-success">View Details</button></Link>
                             </td>
                             
                             </tr>
@@ -156,9 +155,9 @@ export default function AdminConstruction(){
 
                             </td>
                             <td>
-                                <button className="btn btn-danger" onClick = {()=>deleteCustomizedReq(CusReq._id)} type="button">
-                                DELETE
-                                </button>
+                            <i id="it19140162-delFont" className ="fas fa-times" style={{cursor:'pointer',float:'right',color:'red',height : '30px'}} onClick = {()=>deleteCustomizedReq(CusReq._id)} ></i>
+
+                                
                             </td>
                             
                             </tr>

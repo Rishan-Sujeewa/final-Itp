@@ -76,9 +76,9 @@ router.route("/delete/:systemizedId").delete(async(req,res) => {
         console.log(err.message);
         res.status(500).send({status: "Error with delete Systemized Request",error:err.message});
     })
-
+})
     //eka user kenekge witharak data gannawa
-    router.route("/get/:systemizedId").get(async(req,res) => {
+    router.route("/:systemizedId").get(async(req,res) => {
         let sReqId = req.params.systemizedId;
         const reqS = await systemized.findById(sReqId).then((Systemized)=>{
             res.status(200).send({status:"Request Fetched", Systemized})
@@ -87,7 +87,7 @@ router.route("/delete/:systemizedId").delete(async(req,res) => {
             res.status(500).send({status:"Error with get systemized request",error:err.message});
         })
     })
-})
+
 
 module.exports = router;
 
