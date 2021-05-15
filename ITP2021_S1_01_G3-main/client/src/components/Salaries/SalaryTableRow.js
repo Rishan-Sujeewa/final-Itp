@@ -15,7 +15,8 @@ export default class SalaryTableRow extends Component {
         axios.delete('http://localhost:5000/salaries/delete-salary/' + this.props.obj._id)
             .then((res) => {
                 console.log('Salary Details successfully deleted!')
-                window.location.href=window.location.href;
+                //window.location.href=window.location.href;
+                window.location = "/salary-list";
             }).catch((error) => {
                 console.log(error)
             })

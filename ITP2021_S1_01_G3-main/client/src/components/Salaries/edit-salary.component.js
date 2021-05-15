@@ -111,7 +111,8 @@ export default class EditSalary extends Component {
       .then((res) => {
         console.log(res.data)
         console.log('Salary successfully updated')
-        window.location.href=window.location.href;
+        //window.location.href=window.location.href;
+        window.location = "/salary-list";
       }).catch((error) => {
         console.log(error)
       })

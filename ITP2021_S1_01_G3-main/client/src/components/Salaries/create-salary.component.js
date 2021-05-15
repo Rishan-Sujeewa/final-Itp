@@ -95,6 +95,8 @@ export default class CreateSalary extends Component {
       axios.post('http://localhost:5000/salaries/create-salary', salaryObject)
         .then(res => console.log(res.data));
     
+       
+        
 
     this.setState({
     salaryID: '',
@@ -109,8 +111,7 @@ export default class CreateSalary extends Component {
     totalSalary: Number
   })
 
-  this.props.history.push('/salary-list')
-  window.location.href=window.location.href;
+  
   }
 
    calculate = () => {
