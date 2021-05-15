@@ -64,7 +64,7 @@ export default function AddBranch(){
         }
 
         if(address.trim().length < 20){
-            addressErr.shortAddress = "Name field must contain more than 20 characters";
+            addressErr.shortAddress = "Address field must contain more than 20 characters";
             isValid = false;
         }
 
