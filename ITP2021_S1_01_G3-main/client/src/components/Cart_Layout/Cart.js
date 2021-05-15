@@ -6,17 +6,13 @@ export default class Cart extends Component {
     render() {
         return (
           <body className="DNbody">
-          <form >
+          <form className="DNform">
                 <div className=" container-fluid my-5 ">
         <div className="row justify-content-center ">
          <div className="col-xl-10">
           <div className="card shadow-lg ">
                 <div className="row p-2 mt-3 justify-content-between mx-sm-2">
                 <div className="col">
-                {/* Logo */}
-            {/* <div className="row justify-content-start ">
-              <div className="col"> <img className="irc_mi img-fluid cursor-pointer " src="https://i.imgur.com/jFQo2lD.png" width={70} height={70} /> </div>
-            </div> */}
           </div>
         </div>
         <div className="row mx-auto justify-content-center text-center">

@@ -71,7 +71,7 @@ export default function Checkout(){
                                         setDeliveryAddress(e.target.value);
                                     }}/> </div>
 
-                <div className="form-group"> <label  className="small text-muted mb-1">PHONE NUMBER</label> <input type="text" className="form-control form-control-sm" name="NAME" id="NAME" aria-describedby="helpId" placeholder="Enter your phone number / Ex: 781234567" required onChange={(e)=>{
+                <div className="form-group"> <label  className="small text-muted mb-1">PHONE NUMBER</label> <input type="tel" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{3}" className="form-control form-control-sm" name="NAME" id="NAME" aria-describedby="helpId" placeholder="Enter your phone number / Ex: 781234567" required onChange={(e)=>{
                                         setPhNo(e.target.value);
                                     }}/> </div>
                  

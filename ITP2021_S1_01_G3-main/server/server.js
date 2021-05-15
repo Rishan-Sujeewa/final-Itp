@@ -44,7 +44,7 @@ const systemizedDRouter = require("./routes/systemizedDesigns.js");
 //Orders
 const order = require('./routes/order.js');
 const cart = require('./routes/cart.js');
-const adminDash = require('./routes/admin/order.routes.js');
+const adminDash = require('./routes/admin/orders.js');
 
 
 //creating app
@@ -109,7 +109,7 @@ app.use("/systemizedReq",systemizedRouter);
 app.use("/systemizedDesig",systemizedDRouter);
 
 //Orders
-// app.use('/api', order);
-// app.use('/api', cart);
-// app.use('/api',adminDash);
+ app.use('/api', order);
+ app.use('/api', cart);
+ app.use('/api',adminDash);
 

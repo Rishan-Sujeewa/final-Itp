@@ -1,65 +1,65 @@
-const mongoose = require("mongoose");
-// A
-const orderSchema = new mongoose.Schema(
-  {
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
+const mongoose = require('mongoose');
+const { ObjectId } = mongoose.Schema;
+
+const schema = mongoose.Schema;
+
+//create checkout
+const checkoutSchema = new schema({
+
+    /*userId: {
+        //type: ObjectId,
+        //ref: "user",
+        type: String, 
+        required: true,
+      },*/
+
+      /*cartItems:[
+        {
+            product: { 
+                //type: ObjectId,
+                //ref: 'product', 
+                type: String,
+                required: true 
+            },
+            totalQuantity: { 
+                type: Number,
+                default: 1 
+            },
+            totalPrice: { 
+                type: Number, 
+                required: true
+            }
+        }
+    ],*/
+
+    cart:{
+        type: ObjectId,
+        ref: "cart"
     },
-    addressId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "UserAddress.address",
-      required: true,
+
+    name : {
+        type: String,
+        require: true
     },
-    totalAmount: {
-      type: Number,
-      required: true,
+    deliveryAddress: {
+        type: String,
+        require: true
     },
-    items: [
-      {
-        productId: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Product",
-        },
-        payablePrice: {
-          type: Number,
-          required: true,
-        },
-        purchasedQty: {
-          type: Number,
-          required: true,
-        },
-      },
-    ],
-    paymentStatus: {
-      type: String,
-      enum: ["pending", "completed", "cancelled", "refund"],
-      required: true,
+    phNo: {
+        type: Number,
+        require: true
     },
-    paymentType: {
-      type: String,
-      enum: ["cod", "card"],
-      required: true,
-    },
-    orderStatus: [
-      {
-        type: {
-          type: String,
-          enum: ["ordered", "packed", "shipped", "delivered"],
-          default: "ordered",
-        },
-        date: {
-          type: Date,
-        },
-        isCompleted: {
-          type: Boolean,
-          default: false,
-        },
-      },
-    ],
-  },
-  { timestamps: true }
+    //@make connectivity between Vehicle DB
+    arrangedVehicle: {
+        type: String,
+        default: "Not Processed"
+    }
+
+},
+    { timestamps: true },
+
 );
 
-module.exports = mongoose.model("Order", orderSchema);
+const checkout = mongoose.model("order", checkoutSchema);
+
+module.exports = checkout;
