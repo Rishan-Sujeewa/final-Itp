@@ -44,9 +44,9 @@
  
 }
 .it19140162-topic1{
-  font-size: 25px;
+  font-size: 30px;
   font-family:'Quicksand', 'sans-serif';
-  margin-left:100px;
+  
 }
 
 #it19140162-findHome{
@@ -188,4 +188,15 @@
 .it19140162-printS{
   font-size: 20px;
   font-family:'Quicksand', 'sans-serif';
+}
+
+.it19140162-insertDesignBackGround{
+  width: 450px;
+  height: 400px;
+}
+
+.it19140162-insertDesignTopic{
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  box-sizing: border-box;
 }
