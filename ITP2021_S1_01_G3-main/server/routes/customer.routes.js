@@ -136,7 +136,7 @@ router.post('/add', validator.validate('addUser'),async(req, res) => {
                 secure: true,
                 auth: {
                     user: 'spremadasa334@gmail.com',
-                    pass: 'sajith123'
+                    pass: 'sajith@87654321'
                 }
             });
 
