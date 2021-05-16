@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import './../../css/IT19140162.css';
 import  HeaderCom from './header';
+import bc from '../../images/bc.png'
 
 export default function EditCustemizedReq(){
 
@@ -37,8 +38,10 @@ export default function EditCustemizedReq(){
 
         <div className="container"> <HeaderCom/>
             <br/>
-            <div className= "it19140162-sub1">
-                <p className = "it19140162-topic1">Edit Systemized Requests</p><br/><br/><br/><br/><br/><br/>
+            <div className= "it19140162-editCustomizedimgTopic">
+                <div className="it19140162-editCustomizedimgTopic1"><center><b><p className = "it19140162-topic1">Edit Systemized Requests</p></b></center></div><br/><br/><br/><br/><br/><br/>
+                <div className="it19140162-editCustomizedimgTopic1"><img className="it19140162-insertDesignBackGround" src={bc}></img> </div>
+
             </div><br/><br/>
             <div className = "it19140162-mainDiv">        
                 

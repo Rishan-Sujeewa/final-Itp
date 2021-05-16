@@ -146,9 +146,12 @@ export default function AdminConstruction(){
     
             <div className="container">
                     <br/><br/>
-                    
                     <div className= "it19140162-sub1AdminDash">
-                       <center> <p className = "it19140162-topic1AdminDash">Construction Requests</p> </center> <br/><br/>
+                    <div><center> <p className = "it19140162-topic1AdminDash">Construction Requests</p> </center></div>
+                       <div>
+                            <Link to="/insertD"><i id="it19140162-naviFont" className ="fas fa-plus-circle fa-2x" style={{cursor:'pointer',float:'right',color:'green',height : '60px', width: '60px'}}  ></i></Link>
+                            <p className="huseplanAdd">ADD HOUSE PLANS</p>
+                        </div>
                     </div>
                    
                     <form className="shadow p-3 mb-5 bg-white rounded">  <br/>

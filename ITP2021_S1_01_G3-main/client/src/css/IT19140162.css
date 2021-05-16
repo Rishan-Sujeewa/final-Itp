@@ -165,14 +165,15 @@
 }
 .it19140162-sub1AdminDash{
   background-size: auto;
+  display: grid;
+  grid-template-columns: 4.6fr 1fr;
+  box-sizing: border-box;
+
 }
 #it19140162-header{
   background-color: #4CAF50;
   color: white;
 }
-
-
-
 
 .it19140162-topic1AdminDash{
   font-size: 30px;
@@ -204,6 +205,12 @@
 }
 
 .it19140162-insertDesignTopic{
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  box-sizing: border-box;
+}
+
+.it19140162-editCustomizedimgTopic{
   display: grid;
   grid-template-rows: 1fr 3fr;
   box-sizing: border-box;

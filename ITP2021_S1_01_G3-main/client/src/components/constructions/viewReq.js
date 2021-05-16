@@ -3,6 +3,7 @@ import axios from "axios";
 import './../../css/IT19140162.css';
 import  HeaderCom from './header';
 import jsPDF from 'jspdf';
+import bc from '../../images/bc.png'
 
 class viewReq extends Component{
 
@@ -64,7 +65,7 @@ class viewReq extends Component{
         }
 
         axios.put(`http://localhost:5000/systemizedReq/update/${this.state.design._id}`,editC).then(()=>{
-            alert("req added");
+            alert("Request Eddited");
             window.location = "/adminConsDash"
             
         } ).catch((err)=>{
@@ -80,22 +81,15 @@ class viewReq extends Component{
       render(){
         return(
         <div className="container"> 
-       <div className= "it19140162-sub1AdminDash">
-            <center> <p className = "it19140162-topic1AdminDash">Edit Systemized Construction Requests</p> </center> 
-        </div>
-                
+            <br/>
+            <div className="it19140162-editCustomizedimgTopic1"><center> <p className = "it19140162-topic1AdminDash">Edit Systemized Construction Requests</p> </center> </div>
+      
             <div className = "it19140162-mainDiv">        
                 
                 <div className = "it19140162-sub3">
-            
-                    <div className="form-group"> <br/><br/>
-                        
-                    </div>
-                    <div className = "it19140162-boarderd">
-                        
-                    </div>
+                <br/><br/><br/>  <div className="it19140162-editCustomizedimgTopic1"> <img className="it19140162-insertDesignBackGround" src={bc}/>  </div>
+                </div> 
 
-                </div>  
                 <div className = "it19140162-sub4">
                 <br/><br/><br/>
                      <form className="shadow p-3 mb-5 bg-white rounded"  name = "it19140162-usereSystemizedReqForm" > 

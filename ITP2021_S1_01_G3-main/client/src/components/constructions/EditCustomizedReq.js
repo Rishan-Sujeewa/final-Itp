@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import './../../css/IT19140162.css';
 import  HeaderCom from './header';
+import bc from '../../images/bc.png'
 
 export default class EditCustemizedReq extends Component{
 
@@ -74,8 +75,16 @@ render(){
             
 
         <div className="container"> <br/>
-          <center><h2> <b>Edit Customized Request</b></h2>  </center>
-            <div className = "it19140162-mainDiv">        
+
+        
+            <div className="it19140162-editCustomizedimgTopic1"><center><h2> <b>Edit Customized Request</b></h2>  </center></div> <br/><br/>
+
+       
+            <div className = "it19140162-mainDiv">  
+
+            <div className = "it19140162-sub3">
+                <div className="it19140162-editCustomizedimgTopic1"> <img className="it19140162-insertDesignBackGround" src={bc}/>  </div>
+            </div>        
                 
                 <form className="shadow p-3 mb-5 bg-white rounded" >  
 
@@ -120,7 +129,7 @@ render(){
                             </textarea>
                     </div>
 
-                    <div className="form-group"> <br/><br/>
+                    <div className="form-group"> <br/>
                         <label for="it19140162-plan">Edit Your Plan</label>
                         <input type="file" className="form-control-file" id="it19140162-image"/> 
                     </div>
