@@ -6,9 +6,56 @@ import '../../css/it19197760.css';
 import { Link } from "react-router-dom";
 import jsPDF from "jspdf";
 import "jspdf-autotable";
+import Admin_dash from "../Admin_dash/home";
 
 
 export default class EmployeeList extends Component {
+
+//search
+
+state = {
+  searchQuery : '',
+  query: '',
+  data: [],
+}
+
+handleInputChange = () => {
+  this.setState({
+      query: this.search.value
+  })
+  this.filterArray();
+}
+
+getData = () => {
+  fetch('http://localhost:5000/Employee/')
+  .then(response => response.json())
+  .then(responseData => {
+      // console.log(responseData)
+      this.setState({
+          data:responseData
+      })
+  })
+}
+
+filterArray = () => {
+  var searchString = this.state.query;
+  var responseData = this.state.data
+  if(searchString.length > 0){
+      // console.log(responseData[i].name);
+      responseData = responseData.filter(l => {
+          console.log( l.FirstName.toLowerCase().match(searchString));
+      })
+  }
+}
+
+componentWillMount() {
+  this.getData();
+}
+
+
+//
+
+
 
   constructor(props) {
     super(props)
@@ -16,6 +63,8 @@ export default class EmployeeList extends Component {
       Employee: []
     };
   }
+  
+
 
   // PDF download 
 
@@ -48,6 +97,7 @@ export default class EmployeeList extends Component {
 
   //end 
 
+
   componentDidMount() {
     axios.get('http://localhost:5000/Employee/')
       .then(res => {
@@ -62,14 +112,38 @@ export default class EmployeeList extends Component {
   }
 
   DataTable() {
-    return this.state.Employee.map((res, i) => {
+
+    let dataToShow = this.state.Employee;
+    let searchQuery = this.state.searchQuery;
+
+    console.log(searchQuery);
+
+   if(searchQuery){
+    dataToShow = dataToShow.filter(data => {
+
+      console.log(data.FirstName); 
+      return data.FirstName.includes(searchQuery)
+          || data.EmployeeId.includes(searchQuery)
+    });
+   }
+
+   console.log(dataToShow);
+
+    return dataToShow.map((res, i) => {
       return <EmployeeTableRow obj={res} key={i} />;
     });
   }
 
 
   render() {
+
     return (<div className="table-wrapper">
+
+      <div>
+    <Admin_dash/>
+
+
+     
 
 <h2 className ="it19197760-head">EMPLOYEE LIST</h2>
 
@@ -80,6 +154,28 @@ export default class EmployeeList extends Component {
         + Add Employee
         </Link>
       </center>
+
+      <div className="row">
+        
+          <div className="col-lg-9 mt-2 mb-2">
+            </div>
+            <div className="col-lg-3 mt-2 mb-2 ">
+              <input style ={{}}
+              className="form-control"
+              type="search"
+              placeholder="Search"
+              name="searchQuery"
+              onChange={(event) => {
+             this.setState({
+                  searchQuery: event.target.value
+
+                })
+
+            }}></input>
+
+            </div>
+
+        </div>
 
       <Table  className= "it19197760-displayTable">
         <thead>
@@ -101,12 +197,14 @@ export default class EmployeeList extends Component {
           {this.DataTable()}
         </tbody>
       </Table>
-      <div className="IT19197760-down-link-link">
+      
       <center>
     
-    <button onClick={() => this.exportPDF()}>Generate Report</button>
+    <button  className="IT19197760-down-link-link" onClick={() => this.exportPDF()}>Generate Report</button>
     </center>
     </div>
+
     </div>);
+    
   }
 }
