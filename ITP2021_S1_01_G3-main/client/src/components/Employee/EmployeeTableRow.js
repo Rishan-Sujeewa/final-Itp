@@ -35,10 +35,10 @@ export default class EmployeeTableRow extends Component {
                 <td>{this.props.obj.branch}</td>
                 
                 <td>
-                    <Link className="btn it19197760-my-btn" to={"/edit-Employee/" + this.props.obj._id}>
+                    <Link className="btn it19197760-my-btn1" to={"/edit-Employee/" + this.props.obj._id}>
                         Edit
                     </Link>
-                    <Button onClick={this.deleteEmployee} size="sm"className="btn it19197760-my-btn">Delete</Button>
+                    <Button onClick={this.deleteEmployee} size="sm"className="btn it19197760-my-btn2">Delete</Button>
                 
                 </td>
             </tr>

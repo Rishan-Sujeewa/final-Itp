@@ -69,30 +69,36 @@ componentWillMount() {
   // PDF download 
 
   exportPDF = () => {
-    const unit = "pt";
-    const size = "A4"; // Use A1, A2, A3 or A4
-    const orientation = "portrait"; // portrait or landscape
+    
 
-    const marginLeft = 40;
-    const doc = new jsPDF(orientation, unit, size);
+    const doc = new jsPDF({orientation:"portrait"});
 
     doc.setFontSize(15);
 
-    const title = "Employee Details";
+    
     const headers = [["EmployeeId", "Firstname","Last name","NIC","Position","phone Number ","Email ","Address","Branch"]];
 
     const data = this.state.Employee.map(elt=> [elt.EmployeeId,elt.FirstName,elt.LastName,elt.NIC,elt.position,elt.phoneNo,elt.email,elt.address,elt.branch]);
     
 
     let content = {
-      startY: 50,
+      theme : 'grid',
+      styles: {halign:'center'},
+      headStyles:{fillColor:[71, 201, 76]},
+      startY: 27,
       head: headers,
       body: data
     };
 
-    doc.text(title, marginLeft, 40);
+    const time = new Date().toLocaleString();
+    doc.setFontSize(27);
+    doc.text(`Employees Details Report`, 105, 13, null, null, "center");
+    doc.setFontSize(10);
+    doc.text(`(Generated on ${time})`, 105, 17, null, null, "center");
+    doc.setFontSize(12);
+    doc.text("Thilina Hardware - No 55, Main Road, Horana", 105, 22, null, null, "center");
     doc.autoTable(content);
-    doc.save("employeereport.pdf")
+    doc.save("EmployeeReport.pdf")
   }
 
   //end 
@@ -158,27 +164,22 @@ componentWillMount() {
         </Link>
       </center>
 
-      <div className="row">
-        
-          <div className="col-lg-9 mt-2 mb-2">
-            </div>
-            <div className="col-lg-3 mt-2 mb-2 ">
-              <input style ={{}}
-              className="form-control"
-              type="search"
-              placeholder="Search"
-              name="searchQuery"
-              onChange={(event) => {
-             this.setState({
-                  searchQuery: event.target.value
+      
 
-                })
+      <center>
 
-            }}></input>
+        <input type="text"
+        className="IT19197760-search"
+        placeholder="Search"
+        onChange={(event) => {
+            this.setState({
+              searchQuery: event.target.value
 
-            </div>
+            })
 
-        </div>
+        }} />
+
+      </center>
 
       <Table  className= "it19197760-displayTable">
         <thead>
