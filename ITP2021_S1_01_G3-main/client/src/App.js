@@ -35,6 +35,7 @@ import GenerateSalaryRepo from './components/Salaries/GenerateSalaryRepo';
 import CreateVehicle from "./components/Vehicles/create-vehicle.component";
 import EditVehicle from "./components/Vehicles/edit-vehicle.component";
 import VehicleList from "./components/Vehicles/vehicle-list.component";
+import GenerateVehicleRepo from"./components/Vehicles/GenerateVehicleRepo";
 
 
 //stock
@@ -153,6 +154,7 @@ function App() {
         <Route path="/create-vehicle" component={CreateVehicle} />
         <Route path="/edit-vehicle/:id" component={EditVehicle} />
         <Route path="/vehicle-list" component={VehicleList} />
+        <Route path="/generate-vehicle" component={GenerateVehicleRepo} />
 
 
         {/*dashboard*/}

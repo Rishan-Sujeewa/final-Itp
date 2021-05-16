@@ -4,11 +4,34 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import '../../css/it19142456.css';
 
-
+//let vehicleValid = true;
+//let regValid = true;
 export default class CreateVehicle extends Component{
+
+  
     constructor(props) {
-        super(props)
-    
+        super(props);
+
+        // this.state = {
+        //   fields: {
+        //     vehicleId: "",
+        //     registrationNum: "",
+            
+        //   },
+        //   errors: {}
+        // };
+        // this.form = new ReactFormInputValidation(this);
+        // this.form.useRules({
+        //     vehicleId: "required",
+        //     registrationNum: "required",
+         
+        // });
+        // this.form.onformsubmit = (fields) => {
+        
+        // }
+       
+
+ 
         // Setting up functions
         
         this.onChangeVehicleId = this.onChangeVehicleId.bind(this);
@@ -28,24 +51,34 @@ export default class CreateVehicle extends Component{
         // Setting up state
         this.state = {
           
-            vehicleId:'',
-            registrationNum:'',
-            type:'',
-            brandName:'',
-            year:'',
-            model:'',
-            capasity:'',
-            chassiNumber:'',
-            engineNumber:'',
-            adminId:'',
-            licenseNo:'',
-            branchId:''
+            vehicleId:"",
+            registrationNum:"",
+            type:"",
+            brandName:"",
+            year:"",
+            model:"",
+            capasity:"",
+            chassiNumber:"",
+            engineNumber:"",
+            adminId:"",
+            licenseNo:"",
+            branchId:"",
+            
+            
         }
       }
+    
     
       
       onChangeVehicleId(e) {
         this.setState({  vehicleId: e.target.value })
+
+
+
+
+
+
+
       }
       onChangeRegNum(e) {
         this.setState({ registrationNum: e.target.value })
@@ -80,9 +113,13 @@ export default class CreateVehicle extends Component{
       onChangeBranchId(e) {
         this.setState({ branchId: e.target.value })
       }
+      
+
+     
     
       onSubmit(e) {
         e.preventDefault()
+      
     
         console.log(`Vehicle add sucssefully!`);
     
@@ -104,7 +141,8 @@ export default class CreateVehicle extends Component{
             .then(res => console.log(res.data));
         
     
-        this.setState({vehicleId:'',
+        this.setState({
+        vehicleId:'',
         registrationNum:'',
         type:'',
         brandName:'',
@@ -115,13 +153,19 @@ export default class CreateVehicle extends Component{
         engineNumber:'',
         adminId:'',
         licenseNo:'',
-        branchId:''})
+        branchId:'',
+       
+      })
+
+        //this.props.history.push('/vehicle-list')
+        window.location = "/vehicle-list";
       }
 
 
 
 
     render() {
+      
         return (<div className="form-wrapper">
           <br/>
           <h2 className="it19142456-heading">Add vehicle</h2>
@@ -129,67 +173,69 @@ export default class CreateVehicle extends Component{
   
         <Form.Group controlId="vehicleId">
             <Form.Label>Vehicle Id</Form.Label> 
-            <Form.Control type="text" value={this.state.vehicleId} onChange={this.onChangeVehicleId} required/>
+            <Form.Control name="vehiId" type="text" value={this.state.vehicleId} onChange={this.onChangeVehicleId} required/>
           </Form.Group>
   
           <Form.Group controlId="registrationNum">
             <Form.Label>Registration Number</Form.Label>
-            <Form.Control type="text" value={this.state.registrationNum} onChange={this.onChangeRegNum}/>
+            <Form.Control name="regnum" type="text" value={this.state.registrationNum} onChange={this.onChangeRegNum} required/>
           </Form.Group>
   
           <Form.Group controlId="capasity">
             <Form.Label>Capasity</Form.Label>
-            <Form.Control type="text" value={this.state.capasity} onChange={this.onChangeCapasity}/>
+            <Form.Control name="cap" type="text" value={this.state.capasity} onChange={this.onChangeCapasity} required/>
           </Form.Group>
   
           <Form.Group controlId="model">
             <Form.Label>Model</Form.Label>
-            <Form.Control type="text" value={this.state.model} onChange={this.onChangeModel}/>
+            <Form.Control name="model" type="text" value={this.state.model} onChange={this.onChangeModel} required/>
           </Form.Group>
   
           <Form.Group controlId="brandName">
             <Form.Label>Brand Name</Form.Label>
-            <Form.Control type="text" value={this.state.brandName} onChange={this.onChangeBrandName}/>
+            <Form.Control name="brandName" type="text" value={this.state.brandName} onChange={this.onChangeBrandName} required/>
           </Form.Group>
   
           <Form.Group controlId="type">
             <Form.Label>Type</Form.Label>
-            <Form.Control type="text" value={this.state.type} onChange={this.onChangeType}/>
+            <Form.Control name="type" type="text" value={this.state.type} onChange={this.onChangeType} required/>
           </Form.Group>
   
           <Form.Group controlId="year">
             <Form.Label>Manufecture Year</Form.Label>
-            <Form.Control type="date" value={this.state.year} onChange={this.onChangeManufectureYear}/>
+            <Form.Control name="year" type="date" value={this.state.year} onChange={this.onChangeManufectureYear} required/>
           </Form.Group>
   
           <Form.Group controlId="engineNumber">
             <Form.Label>Engine Number</Form.Label>
-            <Form.Control type="text" value={this.state.engineNumber} onChange={this.onChangeEngineNum}/>
+            <Form.Control name="enginNum" type="text" value={this.state.engineNumber} onChange={this.onChangeEngineNum} required/>
           </Form.Group>
   
           <Form.Group controlId="chassiNumber">
             <Form.Label>Chassi Number</Form.Label>
-            <Form.Control type="text" value={this.state.chassiNumber} onChange={this.onChangeChassiNum}/>
+            <Form.Control name="chassiNum" type="text" value={this.state.chassiNumber} onChange={this.onChangeChassiNum} required/>
           </Form.Group>
   
           <Form.Group controlId="licenseNo">
             <Form.Label>License Number</Form.Label>
-            <Form.Control type="text" value={this.state.licenseNo} onChange={this.onChangeLicenseNo}/>
+            <Form.Control name="licenNum" type="text" value={this.state.licenseNo} onChange={this.onChangeLicenseNo} required/>
           </Form.Group>
 
           <Form.Group controlId="adminId">
             <Form.Label>Admin Id</Form.Label>
-            <Form.Control type="text" value={this.state.adminId} onChange={this.onChangeAdminId} required/>
+            <Form.Control name="admonId" type="text" value={this.state.adminId} onChange={this.onChangeAdminId} required/>
           </Form.Group>
 
           <Form.Group controlId="branchId">
             <Form.Label>Branch ID</Form.Label>
-            <Form.Control type="number" value={this.state.branchId} onChange={this.onChangeBranchId} required/>
+            <Form.Control name="branchId" type="number" value={this.state.branchId} onChange={this.onChangeBranchId} required/>
           </Form.Group>
+         
   
           <Button size="lg" block="block" type="submit" className="btn it19142456-my-btn">
             Add vehicle
           </Button>
+          
         </Form>
       </div>
         );

@@ -127,6 +127,17 @@
     padding: 10px 10px;
     border-radius: 0.2rem;
     margin-top: 50px;
+   
+}
+.it1914256-report-link{
+
+    background-color: #4caf50;
+    border-color: none;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 0.2rem;
+    margin-bottom: 20cm;
+    
 }
 .it1914256-add-link:hover{
     background-color: #4caf50;
@@ -144,4 +155,17 @@
     background-color:#4caf50 ;
     color: #ffffff;
     border-radius: 4px;
+}
+.it1914256-download-link{
+    background-color: #4caf50;
+    border-color: none;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 0.2rem;
+    margin-top: 50px;
+}
+#it19142456-search-filter{
+    float: right;
+    width: 20%;
+    
 }

@@ -131,7 +131,8 @@ export default class EditVehicle extends Component {
         })
   
       // Redirect to Vehiccle List 
-      this.props.history.push('/vehicle-list')
+     // this.props.history.push('/vehicle-list')
+      window.location = "/vehicle-list";
     
 
    
