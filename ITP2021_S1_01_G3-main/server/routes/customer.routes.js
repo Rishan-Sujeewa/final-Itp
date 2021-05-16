@@ -158,7 +158,8 @@ router.post('/add', validator.validate('addUser'),async(req, res) => {
             }
                    
     } catch (errors) {
-        res.json(errors);   
+        res.json(errors); 
+        console.log(errors);  
     }
 });//add new customer
 router.delete('/delete/:id', async(req, res) => {
