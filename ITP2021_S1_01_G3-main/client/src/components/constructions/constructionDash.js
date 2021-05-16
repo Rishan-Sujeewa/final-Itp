@@ -12,6 +12,8 @@ import  HeaderCom from './header';
 
 class ConstructionDasdhboard extends Component{
 
+    //search
+
     //const [construction, setConstructions] = useState([]);    
     //class componentwala hooks use karanna ba, a nisa useState pawichchi karanna ba
     
@@ -45,14 +47,17 @@ class ConstructionDasdhboard extends Component{
         
          return(
     
-            <div className="container">
-                    <HeaderCom/>
+            <div> <HeaderCom/> 
+
                     <div className= "it19140162-sub1">
                     <br/><p className = "it19140162-topic1">Get Ready To Discover Your Dream Home..</p>  
                     
                     <br/><br/><br/> <br/><br/><br/>
                         
-                    </div><br/>
+                    </div>
+            <div className="container">
+                    
+                    <br/>
            
 
                 <div className="it19140162-mainDiv2">
@@ -82,7 +87,7 @@ class ConstructionDasdhboard extends Component{
                 
     
             </div>
-    
+            </div>
         )
        
      }}

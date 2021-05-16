@@ -13,19 +13,9 @@ function Header(){
             <a className="nav-link" href="#">Home</a>
         </li>
 
-        <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Buildings
-            </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a className="dropdown-item" href="#">Action</a>
-            <a className="dropdown-item" href="#">Another action</a>
-        <div className="dropdown-divider"></div>
-            <a className="dropdown-item" href="#">Something else here</a>
-        </div>
-        </li>
+        
 
-        <li className="nav-item dropdown">
+        {/* <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Electrical
             </a>
@@ -35,9 +25,9 @@ function Header(){
         <div className="dropdown-divider"></div>
             <a className="dropdown-item" href="#">Something else here</a>
         </div>
-        </li>
+        </li> */}
 
-        <li className="nav-item dropdown">
+        {/* <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Safety Items
             </a>
@@ -47,12 +37,25 @@ function Header(){
         <div className="dropdown-divider"></div>
             <a className="dropdown-item" href="#">Something else here</a>
         </div>
+        </li> */}
+
+
+        <li className="nav-item">
+            <a className="nav-link" href="#">Products</a>
         </li>
 
+        <li className="nav-item">
+            <a className="nav-link" href="#">Accessories</a>
+        </li>
 
         <li className="nav-item">
             <a className="nav-link" href="/Creq">Housing Plans</a>
         </li> 
+
+        <li className="nav-item">
+            <a className="nav-link" href="/userDashCons">My Constructions</a>
+        </li>
+
         
     </ul>
     <form className="form-inline my-2 my-lg-0">

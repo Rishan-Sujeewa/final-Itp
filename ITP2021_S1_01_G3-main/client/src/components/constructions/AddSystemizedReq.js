@@ -110,11 +110,15 @@ class AddSystemizedReq extends Component{
 
       render(){
         return(
-        <div className="container"> 
-        <HeaderCom/>
-            <br/>
+
+        <div>  <HeaderCom/>
+
             <div className= "it19140162-sub1">
-            <br/> <p className = "it19140162-topic1">Get Ready To Discover Your Dream Home..</p><br/><br/><br/><br/><br/><br/></div>
+            <br/> <p className = "it19140162-topic1">Get Ready To Discover Your Dream Home..</p><br/><br/><br/><br/><br/><br/></div> 
+        <div className="container"> 
+        
+            
+            
                 
             <div className = "it19140162-mainDiv">        
                 
@@ -186,7 +190,7 @@ class AddSystemizedReq extends Component{
                 </div><br/>
             </div>          
       
-
+            </div>
     )}
 
 }
