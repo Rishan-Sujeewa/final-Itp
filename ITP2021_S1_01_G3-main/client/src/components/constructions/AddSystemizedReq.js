@@ -50,7 +50,9 @@ class AddSystemizedReq extends Component{
      sendData=(e)=>{
         e.preventDefault(); 
 
-        this.validateUserSystemizedReqForm();
+        if(this.validateUserSystemizedReqForm() == false){
+            return;
+        }
 
         
     
@@ -78,21 +80,30 @@ class AddSystemizedReq extends Component{
         var email = document.forms["it19140162-usereSystemizedReqForm"]["email"].value;
         var phone = document.forms["it19140162-usereSystemizedReqForm"]["phone"].value;
 
+        var status = true;
+
         if (planNum == "") {
             alert("Plan Number must be filled out");
-            return false;
+            status= false;
         }
         if (Cname == "") {
           alert("Name must be filled out");
-          return false;
+          status= false;
         }
         if (email == "") {
             alert("Email must be filled out");
-            return false;
+            status= false;
         }
         if (phone == "") {
            alert("Phone must be filled out");
-           return false;
+           status= false;
+         }
+         if(phone.length != 10){
+             alert("please enter valid phone number");
+             status= false;
+         }
+         if(status === false){
+             return false
          }
          
       }
