@@ -109,12 +109,7 @@ class AddSystemizedReq extends Component{
                 
                 <div className = "it19140162-sub3">
             
-                    <div className="form-group"> <br/><br/>
-                        
-                    </div>
-                    <div className = "it19140162-boarderd">
-                        
-                    </div>
+                    
 
                 </div>  
                 <div className = "it19140162-sub4">
