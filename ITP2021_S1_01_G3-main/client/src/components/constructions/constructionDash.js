@@ -12,7 +12,7 @@ import  HeaderCom from './header';
 
 class ConstructionDasdhboard extends Component{
 
-    //search
+    
 
     //const [construction, setConstructions] = useState([]);    
     //class componentwala hooks use karanna ba, a nisa useState pawichchi karanna ba

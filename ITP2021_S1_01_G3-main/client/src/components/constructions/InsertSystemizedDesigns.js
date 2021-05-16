@@ -28,8 +28,8 @@ export default function InsertSystemizedDesigns(){
         }
         
         axios.post("http://localhost:5000/systemizedDesig/addDesign",newSysDesigns).then(()=>{
-            alert("Request added");
-            window.location("/insertD")
+            alert("Design added to the system");
+            window.location = "/insertD"
             
         } ).catch((err)=>{
             alert(err)

@@ -53,7 +53,7 @@ export default class EditCustemizedReq extends Component{
         e.preventDefault(); 
 
         const {name, email,phone} = this.state;
-        alert(this.state.otherComments);
+        
         const newCRequest = {
             
             name,
@@ -63,7 +63,8 @@ export default class EditCustemizedReq extends Component{
         }
         
         axios.put(`http://localhost:5000/customizedReq/update/${this.props.match.params.id}`,newCRequest).then(()=>{
-            alert("req added")
+            alert("Customized Request Updated")
+            window.location= "/adminConsDash"
             
         } ).catch((err)=>{
             alert(err)

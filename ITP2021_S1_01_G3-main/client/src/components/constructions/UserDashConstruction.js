@@ -30,16 +30,18 @@ export default function UserDashConstruction(){
 
     return(
 
+        <div> <HeaderCom/> 
+        <div className= "it19140162-sub1">
+                <br/><p className = "it19140162-topic1">My Construction Requests</p><br/><br/><br/><br/><br/><br/>
+                </div>
+                <br/><br/>
 
         <div className="container">
                 
 
-                <HeaderCom/>
                 
-                <div className= "it19140162-sub1">
-                <br/><p className = "it19140162-topic1">My Construction Requests</p><br/><br/><br/><br/><br/><br/>
-                </div>
-                <br/><br/>
+                
+                
                 <form className="shadow p-3 mb-5 bg-white rounded">
                 <div className="it19140162-mainDiv3">
 
@@ -70,7 +72,7 @@ export default function UserDashConstruction(){
                 
                 </form>
         </div>
-
+        </div>
     )
 
 };
