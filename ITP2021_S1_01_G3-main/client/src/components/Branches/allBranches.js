@@ -84,6 +84,8 @@ export default function AllBranches(){
     return (
         <div className="container">
 
+        
+
         <br/><center><h2>Branch Management</h2></center><br/>
         <Link to="/branches" className="btn it19519364-my-btn" >Branches</Link>
         <Link to="/add" className="btn it19519364-my-btn" >Create Branch</Link>
@@ -128,14 +130,14 @@ export default function AllBranches(){
                             {branch.address}
                         </td>
                         <td>
-                            {branch.telephone}
+                            0{branch.telephone}
                         </td>
                         <td>
                             {branch.email}
                         </td>
                         <td> 
                             {/* view button */}
-                            <Link to={`/view/${branch._id}`} className="btn it19519364-my-btn" >View</Link>
+                            {/* <Link to={`/view/${branch._id}`} className="btn it19519364-my-btn" >View</Link> */}
                         </td> 
                         <td>
                             {/* update button  */}
