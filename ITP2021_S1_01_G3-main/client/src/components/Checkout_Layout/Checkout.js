@@ -81,39 +81,6 @@ export default function Checkout(){
               </div>
             </div>
           </div>
-          <div className="col-md-5">
-            <div className="card border-0 ">
-              <div className="card-header DNcard-2">
-                <p className="card-text text-muted mt-md-4 mb-2 space">YOUR CART</p>
-                <hr className="my-2" />
-              </div>
-              <div className="card-body pt-0">
-                <hr className="my-2" />
-                <div className="row ">
-                  <div className="col">
-                    <div className="row justify-content-between">
-                      <div className="col-4">
-                        <p className="mb-1"><b>Subtotal</b></p>
-                      </div>
-                      <div className="flex-sm-col col-auto">
-                        <p className="mb-1"><b>Rs.0</b></p>
-                      </div>
-                    </div>
-                    
-                    <div className="row justify-content-between">
-                      <div className="col-4">
-                        <p><b>Total</b></p>
-                      </div>
-                      <div className="flex-sm-col col-auto">
-                        <p className="mb-1"><b>Rs.0</b></p>
-                      </div>
-                    </div>
-                    <hr className="my-0" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -100,6 +100,8 @@ export default function Order(){
 
       
         return (
+		
+
           <body className="IT19184722body">
             
             <h2 className="IT19184722DashTitle">ORDER DASHBOARD</h2>
@@ -159,9 +161,11 @@ export default function Order(){
 
                             <option>{post.arrangedVehicle}</option>
                             <option value='Not Processed'>Not Processed</option>
-                            <option value='abc-9089'>abc-9089</option>
-                            <option value='bac-5676'>bac-5676</option>
-                            <option value='cde-7679'>cde-7679</option>
+                            <option value='BAX-7482'>BAX-7482</option>
+                            <option value='CAD-7190'>CAD-7190</option>
+                            <option value='WA-3254'>WA-3254</option>
+                            <option value='PK-7833'>PK-7833</option>
+                            <option value='LK-3333'>LK-3333</option>
     
                     </select>
                 </div>

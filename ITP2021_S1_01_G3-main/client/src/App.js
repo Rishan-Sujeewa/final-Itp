@@ -118,6 +118,7 @@ function App() {
     <div className = "App">
         <Router>
 
+        <Route path="/admin" component={AdminDashBoard}/>
         
       <Route path="/signin" exact component={Signin} /> 
       {/*customers */}
@@ -162,14 +163,13 @@ function App() {
         <HOCPrivateRoute path="/products" exact component={Products} />
         <HOCPrivateRoute path="/orders" exact component={Orders} />
 
-      <HOCPrivateRoute path="/admin_dash" exact component ={AdminDashBoard} />
+      {/* <HOCPrivateRoute path="/admin_dash" exact component ={AdminDashBoard} /> */}
       <Route path="/signup" exact component={Signup} />
 
 
         {/* flipkart*/}
         <Route path="/flip" exact component={HomePage} />
         <Route path="/cart" exact component={CartPage} />
-        <Route path="/checkout" exact component={CheckoutPage} />
         <Route path="/account/orders" exact component={OrderPage} />
         <Route
           path="/order_details/:orderId"
