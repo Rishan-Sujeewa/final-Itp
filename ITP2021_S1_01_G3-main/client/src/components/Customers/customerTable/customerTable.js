@@ -4,6 +4,7 @@ import axios from 'axios'
 import {jsPDF} from 'jspdf'
 import 'jspdf-autotable'
 import '../../../css/it19951386.css';
+import Home from '../../Admin_dash/home'
 
 export default function CustomerTable() {
     let [customers, setCustomers] = useState([]);
@@ -84,6 +85,8 @@ export default function CustomerTable() {
     }//report generation function
 
     return(
+    <div>
+    <Home/>
     <div className="it19951386-containner">
         <div >
             <h2 className="it19951386-h2">Customer Managment</h2>
@@ -156,6 +159,7 @@ export default function CustomerTable() {
             </tbody>
         </table>
         </div>
+    </div>
     </div>
     );
 }
