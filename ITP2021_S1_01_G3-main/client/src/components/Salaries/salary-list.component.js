@@ -6,9 +6,55 @@ import SalaryTableRow from './SalaryTableRow';
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 import '../../css/IT19167060.css';
-
+import Admin_dash from '../Admin_dash/home';
 
 export default class SalaryList extends Component {
+
+
+//search
+
+state = {
+  searchQuery : '',
+  query: '',
+  data: [],
+}
+
+handleInputChange = () => {
+  this.setState({
+      query: this.search.value
+  })
+  this.filterArray();
+}
+
+getData = () => {
+  fetch('http://localhost:5000/salaries/')
+  .then(response => response.json())
+  .then(responseData => {
+      // console.log(responseData)
+      this.setState({
+          data:responseData
+      })
+  })
+}
+
+filterArray = () => {
+  var searchString = this.state.query;
+  var responseData = this.state.data
+  if(searchString.length > 0){
+      // console.log(responseData[i].name);
+      responseData = responseData.filter(l => {
+          console.log( l.salaryID.toLowerCase().match(searchString));
+      })
+  }
+}
+
+componentWillMount() {
+  this.getData();
+}
+
+
+//
+
 
   constructor(props) {
     super(props)
@@ -75,14 +121,37 @@ export default class SalaryList extends Component {
   }
 
   DataTable() {
-    return this.state.salaries.map((res, i) => {
+    // return this.state.salaries.map((res, i) => {
+    //   return <SalaryTableRow obj={res} key={i} />;
+    // });
+    let dataToShow = this.state.salaries;
+    let searchQuery = this.state.searchQuery;
+
+    console.log(searchQuery);
+
+   if(searchQuery){
+    dataToShow = dataToShow.filter(data => {
+
+      console.log(data.salaryID); 
+      return data.salaryID.includes(searchQuery)
+          || data.fname.includes(searchQuery)
+    });
+   }
+
+   console.log(dataToShow);
+
+    return dataToShow.map((res, i) => {
       return <SalaryTableRow obj={res} key={i} />;
     });
   }
 
 
   render() {
-    return (<div className="table-wrapper">
+    return (
+    
+    <div>
+      <Admin_dash/>
+    <div className="table-wrapper">
 
        
          <h2 className="IT19167060-header-text">Employee Salary Details</h2>
@@ -92,6 +161,17 @@ export default class SalaryList extends Component {
                   +Add Salary Details
         </Link>
         </center>
+      
+        <input type="text"
+        className="form-control"
+        placeholder="Search by salaryID or first name"
+        onChange={(event) => {
+            this.setState({
+              searchQuery: event.target.value
+            })
+        }} />
+      
+      
 
       <Table striped bordered hover className="IT19167060-table">
         <thead className="IT19167060-table-head">
@@ -121,7 +201,9 @@ export default class SalaryList extends Component {
     <button className="IT19167060-repo-link" onClick={() => this.exportPDF()}>Generate Report</button>
     </center>
     </div>
-    </div>);
+    </div>
+    </div>
+    );
     
   }
 }
