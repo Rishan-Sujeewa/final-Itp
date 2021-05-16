@@ -48,10 +48,9 @@ class AddSystemizedReq extends Component{
     }
     
      sendData=(e)=>{
-         alert("onna awa");
         e.preventDefault(); 
 
-        //this.validateUserSystemizedReqForm();
+        this.validateUserSystemizedReqForm();
 
         
     

@@ -237,7 +237,7 @@ export default function AdminConstruction(){
                             </td>
                             <td>
                             <i id="it19140162-delFont" className ="fas fa-times" style={{cursor:'pointer',float:'right',color:'red',height : '30px'}} onClick = {()=>deleteCustomizedReq(CusReq._id)} ></i>
-                            <Link to = {`/viewreq/${CusReq._id}`}><button type="button" class="btn btn-outline-success">View Details</button></Link>
+                            <Link to = {`/editCreq/${CusReq._id}`}><button type="button" class="btn btn-outline-success">View Details</button></Link>
 
                                 
                             </td>

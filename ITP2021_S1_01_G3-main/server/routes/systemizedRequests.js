@@ -46,15 +46,16 @@ router.route("/update/:systemizedId").put(async(req,res)=>{
     let sReqId = req.params.systemizedId; 
     //const name = req.body.name; mehema gannath puluwan
     //b structure karanna puluwan ekaparinma eka peliyen
-    const{planNumber,name,email,phone,otherComments} = req.body;
+    const{planNumber,name,email,phone,otherComments,startingDate} = req.body;
 
     //update karanna kalin object ekak hadaganna oni
-    const updateCustomizedReq = {
+    const updateSysteomizedReq = {
         planNumber,
         name,
         email,
         phone,
-        otherComments
+        otherComments,
+        startingDate
     }
 
     //cReqId eka athule user kenek innawada kiyala balanawa
