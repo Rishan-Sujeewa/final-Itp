@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import axios from "axios";
 import './../../css/IT19140162.css';
-import  HeaderCom from './header';
 import jsPDF from 'jspdf';
 import bc from '../../images/bc.png'
+import Admin_dash from '../Admin_dash/home';
 
 class viewReq extends Component{
 
@@ -80,7 +80,10 @@ class viewReq extends Component{
    
       render(){
         return(
+            <div><Admin_dash/>
+            
         <div className="container"> 
+        
             <br/>
             <div className="it19140162-editCustomizedimgTopic1"><center> <p className = "it19140162-topic1AdminDash">Edit Systemized Construction Requests</p> </center> </div>
       
@@ -165,7 +168,7 @@ class viewReq extends Component{
                 </div><br/>
             </div>          
       
-
+            </div>
     )}
 
 }

@@ -12,8 +12,8 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({storage: storage});
-
-router.route("/addDesign").post(upload.single('productImage'),(req,res)=>{
+//pload.single('productImage'),
+router.route("/addDesign").post((req,res)=>{
 
     console.log(req.file);
     const designNum = req.body.designNum;
@@ -21,7 +21,7 @@ router.route("/addDesign").post(upload.single('productImage'),(req,res)=>{
     const buildingArea = req.body.buildingArea;
     const bedRooms = req.body.bedRooms;
     const bathRooms = req.body.bathRooms;
-    const productImage = req.file.path;
+    // const productImage = req.file.path;
     
 
     const newRequest = new systemizedDe({
@@ -30,7 +30,7 @@ router.route("/addDesign").post(upload.single('productImage'),(req,res)=>{
         buildingArea,
         bedRooms,
         bathRooms,
-        productImage
+        //productImage
     })
 
     //javascript promise = then

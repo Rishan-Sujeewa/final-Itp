@@ -29,10 +29,10 @@ const systemizedDesignSchema = new Schema({
         required:true
     },
 
-    productImage:{
-        type:String,
-        required:true
-    }
+    // productImage:{
+    //     type:String,
+    //     required:true
+    // }
 })
 
 const SystemizedD = mongoose.model("systemizedDesign",systemizedDesignSchema);

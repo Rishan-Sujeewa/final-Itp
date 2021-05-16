@@ -35,8 +35,8 @@ export default function EditCustemizedReq(){
 
     return(
     
-
-        <div className="container"> <HeaderCom/>
+        <div><HeaderCom/> 
+        <div className="container"> 
             <br/>
             <div className= "it19140162-editCustomizedimgTopic">
                 <div className="it19140162-editCustomizedimgTopic1"><center><b><p className = "it19140162-topic1">Edit Systemized Requests</p></b></center></div><br/><br/><br/><br/><br/><br/>
@@ -104,7 +104,7 @@ export default function EditCustemizedReq(){
                 </div><br/>
             </div>          
       
-
+            </div>
     )
-
+    
 }   

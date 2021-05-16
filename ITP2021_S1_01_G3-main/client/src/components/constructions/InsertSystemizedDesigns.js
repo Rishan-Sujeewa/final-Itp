@@ -3,6 +3,7 @@ import axios from "axios";
 import './../../css/IT19140162.css';
 import {Link} from 'react-router-dom';
 import bc from '../../images/bc.png'
+import Admin_dash from '../Admin_dash/home';
 
 export default function InsertSystemizedDesigns(){
 
@@ -27,7 +28,7 @@ export default function InsertSystemizedDesigns(){
         }
         
         axios.post("http://localhost:5000/systemizedDesig/addDesign",newSysDesigns).then(()=>{
-            alert("req added")
+            alert("Request added");
             
         } ).catch((err)=>{
             alert(err)
@@ -36,9 +37,11 @@ export default function InsertSystemizedDesigns(){
 
 
     return(
-    
 
+        <div>
+            <Admin_dash/>
         <div className="container"> 
+        
            <br/>
             <div className = "it19140162-mainDiv">  
             <div className="it19140162-insertDesignTopic">
@@ -110,7 +113,7 @@ export default function InsertSystemizedDesigns(){
                 </div><br/>
             </div>          
       
-
+            </div>
     )
 
 }

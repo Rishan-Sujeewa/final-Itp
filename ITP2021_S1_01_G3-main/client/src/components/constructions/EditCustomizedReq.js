@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import axios from "axios";
 import './../../css/IT19140162.css';
 import  HeaderCom from './header';
-import bc from '../../images/bc.png'
+import bc from '../../images/bc.png';
+import Admin_dash from '../Admin_dash/home';
 
 export default class EditCustemizedReq extends Component{
 
@@ -71,10 +72,15 @@ export default class EditCustemizedReq extends Component{
 
 render(){
     return(
+        <div> <Admin_dash/> 
+
         <ul>
             
 
-        <div className="container"> <br/>
+        <div className="container"> 
+        
+       
+        <br/>
 
         
             <div className="it19140162-editCustomizedimgTopic1"><center><h2> <b>Edit Customized Request</b></h2>  </center></div> <br/><br/>
@@ -144,6 +150,8 @@ render(){
             </div>          
       
 
-     </ul> )}
+     </ul> 
+     </div>
+     )}
 
                         }

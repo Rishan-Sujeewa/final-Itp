@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import img2 from '../../images/delete.png';
 import './../../css/IT19140162.css';
 import jsPDF from 'jspdf';
+import Admin_dash from '../Admin_dash/home';
 
 export default function AdminConstruction(){
 
@@ -143,6 +144,7 @@ export default function AdminConstruction(){
     
         return(
     
+            <div> <Admin_dash/> 
     
             <div className="container">
                     <br/><br/>
@@ -258,6 +260,7 @@ export default function AdminConstruction(){
                     </form>
             </div>
     
+    </div>
         )
     
     };
