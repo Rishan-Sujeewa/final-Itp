@@ -111,6 +111,8 @@ componentWillMount() {
       })
   }
 
+//search
+
   DataTable() {
 
     let dataToShow = this.state.Employee;
@@ -134,6 +136,7 @@ componentWillMount() {
     });
   }
 
+  //
 
   render() {
 
