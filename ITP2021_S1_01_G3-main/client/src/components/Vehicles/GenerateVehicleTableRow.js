@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Button from 'react-bootstrap/Button';
 import '../../css/it19142456.css';
 
 export default class VehicleTableRaw extends Component {
@@ -10,7 +8,7 @@ export default class VehicleTableRaw extends Component {
         super(props);
         this.deleteVehicle = this.deleteVehicle.bind(this);
     }
-
+//delete function
     deleteVehicle() {
         axios.delete('http://localhost:5000/vehicles/delete-vehicle/' + this.props.obj._id)
             .then((res) => {
@@ -38,13 +36,7 @@ export default class VehicleTableRaw extends Component {
                 <td>{this.props.obj.licenseNo}</td>
                 <td>{this.props.obj.branchId}</td>
                 
-                <td>
-                    <Link className="it19142456-edit-btn"   to={"/edit-vehicle/" + this.props.obj._id}>
-                        Edit
-                    </Link>
-                    <Button onClick={this.deleteVehicle} size="sm" className="it19142456-delete-button">Delete</Button>
-                
-                </td>
+            
             </tr>
         );
     }
