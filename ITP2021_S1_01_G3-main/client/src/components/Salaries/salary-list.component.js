@@ -161,16 +161,16 @@ componentWillMount() {
                   +Add Salary Details
         </Link>
         </center>
-      
+      <center>
         <input type="text"
-        className="form-control"
+        className="IT19167060-search"
         placeholder="Search by salaryID or first name"
         onChange={(event) => {
             this.setState({
               searchQuery: event.target.value
             })
         }} />
-      
+      </center>
       
 
       <Table striped bordered hover className="IT19167060-table">
@@ -182,10 +182,10 @@ componentWillMount() {
                 <th>Designation</th>
                 <th>Date</th>
                 <th>Work Hours</th>
-                <th>Hourly Rate</th>
-                <th>Incentive</th>
-                <th>Deduction</th>
-                <th>Total Salary</th>
+                <th>Hourly Rate(Rs)</th>
+                <th>Incentive(Rs)</th>
+                <th>Deduction(Rs)</th>
+                <th>Total Salary(Rs)</th>
                 <th>Action</th>
           </tr>
         </thead>
