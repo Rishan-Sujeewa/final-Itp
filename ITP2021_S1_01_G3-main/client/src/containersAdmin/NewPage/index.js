@@ -175,7 +175,7 @@ const NewPage = (props) => {
       ) : (
         <>
           {renderCreatePageModal()}
-          <button onClick={() => setCreateModal(true)}> <IoIosAdd />Create Page</button>
+          <button onClick={() => setCreateModal(true)}className="btn it19951386-trans-green-btn"><IoIosAdd />Create Page</button>
         </>
       )}
     </Layout>

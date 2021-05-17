@@ -25,7 +25,7 @@ const NewModal = (props) => {
           <Button
             variant="primary"
             {...props}
-            style={{ backgroundColor: "#333" }}
+            style={{ backgroundColor: "#4CAF50" }}
             className="btn-sm"
             onClick={props.onSubmit}
           >
