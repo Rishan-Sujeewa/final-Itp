@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import '../../../css/it19951386.css';
+import Header from '../../constructions/header'
 
 export default function CustomerRegister(props) {
 
@@ -48,6 +49,7 @@ export default function CustomerRegister(props) {
 
     return (
         <div>
+            <Header/>
             <form onSubmit={customerFormSubmit} className="form-group it19951386-myForm">
                 <h2>Customer Register Form</h2>
                 {errors ? errors.map((error) => {
