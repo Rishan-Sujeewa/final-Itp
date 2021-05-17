@@ -232,13 +232,13 @@ const Category = (props) => {
               <h3>Category</h3>
               <div className="actionBtnContainer">
                 <span>Actions: </span>
-                <button onClick={handleShow}>
+                <button onClick={handleShow} className ="add">
                   <IoIosAdd /> <span>Add</span>
                 </button>
-                <button onClick={deleteCategory}>
+                <button onClick={deleteCategory} className ="del">
                   <IoIosTrash /> <span>Delete</span>
                 </button>
-                <button onClick={updateCategory}>
+                <button onClick={updateCategory} className ="edit">
                   <IoIosCloudUpload /> <span>Edit</span>
                 </button>
               </div>

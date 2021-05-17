@@ -13,6 +13,7 @@ const NewModal = (props) => {
         <Modal.Title>{props.modalTitle}</Modal.Title>
       </Modal.Header>
       <Modal.Body>{props.children}</Modal.Body>
+      {props.showButtons}
       <Modal.Footer>
         {props.buttons ? (
           props.buttons.map((btn, index) => (

@@ -1,0 +1,98 @@
+/*style header*/
+#header{
+    background-color:#828282 ;
+    color: #ffffff;
+}
+
+/*style forms*/
+.myForm{
+    width: 70%;
+    margin: 50px auto;
+    border: 1px solid transparent;
+    box-shadow: 5px 8px 20px #888888;
+    padding: 25px;
+    top: 50%;
+}
+
+.myForm h2{
+    text-align: center;
+    font-weight: bolder;
+}
+
+.myForm .my-btn{
+    display: block;
+    margin: 5px auto;
+    background-color:#828282 ;
+    color: #ffffff;
+}
+
+.assignForm{
+    width: 30%;
+    margin: 50px 90px;
+    border: 1px solid transparent;
+    box-shadow: 5px 8px 20px #888888;
+    padding: 25px;
+    top: 50%;
+    float: left;
+}
+
+
+.assignForm .my-btn{
+    display: block;
+    margin: 5px auto;
+    background-color:#828282 ;
+    color: #ffffff;
+}
+
+/*style tables*/
+.displayTable{
+    width: 80%;
+    margin: 50px auto;
+    border: 1px solid transparent;
+    box-shadow: 5px 8px 20px #888888;
+    padding: 25px;
+    top: 50%;
+}
+
+.displayTable .my-btn{
+    display: block;
+    margin: 5px auto;
+    background-color:#828282 ;
+    color: #ffffff;
+}
+
+/*style display views AND download view*/
+.display-branch-view{
+    width: 80%;
+    margin: 50px auto;
+    border: 1px solid transparent;
+    box-shadow: 1px 1px 1px 1px #888888; 
+    padding: 25px;
+    top: 50%;
+}
+.display-view-download{
+    width: 70%;
+    margin: 50px auto;
+    border: 1px solid transparent;
+    padding: 25px;
+    top: 50%;
+}
+.display-view-download .my-btn{
+    display: block;
+    margin: 5px auto;
+    background-color:#828282 ;
+    color: #ffffff;
+}
+ .view-download{
+    width: 70%;
+    margin: 25px auto;
+    border: 1px solid #888888;
+    padding: 10px;
+} 
+.view-download .my-btn{
+    display: block;
+    margin: 5px auto;
+    background-color:#828282 ;
+    color: #ffffff;
+    float: right;
+}
