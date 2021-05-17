@@ -3,13 +3,34 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import '../../css/IT19167060.css';
+import ReactFormInputValidation from "react-form-input-validation";
 
-
+let whoursValid = true;
 export default class CreateSalary extends Component {
+
+
+  
 
   constructor(props) {
     super(props)
 
+    
+    //
+    this.state = {
+      fields: {
+        
+        workHours: ""
+      },
+      errors: {}
+    };
+    this.form = new ReactFormInputValidation(this);
+    this.form.useRules({
+        
+        workHours: "required|numeric|digits_between:3,4",
+    });
+    this.form.onformsubmit = (fields) => {
+    
+    }
     // Setting up functions
     
     this.onChangeSalaryID = this.onChangeSalaryID.bind(this);
@@ -36,8 +57,8 @@ export default class CreateSalary extends Component {
       hourlyRate: Number,
       incentive: Number,
       deduction: Number,
-      totalSalary: Number
-
+      totalSalary: Number,
+      valid : ''
     }
   }
 
@@ -59,6 +80,13 @@ export default class CreateSalary extends Component {
   }
   onChangeWorkHours(e) {
     this.setState({ workHours: e.target.value })
+    let param = e.target.value;
+
+    whoursValid = this.validatewhours(e.target.value)
+   
+    console.log(param.length);
+
+    console.log(whoursValid);
   }
   onChangeHourlyRate(e) {
     this.setState({ hourlyRate: e.target.value })
@@ -72,13 +100,23 @@ export default class CreateSalary extends Component {
   onChangeTotalSalary(e) {
     this.setState({ totalSalary: e.target.value })
   }
+  validatewhours(workHours) {
+    const regex = /^\(?([0-9]{1})\)?[-. ]?([0-9]{1})[-. ]?([0-9]{1})$/;
+    console.log(regex.test(workHours))
+    return regex.test(workHours);
+  }
 
 
   onSubmit(e) {
-    e.preventDefault()
+    //e.preventDefault()
+
+    if( whoursValid != true){
+      alert("The data you entered is not valid");
+      e.preventDefault()
+    }
 
     console.log(`Salary successfully created!`);
-
+    console.log(this.state.totalSalary);
     const salaryObject = {
             salaryID: this.state.salaryID,
             fname: this.state.fname,
@@ -90,23 +128,43 @@ export default class CreateSalary extends Component {
             incentive: this.state.incentive,
             deduction: this.state.deduction,
             totalSalary: this.state.totalSalary
+            
       };
+
+      if(whoursValid == true){
       axios.post('http://localhost:5000/salaries/create-salary', salaryObject)
         .then(res => console.log(res.data));
+      }
+       
     
 
-    this.setState({
-    salaryID: '',
-    fname: '',
-    lname: '',
-    designation: '',
-    date: '',
-    workHours: Number,
-    hourlyRate: Number,
-    incentive: Number,
-    deduction: Number,
-    totalSalary: Number})
+  //   this.setState({
+  //   salaryID: '',
+  //   fname: '',
+  //   lname: '',
+  //   designation: '',
+  //   date: '',
+  //   workHours: Number,
+  //   hourlyRate: Number,
+  //   incentive: Number,
+  //   deduction: Number,
+  //   totalSalary: Number
+  // })
+  
+  
   }
+
+   calculate = () => {
+   
+    let basicSalary = parseFloat(this.state.workHours * this.state.hourlyRate); 
+    let salaryWithIncentive = basicSalary + parseFloat(this.state.incentive);
+    let tSalary =  salaryWithIncentive - parseFloat(this.state.deduction);
+  
+this.setState({totalSalary: tSalary});
+    //console.log(basicSalary, salaryWithIncentive, tSalary, this.state.totalSalary);
+
+
+   }
 
   render() {
     return (
@@ -143,6 +201,7 @@ export default class CreateSalary extends Component {
         <Form.Group controlId="workHours">
           <Form.Label>Work Hours</Form.Label>
           <Form.Control type="number" value={this.state.workHours} onChange={this.onChangeWorkHours} required/>
+          { whoursValid==true ?   <></>  : <p style={{color:"red"}}>work hours capacity is not valid!</p>  }
         </Form.Group>
 
         <Form.Group controlId="hourlyRate">
@@ -161,12 +220,12 @@ export default class CreateSalary extends Component {
         </Form.Group>
 
         <center>
-        <button className="IT19167060-down-link">Calculate</button>
+        <button className="IT19167060-down-link" onClick={() => this.calculate()} type="button">Calculate</button>
         </center>
 
         <Form.Group controlId="totalSalary">
           <Form.Label>Total Salary (Rs)</Form.Label>
-          <Form.Control type="number" value={this.state.totalSalary} onChange={this.onChangeTotalSalary} required/>
+          <Form.Control disabled type="number" value={this.state.totalSalary} onChange={this.onChangeTotalSalary} />
         </Form.Group>
 
         <center>

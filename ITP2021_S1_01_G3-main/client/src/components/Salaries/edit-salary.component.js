@@ -111,7 +111,8 @@ export default class EditSalary extends Component {
       .then((res) => {
         console.log(res.data)
         console.log('Salary successfully updated')
-        window.location.href=window.location.href;
+        //window.location.href=window.location.href;
+        window.location = "/salary-list";
       }).catch((error) => {
         console.log(error)
       })
@@ -119,6 +120,17 @@ export default class EditSalary extends Component {
     // Redirect to Salary List 
     this.props.history.push('/salary-list')
   }
+
+  calculate = () => {
+   
+    let basicSalary = parseFloat(this.state.workHours * this.state.hourlyRate); 
+    let salaryWithIncentive = basicSalary + parseFloat(this.state.incentive);
+    let tSalary =  salaryWithIncentive - parseFloat(this.state.deduction);
+  
+this.setState({totalSalary: tSalary});
+    //console.log(basicSalary, salaryWithIncentive, tSalary, this.state.totalSalary);
+
+   }
 
 
   render() {
@@ -175,12 +187,12 @@ export default class EditSalary extends Component {
         </Form.Group>
 
         <center>
-        <button className="IT19167060-down-link">Calculate</button>
+        <button className="IT19167060-down-link" onClick={() => this.calculate()} type="button">Calculate</button>
         </center>
 
         <Form.Group controlId="totalSalary">
           <Form.Label>Total Salary (Rs)</Form.Label>
-          <Form.Control type="number" value={this.state.totalSalary} onChange={this.onChangeTotalSalary} required/>
+          <Form.Control disabled type="number" value={this.state.totalSalary} onChange={this.onChangeTotalSalary} required/>
         </Form.Group>
 
         <center>

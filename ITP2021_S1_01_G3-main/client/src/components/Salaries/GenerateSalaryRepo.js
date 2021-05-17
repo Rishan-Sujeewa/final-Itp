@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import GenerateSalaryTableRow from './GenerateSalaryTableRow';
+
 import '../../css/IT19167060.css';
 
 
@@ -14,6 +15,7 @@ export default class GenerateSalaryRepo extends Component {
       salaries: []
     };
   }
+
 
   componentDidMount() {
     axios.get('http://localhost:5000/salaries/')

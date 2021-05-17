@@ -34,35 +34,6 @@
 }
 
 
-.IT19167060-edit-link{
-  background-color:#4CAF50;
-  border-color:none;
-  color:white;
-  padding: 6px 5px;
-  border-radius: 0.2rem;
-}
-.IT19167060-edit-link:hover{
-  background-color:#024025;
-  color:white;
-}
-
-
-
-.IT19167060-del-link{
-  background-color:#4CAF50;
-  border-color:none;
-  color:white;
-  padding: 5px 10px;
-  margin-left: 10px;
-  font-weight: bold;
-  border-radius: 0.2rem;
-}
-.IT19167060-del-link:hover{
-  background-color:#024025;
-  color:white;
-}
-
-
 .IT19167060-create-link{
   background-color:#4CAF50;
   border-color:none;
@@ -86,15 +57,35 @@
 }
 .IT19167060-table{
   width: 85%;
-  margin: 50px auto;
+  margin: 20px auto;
   border: 1px solid transparent;
   box-shadow: 5px 8px 20px #888888;
+  
   padding: 25px;
   top: 50%;
 }
 
 .IT19167060-table-head{
   background-color:#4CAF50;
+}
+
+.IT19167060-table .IT19167060-my-btn1{
+  display: block;
+  margin: 5px auto;
+  background-color: #4caf50 ;
+  color: #ffffff;
+  width: 80px;
+  height: 35px;
+}
+
+.IT19167060-table .IT19167060-my-btn2{
+  display: block;
+  margin: 5px auto;
+  background-color: #4caf50 ;
+  color: #ffffff;
+  width: 80px;
+  height: 35px;
+  
 }
 
 .IT19167060-down-link{
@@ -111,4 +102,10 @@
 }
 .IT19167060-down-link-link{
   margin-bottom: 50px;
+}
+
+.IT19167060-search{
+  width: 25%;
+  height: 30px;
+  margin-top: 20px;
 }

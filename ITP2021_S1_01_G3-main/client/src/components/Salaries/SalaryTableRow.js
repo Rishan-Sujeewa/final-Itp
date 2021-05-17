@@ -15,10 +15,13 @@ export default class SalaryTableRow extends Component {
         axios.delete('http://localhost:5000/salaries/delete-salary/' + this.props.obj._id)
             .then((res) => {
                 console.log('Salary Details successfully deleted!')
-                window.location.href=window.location.href;
+                //window.location.href=window.location.href;
+                window.location = "/salary-list";
             }).catch((error) => {
                 console.log(error)
             })
+
+            
     }
 
     render() {
@@ -35,10 +38,10 @@ export default class SalaryTableRow extends Component {
                 <td>{this.props.obj.deduction}</td>
                 <td>{this.props.obj.totalSalary}</td>
                 <td>
-                    <Link className="IT19167060-edit-link" to={"/edit-salary/" + this.props.obj._id}>
+                    <Link className="btn IT19167060-my-btn1" to={"/edit-salary/" + this.props.obj._id}>
                         Update
                     </Link>
-                    <Button className="IT19167060-del-link" onClick={this.deleteSalary} size="sm">Delete</Button>
+                    <Button className="btn IT19167060-my-btn2" onClick={this.deleteSalary} size="sm">Delete</Button>
                 
                 </td>
             </tr>
