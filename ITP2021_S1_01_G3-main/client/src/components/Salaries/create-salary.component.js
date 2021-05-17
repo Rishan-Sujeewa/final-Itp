@@ -8,10 +8,13 @@ import ReactFormInputValidation from "react-form-input-validation";
 let whoursValid = true;
 export default class CreateSalary extends Component {
 
+
+  
+
   constructor(props) {
     super(props)
 
-
+    
     //
     this.state = {
       fields: {
@@ -133,7 +136,7 @@ export default class CreateSalary extends Component {
         .then(res => console.log(res.data));
       }
        
-        
+    
 
   //   this.setState({
   //   salaryID: '',
@@ -147,7 +150,7 @@ export default class CreateSalary extends Component {
   //   deduction: Number,
   //   totalSalary: Number
   // })
-
+  
   
   }
 
