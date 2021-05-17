@@ -243,7 +243,7 @@ const Category = (props) => {
                   <IoIosTrash /> <span>Delete</span>
                 </button> */}
 
-                <button onClick={deleteCategory} className="btn it19951386-trans-green-btn"><IoIosCloudUpload /><span className="spinner-border spinner-border-sm" id="loading" role="status" aria-hidden="true" style={{ display: 'none' }}></span> Edit </button>
+                <button onClick={updateCategory} className="btn it19951386-trans-green-btn"><IoIosCloudUpload /><span className="spinner-border spinner-border-sm" id="loading" role="status" aria-hidden="true" style={{ display: 'none' }}></span> Edit </button>
 
                 {/* <button onClick={updateCategory} className ="edit">
                   <IoIosCloudUpload /> <span>Edit</span>
