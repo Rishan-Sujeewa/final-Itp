@@ -59,6 +59,8 @@
     
 }
 
+
+
 .it19197760-displayTable .it19197760-my-btn1{
     display: block;
     margin: 5px auto;
@@ -83,6 +85,10 @@
 .it19197760-displayTable tr{
     border: 20px solid white;
     box-shadow: 5px 8px 10px  #888888;
+}
+
+.it19197760-displayTable td :hover{
+    background-color: #024025;
 }
 
 .it19197760-displayTable td{
