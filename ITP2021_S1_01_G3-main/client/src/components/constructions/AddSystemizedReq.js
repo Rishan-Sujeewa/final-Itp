@@ -47,7 +47,7 @@ class AddSystemizedReq extends Component{
 
     }
     
-     sendData=(e)=>{
+    sendData=(e)=>{
         e.preventDefault(); 
 
         if(this.validateUserSystemizedReqForm() == false){
