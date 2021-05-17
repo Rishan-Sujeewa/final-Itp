@@ -1,6 +1,9 @@
 import React, {useState} from "react";
 import axios from "axios";
 import './../../css/IT19140162.css';
+import {Link} from 'react-router-dom';
+import bc from '../../images/bc.png'
+import Admin_dash from '../Admin_dash/home';
 
 export default function InsertSystemizedDesigns(){
 
@@ -25,7 +28,8 @@ export default function InsertSystemizedDesigns(){
         }
         
         axios.post("http://localhost:5000/systemizedDesig/addDesign",newSysDesigns).then(()=>{
-            alert("req added")
+            alert("Design added to the system");
+            window.location = "/insertD"
             
         } ).catch((err)=>{
             alert(err)
@@ -34,15 +38,19 @@ export default function InsertSystemizedDesigns(){
 
 
     return(
-    
 
+        <div>
+            <Admin_dash/>
         <div className="container"> 
+        
            <br/>
             <div className = "it19140162-mainDiv">  
-                <p className = "it19140162-topic1">Insert System Design Details</p><br/>   
-                
+            <div className="it19140162-insertDesignTopic">
+                <div className="it19140162-insertDesignTopic1"><p className = "it19140162-topic1">Insert System Design Details</p></div> 
+                <div className="it19140162-insertDesignTopic1"><img className="it19140162-insertDesignBackGround" src={bc}></img> </div>
+            </div>   
                 <div className = "it19140162-sub4">
-                     <form onSubmit={sendData}>  
+                     <form className="shadow p-3 mb-5 bg-white rounded" onSubmit={sendData}>  
 
                      <div className="form-group">
                         <label for="it19140162-designNum">Design Number</label>
@@ -106,7 +114,7 @@ export default function InsertSystemizedDesigns(){
                 </div><br/>
             </div>          
       
-
+            </div>
     )
 
 }

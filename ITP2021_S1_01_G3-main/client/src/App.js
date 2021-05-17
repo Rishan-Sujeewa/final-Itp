@@ -75,6 +75,7 @@ import myConsreq from './components/constructions/UserDashConstruction';
 import myConsreqPrint from './components/constructions/ConsReqPrint';
 import AdminConstructionDash from './components/constructions/adminDash';
 import insertDesign from './components/constructions/InsertSystemizedDesigns';
+import viewreq from './components/constructions/viewReq'
 
 
 //Orders
@@ -191,7 +192,8 @@ function App() {
       
       <Route path="/Creq" exact component={AddCustomizedReqCom}/>
       <Route path="/findHome" exact component={findHome}/>
-      <Route path="/AddSystemizedReq" exact component={AddSystemizedReq}/>
+      <Route path="/AddSystemizedReq/:id" exact component={AddSystemizedReq}/>
+      <Route path="/viewreq/:id" exact component={viewreq}/>
       <Route path="/editSreq" exact component={editSysReq}/>
       <Route path="/editCreq/:id" exact component={editCusReq}/>
       <Route path="/userDashCons" exact component={myConsreq}/>

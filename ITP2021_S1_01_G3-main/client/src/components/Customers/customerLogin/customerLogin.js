@@ -27,8 +27,10 @@ const formHandler = async(e) => {
     }
     if(response.data.success){
         setUserSession(response.data.id,response.data.token);
+        localStorage.setItem("userId", response.data.id);
         localStorage.setItem('loginMsg', "You have successfully logged in! 😃");
-        props.history.push('/customer/profile');
+        console.log("User ID "+response.data.id);
+       // props.history.push('/customer/profile');
     }
     if(response.data.emailerror){
         setemailerror(response.data.emailerror);
