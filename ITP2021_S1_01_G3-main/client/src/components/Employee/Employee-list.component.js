@@ -36,8 +36,8 @@ export default class EmployeeList extends Component {
 
 
   render() {
+    
     return (<div className="table-wrapper">
-
 <h2 className ="it19197760-head">EMPLOYEE LIST</h2>
 
     <br></br>

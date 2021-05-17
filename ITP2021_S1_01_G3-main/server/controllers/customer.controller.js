@@ -1,4 +1,5 @@
 const con = require('../db');
+const router = require("express").Router();
 const Customer = require('../models/customer.model');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
@@ -170,3 +171,69 @@ module.exports.get_deleteCustomer = async(req, res) => {
         res.status(400).json(error)
     }
 } //delete cusotomers
+
+//lakshika 
+
+router.put('sys/:id' , async (req,res) => {
+
+    let userId = req.params.id;
+    console.log(userId);
+
+    const planNumber = req.body.planNumber;
+    const name = req.body.Cname;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const otherComments = req.body.comments;
+
+    console.log("pid" + planNumber);
+
+    const customer = await Customer.findOne({_id : userId}).exec();
+    if(customer){
+        console.log("customer found");
+    }else{
+        console.log("customer not found");
+    }
+
+    const systemReq = customer.systemReq  || [];
+    const isAdded = cart.find(c => c.planNumber == planNumber);
+    const item = {
+        planNumber,
+        name : name,
+        email,
+        phone,
+        otherComments
+    }
+    
+    let systemReqItem;
+    let update;
+
+    if(isAdded){
+        systemReqItem = {"systemReq.planNumber": planNumber,  name : name, email, phone,otherComments};
+        update = {
+            "$set" : {
+                "systemReq.$" : item
+            }
+        };
+
+    }
+    else{
+        cartItem = {_id : userId};
+        update = {
+            "$push" : {
+                "systemReq" : item
+            }
+        }
+    }
+
+    const adTosystemReq = await Customer.findOneAndUpdate(systemReqItem, update,{
+        new :true
+    }).then(()=>{
+        res.send({message : "Item is added to systemReq"});
+    }).catch((err) => {
+        console.log(err);
+        res.send({err : err});
+    })
+
+})
+
+module.exports = router;

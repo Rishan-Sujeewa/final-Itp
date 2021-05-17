@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'Quicksand', 'sans-serif';
 }
 
 .App-link {
@@ -40,11 +41,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   box-sizing: border-box;
+ 
 }
 .it19140162-topic1{
-  font-size: 25px;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  margin-left:50px;
+  font-size: 30px;
+  font-family:'Quicksand', 'sans-serif';
+  margin-left: 100px;
+  
+  
 }
 
 #it19140162-findHome{
@@ -63,6 +67,11 @@
   border: 1px solid #4CAF50;
   border-radius: 8px;
 }
+.it19140162-downdiv{
+  display: grid;
+  grid-template-columns: 2.3fr 1fr;
+  box-sizing: border-box;
+}
 
 .it19140162-boarder1{
   width: 300px;
@@ -71,8 +80,11 @@
   border: 1px solid #4CAF50;
   border-radius: 8px;
 }
+#it19140162-delFont{
+  height: 60px;
+}
 
-.card{
+#it19140162-card{
   width: 18rem;
 }
 
@@ -125,7 +137,7 @@
 }
 
 #it19140162-userConsPrint{
-  width: auto;
+  width: 80px;
   height: 30px;
 }
 
@@ -155,6 +167,10 @@
 }
 .it19140162-sub1AdminDash{
   background-size: auto;
+  display: grid;
+  grid-template-columns: 4.6fr 1fr;
+  box-sizing: border-box;
+
 }
 #it19140162-header{
   background-color: #4CAF50;
@@ -162,9 +178,14 @@
 }
 
 .it19140162-topic1AdminDash{
-  font-size: 25px;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
+  font-family:'Quicksand', 'sans-serif';
   margin-left:6px;
+}
+
+.it19140162-adminDash-reqTopic{
+  font-size: 24px;
+  font-family:'Quicksand', 'sans-serif';
 }
 
 
@@ -173,4 +194,26 @@
 }
 .it19140162-row2colone{
   margin-left: 500px;
+}
+
+.it19140162-printS{
+  font-size: 20px;
+  font-family:'Quicksand', 'sans-serif';
+}
+
+.it19140162-insertDesignBackGround{
+  width: 450px;
+  height: 400px;
+}
+
+.it19140162-insertDesignTopic{
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  box-sizing: border-box;
+}
+
+.it19140162-editCustomizedimgTopic{
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  box-sizing: border-box;
 }

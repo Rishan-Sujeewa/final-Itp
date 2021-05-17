@@ -3,10 +3,10 @@ let systemized = require("../models/systemizedRequest");
 
 router.route("/addS").post((req,res)=>{
     const planNumber = req.body.planNumber;
-    const name = req.body.name;
+    const name = req.body.Cname;
     const email = req.body.email;
     const phone = req.body.phone;
-    const otherComments = req.body.otherComments;
+    const otherComments = req.body.comments;
 
     const newRequest = new systemized({
         planNumber,
@@ -46,15 +46,16 @@ router.route("/update/:systemizedId").put(async(req,res)=>{
     let sReqId = req.params.systemizedId; 
     //const name = req.body.name; mehema gannath puluwan
     //b structure karanna puluwan ekaparinma eka peliyen
-    const{planNumber,name,email,phone,otherComments} = req.body;
+    const{planNumber,name,email,phone,otherComments,startingDate} = req.body;
 
     //update karanna kalin object ekak hadaganna oni
-    const updateCustomizedReq = {
+    const updateSysteomizedReq = {
         planNumber,
         name,
         email,
         phone,
-        otherComments
+        otherComments,
+        startingDate
     }
 
     //cReqId eka athule user kenek innawada kiyala balanawa
@@ -76,9 +77,9 @@ router.route("/delete/:systemizedId").delete(async(req,res) => {
         console.log(err.message);
         res.status(500).send({status: "Error with delete Systemized Request",error:err.message});
     })
-
+})
     //eka user kenekge witharak data gannawa
-    router.route("/get/:systemizedId").get(async(req,res) => {
+    router.route("/:systemizedId").get(async(req,res) => {
         let sReqId = req.params.systemizedId;
         const reqS = await systemized.findById(sReqId).then((Systemized)=>{
             res.status(200).send({status:"Request Fetched", Systemized})
@@ -87,7 +88,7 @@ router.route("/delete/:systemizedId").delete(async(req,res) => {
             res.status(500).send({status:"Error with get systemized request",error:err.message});
         })
     })
-})
+
 
 module.exports = router;
 
