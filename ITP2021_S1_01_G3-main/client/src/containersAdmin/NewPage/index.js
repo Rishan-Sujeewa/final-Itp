@@ -6,7 +6,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import linearCategories from "../../helpersAdmin/linearCategories";
 import { useSelector, useDispatch } from "react-redux";
 import { createPage } from "../../actionsAdmin";
-
+import {
+  IoIosAdd
+} from "react-icons/io";
 /**
  * @author
  * @function NewPage
@@ -94,18 +96,6 @@ const NewPage = (props) => {
         <Container>
           <Row>
             <Col>
-              {/* <select
-                                className="form-control"
-                                value={categoryId}
-                                onChange={onCategoryChange}
-                            >
-                                <option value="">select category</option>
-                                {
-                                    categories.map(cat =>
-                                        <option key={cat._id} value={cat._id}>{cat.name}</option>
-                                    )
-                                }
-                            </select> */}
               <Input
                 type="select"
                 value={categoryId}
@@ -185,7 +175,7 @@ const NewPage = (props) => {
       ) : (
         <>
           {renderCreatePageModal()}
-          <button onClick={() => setCreateModal(true)}>Create Page</button>
+          <button onClick={() => setCreateModal(true)}className="btn it19951386-trans-green-btn"><IoIosAdd />Create Page</button>
         </>
       )}
     </Layout>

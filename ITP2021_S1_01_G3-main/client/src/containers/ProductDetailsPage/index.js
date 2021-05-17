@@ -35,20 +35,21 @@ const ProductDetailsPage = (props) => {
 
   return (
     <Layout>
+    {console.log("product-----------------------",product)}
       {/* <div>{product.productDetails.name}</div> */}
       <div className="productDescriptionContainer">
         <div className="flexRow">
           <div className="verticalImageStack">
             {product.productDetails.productPictures.map((thumb, index) => (
               <div className="thumbnail">
-                <img src={thumb.img} alt={thumb.img} />
+                <img src={`http://localhost:3000/${product.productDetails.productPictures[0].img}`} alt={`${product.productDetails.productPictures[0].img}`} />
               </div>
             ))}
           </div>
           <div className="productDescContainer">
             <div className="productDescImgContainer">
               <img
-                src={product.productDetails.productPictures[0].img}
+              src={`http://localhost:3000/${product.productDetails.productPictures[0].img}`}
                 alt={`${product.productDetails.productPictures[0].img}`}
               />
             </div>
@@ -70,7 +71,7 @@ const ProductDetailsPage = (props) => {
                   props.history.push(`/cart`);
                 }}
               />
-              <MaterialButton
+              {/* <MaterialButton
                 title="BUY NOW"
                 bgColor="#fb641b"
                 textColor="#ffffff"
@@ -78,7 +79,7 @@ const ProductDetailsPage = (props) => {
                   marginLeft: "5px"
                 }}
                 icon={<AiFillThunderbolt />}
-              />
+              /> */}
             </div>
           </div>
         </div>
