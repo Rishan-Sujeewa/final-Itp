@@ -176,6 +176,12 @@
   background-color: #4CAF50;
   color: white;
 }
+#it19140162-header a{
+  color: white;
+}
+#it19140162-header a:hover{
+  color: black;
+}
 
 .it19140162-topic1AdminDash{
   font-size: 30px;
@@ -216,4 +222,12 @@
   display: grid;
   grid-template-rows: 1fr 3fr;
   box-sizing: border-box;
+}
+.our-logo{
+  height: 80px;
+  width: auto;
+
+}
+.logo-bcg{
+  background-color: #4CAF50;
 }

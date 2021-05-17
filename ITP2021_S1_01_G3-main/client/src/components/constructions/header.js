@@ -1,16 +1,19 @@
 import React from "react";
 import './../../css/IT19140162.css';
+import {getUser, removeUser} from '../../utils/common';
+import logo from '../../images/logo/Tilina_prev_ui.png'
 
 function Header(){
-
+    const id = getUser();
     return(
+        <div><center className="logo-bcg"><img  className="our-logo" src={logo}/></center>
         <nav id="it19140162-header" className="navbar navbar-expand-lg navbar-light " >
         
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
 
         <li className="nav-item">
-            <a className="nav-link" href="#">Home</a>
+            <a className="nav-link" href="/customerhome">Home</a>
         </li>
 
         
@@ -41,12 +44,12 @@ function Header(){
 
 
         <li className="nav-item">
-            <a className="nav-link" href="#">Products</a>
+            <a className="nav-link" href="/customer/profile">My Profile</a>
         </li>
-
+{/* 
         <li className="nav-item">
             <a className="nav-link" href="#">Accessories</a>
-        </li>
+        </li> */}
 
         <li className="nav-item">
             <a className="nav-link" href="/Creq">Housing Plans</a>
@@ -55,6 +58,9 @@ function Header(){
         <li className="nav-item">
             <a className="nav-link" href="/userDashCons">My Constructions</a>
         </li>
+        {id ? null :<li className="nav-item">
+            <a className="nav-link" href="/customer/login">Log in</a>
+        </li>}
 
         
     </ul>
@@ -64,6 +70,7 @@ function Header(){
     </form>
   </div>
 </nav>
+</div>
     )
 }
 

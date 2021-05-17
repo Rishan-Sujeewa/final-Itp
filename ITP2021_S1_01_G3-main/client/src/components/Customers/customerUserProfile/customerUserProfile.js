@@ -3,7 +3,8 @@ import axios from 'axios';
 import {getUser, removeUser} from '../../../utils/common';
 import '../../../css/it19951386.css';
 import {Link} from 'react-router-dom';
-
+import Footer from '../../../componentsFlip/Footer'
+import Header from '../../constructions/header'
 
 export default function CustomerUserProfile(props) {
     const [fname, setfirstName] = useState("");
@@ -14,7 +15,7 @@ export default function CustomerUserProfile(props) {
     const id = getUser();
     const [errors, seterrors] = useState([]);
     const [emailerror, setemailerror] = useState("");   
-    const[loginMsg] = useState(localStorage.getItem("loginMsg"));//this sets logout msg if any
+    const[loginMsg,setloginMsg] = useState(localStorage.getItem("loginMsg"));//this sets logout msg if any
     const[success,setsuccess] = useState("" || localStorage.getItem("success"));
 
     window.onload = function() {
@@ -22,6 +23,7 @@ export default function CustomerUserProfile(props) {
         localStorage.removeItem('success');
         setemailerror('');
         setsuccess('');
+        setloginMsg('');
     }//this resets the state on refreshing
 
   
@@ -89,9 +91,10 @@ export default function CustomerUserProfile(props) {
     }
     return (
         <div name="userDetails-form">
+            <Header/>
             <div className="it19951386-centerDiv">
-            <Link to ="/userDashCons" className="btn it19951386-green-btn">My Constructions</Link>
-            <Link to ="/myHistory" className="btn it19951386-green-btn">My Orders</Link>
+            {/* <Link to ="/userDashCons" className="btn it19951386-green-btn">My Constructions</Link>
+            <Link to ="/myHistory" className="btn it19951386-green-btn">My Orders</Link> */}
             </div>
             <form className="form-group it19951386-myForm">
                 <h2>User Profile</h2>
