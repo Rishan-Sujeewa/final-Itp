@@ -144,6 +144,8 @@ function App() {
       <Route path="/create-Employee"  component= {CreateEmployee} />
       <Route path="/edit-Employee/:id"  component= {EditEmployee} />
       <Route path="/Employee-list"  component= {EmployeeList} />
+      
+
 
       {/*Salary */}
       <Route path= "/generate-salary" exact component= {GenerateSalaryRepo}/>
@@ -159,12 +161,13 @@ function App() {
         <Route path="/generate-vehicle" component={GenerateVehicleRepo} />
 
 
-      {/*dashboard*/}
-      <HOCPrivateRoute path="/" exact component={Home} />
-      <HOCPrivateRoute path="/page" exact component={NewPage} />
-      <HOCPrivateRoute path="/category" exact component={Category} />
-      <HOCPrivateRoute path="/products" exact component={Products} />
-      <HOCPrivateRoute path="/orders" exact component={Orders} />
+
+        {/*dashboard*/}
+        <HOCPrivateRoute path="/" exact component={Home} />
+        <HOCPrivateRoute path="/page" exact component={NewPage} />
+        <HOCPrivateRoute path="/category" exact component={Category} />
+        <HOCPrivateRoute path="/products" exact component={Products} />
+        <HOCPrivateRoute path="/orders" exact component={Orders} />
 
       <HOCPrivateRoute path="/admin_dash" exact component ={AdminDashBoard} />
       <Route path="/signup" exact component={Signup} />
