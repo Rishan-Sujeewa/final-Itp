@@ -52,10 +52,10 @@
 .it19142456-displayTable{
     width: 80%;
    margin:0 auto ;
-   
     border: 1px solid transparent;
     box-shadow: 5px 8px 20px #888888;
     margin-top: 1cm;
+    margin-bottom: 20px;
     
 }
 
@@ -117,6 +117,8 @@
     margin: 5px auto;
     background-color:#4caf50 ;
     color: #ffffff;
+    width: 70px;
+    height: 30px;
 
 }
 .it1914256-add-link{
@@ -155,6 +157,10 @@
     background-color:#4caf50 ;
     color: #ffffff;
     border-radius: 4px;
+    width: 70px;
+    height: 30px;
+    
+   
 }
 .it1914256-download-link{
     background-color: #4caf50;
@@ -168,4 +174,9 @@
     float: right;
     width: 20%;
     
+}
+.it19142456-search{
+    width: 25%;
+    height: 30px;
+    margin-top: 30px;
 }

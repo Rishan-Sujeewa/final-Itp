@@ -41,6 +41,7 @@ export default class EditVehicle extends Component {
         branchId:''
     }
   }
+  //Fecth the data
   componentDidMount() {
     axios.get('http://localhost:5000/vehicles/edit-vehicle/'+this.props.match.params.id)
       .then(res => {
@@ -64,7 +65,7 @@ export default class EditVehicle extends Component {
         console.log(error);
       })
   }
-
+//onchange method
   onChangeVehicleId(e) {
     this.setState({  vehicleId: e.target.value })
   }
@@ -121,6 +122,7 @@ export default class EditVehicle extends Component {
         licenseNo: this.state.licenseNo,
         branchId: this.state.branchId
       };
+      //Update data using axios 
       axios.put('http://localhost:5000/vehicles/update-vehicle/'+ this.props.match.params.id,vehicleObject)
         .then((res) => {
           console.log(res.data)
@@ -132,13 +134,13 @@ export default class EditVehicle extends Component {
   
       // Redirect to Vehiccle List 
      // this.props.history.push('/vehicle-list')
-      window.location = "/vehicle-list";
     
+      window.location = "/vehicle-list";
 
    
   }
   
-  
+  //Form details
   
   render() {
       return (<div className="form-wrapper">

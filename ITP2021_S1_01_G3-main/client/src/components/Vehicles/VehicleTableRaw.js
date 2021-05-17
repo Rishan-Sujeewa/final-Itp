@@ -11,7 +11,6 @@ export default class VehicleTableRaw extends Component {
         this.deleteVehicle = this.deleteVehicle.bind(this);
     }
 
-
     deleteVehicle() {
         axios.delete('http://localhost:5000/vehicles/delete-vehicle/' + this.props.obj._id)
             .then((res) => {
@@ -22,30 +21,8 @@ export default class VehicleTableRaw extends Component {
             })
     }
 
-
-    filterData(obj,searchKey){
-        const result=obj.filter((obj)=>
-        obj.type.toLowerCase().includes(searchKey)
-       
-        )
-        this.setState({obj:result})
-      }
-      
-      
-      
-      handleSearchArea=(e)=>{
-        const searchKey=e.currentTarget.value;
-        axios.get("http://localhost:8000/").then(res =>{
-          if(res.data){
-            this.filterData(res.data,searchKey)
-          }
-        });
-      }
-
     render() {
         return (
-
-            
         
             <tr>
                 <td>{this.props.obj.vehicleId}</td>
@@ -62,7 +39,7 @@ export default class VehicleTableRaw extends Component {
                 <td>{this.props.obj.branchId}</td>
                 
                 <td>
-                    <Link className="it19142456-edit-btn" size="sm"  to={"/edit-vehicle/" + this.props.obj._id}>
+                    <Link className="it19142456-edit-btn"   to={"/edit-vehicle/" + this.props.obj._id}>
                         Edit
                     </Link>
                     <Button onClick={this.deleteVehicle} size="sm" className="it19142456-delete-button">Delete</Button>

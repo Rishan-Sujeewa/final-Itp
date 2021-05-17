@@ -3,35 +3,32 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import '../../css/it19142456.css';
+import ReactFormInputValidation from "react-form-input-validation";
 
-//let vehicleValid = true;
-//let regValid = true;
+let cap=true;
 export default class CreateVehicle extends Component{
 
   
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //   fields: {
-        //     vehicleId: "",
-        //     registrationNum: "",
+        this.state = {
+          fields: {
+            FirstName: "",
+            email: "",
+            phoneNo: ""
+          },
+          errors: {}
+        };
+        this.form = new ReactFormInputValidation(this);
+        this.form.useRules({
             
-        //   },
-        //   errors: {}
-        // };
-        // this.form = new ReactFormInputValidation(this);
-        // this.form.useRules({
-        //     vehicleId: "required",
-        //     registrationNum: "required",
-         
-        // });
-        // this.form.onformsubmit = (fields) => {
+            capasity: "required|numeric|digits_between:4,8",
+        });
+        this.form.onformsubmit = (fields) => {
         
-        // }
-       
+        }
 
- 
         // Setting up functions
         
         this.onChangeVehicleId = this.onChangeVehicleId.bind(this);
@@ -63,7 +60,7 @@ export default class CreateVehicle extends Component{
             adminId:"",
             licenseNo:"",
             branchId:"",
-            
+            valid : ''
             
         }
       }
@@ -72,13 +69,6 @@ export default class CreateVehicle extends Component{
       
       onChangeVehicleId(e) {
         this.setState({  vehicleId: e.target.value })
-
-
-
-
-
-
-
       }
       onChangeRegNum(e) {
         this.setState({ registrationNum: e.target.value })
@@ -97,6 +87,13 @@ export default class CreateVehicle extends Component{
       }
       onChangeCapasity(e) {
         this.setState({ capasity: e.target.value })
+        let param = e.target.value;
+
+      cap = this.validateCap(e.target.value)
+   
+      console.log(param.length);
+
+      console.log(cap);
       }
       onChangeChassiNum(e) {
         this.setState({ chassiNumber: e.target.value })
@@ -113,15 +110,26 @@ export default class CreateVehicle extends Component{
       onChangeBranchId(e) {
         this.setState({ branchId: e.target.value })
       }
+      validateCap(capasity) {
+        const regex = /^\(?([0-9]{1})\)?[-. ]?([0-9]{1})[-. ]?([0-9]{2})$/;
+        console.log(regex.test(capasity))
+        return regex.test(capasity);
+      }
       
 
      
     
       onSubmit(e) {
-        e.preventDefault()
+        //e.preventDefault()
+
+        
+    if(cap !== true){
+      alert("Validation Fail");
+      e.preventDefault()
+    }
       
     
-        console.log(`Vehicle add sucssefully!`);
+       // console.log(`Vehicle add sucssefully!`);
     
         const vehicleObject = {
             vehicleId:this.state.vehicleId,
@@ -137,28 +145,15 @@ export default class CreateVehicle extends Component{
             licenseNo:this.state.licenseNo,
             branchId:this.state.branchId
           };
+          if(cap === true){
           axios.post('http://localhost:5000/vehicles/create-vehicle', vehicleObject)
             .then(res => console.log(res.data));
-        
+          }
     
-        this.setState({
-        vehicleId:'',
-        registrationNum:'',
-        type:'',
-        brandName:'',
-        year:'',
-        model:'',
-        capasity:'',
-        chassiNumber:'',
-        engineNumber:'',
-        adminId:'',
-        licenseNo:'',
-        branchId:'',
        
-      })
 
         //this.props.history.push('/vehicle-list')
-        window.location = "/vehicle-list";
+       
       }
 
 
@@ -184,6 +179,7 @@ export default class CreateVehicle extends Component{
           <Form.Group controlId="capasity">
             <Form.Label>Capasity</Form.Label>
             <Form.Control name="cap" type="text" value={this.state.capasity} onChange={this.onChangeCapasity} required/>
+            { cap==true ?   <></>  : <p>capasity is not valid!</p>  }
           </Form.Group>
   
           <Form.Group controlId="model">

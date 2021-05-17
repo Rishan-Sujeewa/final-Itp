@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import VehicleTableRaw from './VehicleTableRaw';
-import Admin_dash from '../Admin_dash/home';
 import '../../css/it19142456.css';
 import { Link } from "react-router-dom";
+import Admin_dash from "../Admin_dash/home";
+
+
 
 export default class VehicleList  extends Component {
 
-//search
+  //Search field
 
 state = {
   searchQuery : '',
@@ -74,7 +76,6 @@ componentWillMount() {
       })
   }
 
-
   DataTable() {
 
     let dataToShow = this.state.vehicle;
@@ -99,41 +100,37 @@ componentWillMount() {
   }
  
   
-  
-
+//form
   render() {
     return (
-      <div>
+    <div>
+      
 
-      <Admin_dash/>
-  
-      <h2 className="it19142456-heading">Vehicle details </h2>
+      <Admin_dash/> 
+    
     <div className="table-wrapper">
-    <div className="row">
-          <div className="col-lg-9 mt-2 mb-2">
-            </div>
-            <div className="col-lg-3 mt-2 mb-2 ">
-              <input
-              className="form-control"
-              type="search"
-              placeholder="Search by Vehicle Id or Registration Number"
-              name="searchQuery"
-              onChange={(event) => {
-                this.setState({
-                  searchQuery: event.target.value
-                })
-            }}></input>
-            </div>
-        </div>
        
-        
+      <br/>
+      <h2 className="it19142456-heading">Vehicle details</h2>
+      <br/>
       <center>
       <Link to={"/create-vehicle"} className="it1914256-add-link">
-              +Add vehicle details
+              Add vehicle details
               </Link>
       </center>
+      <center>
+          <input type="text"
+          className="it19142456-search"
+          placeholder="Search by VehicleId or Registration Number"
+           onChange={(event) => {
+              this.setState({
+                 searchQuery: event.target.value
+              })
+          }}/>
 
-    
+          </center>
+      
+
     <Table striped bordered hover className= "it19142456-displayTable">
       <thead>
         <tr>
@@ -162,7 +159,8 @@ componentWillMount() {
     </Link>
     </center>
   </div>
-     </div>
+  </div>
+     
     );
   }
 }

@@ -9,7 +9,7 @@ import '../../css/it19142456.css';
 export default class GenerateVehicleRepo extends Component {
   
  
-
+//OOp constructer
   constructor(props) {
     super(props)
     this.state = {
@@ -18,38 +18,37 @@ export default class GenerateVehicleRepo extends Component {
   }
 //create pdf
   exportPDF = () => {
-    const unit = "pt";
-    const size = "A4"; // Use A1, A2, A3 or A4
-    const orientation = "portrait"; // portrait or landscape
-
-    const marginLeft = 40;
-    const doc = new jsPDF(orientation, unit, size);
-
+ 
+    const doc = new jsPDF({orientation:"portrait"});
     doc.setFontSize(15);
-
-    const title = "Vehicle details";
     const headers = [['Vehicle_ID','Reg_Number','BrandName', 'ManufacYear', 'Model', 'Capasity','ChaNumber','EnNumber','AdminNum','LicessNum','BranchId']];
 
     const data = this.state.vehicle.map(elt=> [elt.vehicleId, elt.registrationNum, elt.type, elt.brandName, elt.year, elt.model
       , elt.capasity, elt.chassiNumber, elt.engineNumber, elt.adminId,elt.licenseNo,elt.branchId]);
     
-
     let content = {
-      startY: 27,
-      head: headers,
-      body: data,
       theme : 'grid',
       styles: {halign:'center'},
       headStyles:{fillColor:[71, 201, 76]},
-        
+      startY: 27,
+      head: headers,
+      body: data
     };
 
-    doc.text(title, marginLeft, 40);
+    const time = new Date().toLocaleString();
+    doc.setFontSize(27);
+    doc.text(`Vehicle Details Report`, 105, 13, null, null, "center");
+    doc.setFontSize(10);
+    doc.text(`(Generated on ${time})`, 105, 17, null, null, "center");
+    doc.setFontSize(12);
+    doc.text("Thilina Hardware - No 55, Main Road, Horana", 105, 22, null, null, "center");
     doc.autoTable(content);
-    doc.save("Vehicle.pdf")
+    doc.save("VehicleReport.pdf")
   }
-//end
+//end pdf
 
+
+//Dispaly data
   componentDidMount() {
     axios.get('http://localhost:5000/vehicles/')
       .then(res => {
@@ -63,13 +62,14 @@ export default class GenerateVehicleRepo extends Component {
       })
   }
 
+//Fetching data as table
   DataTable() {
     return this.state.vehicle.map((res, i) => {
       return <GenerateVehicleTableRow obj={res} key={i} />;
     });
   }
 
- //send data   
+    //Form 
   render() {
     return (<div className="table-wrapper">
       <br/>
