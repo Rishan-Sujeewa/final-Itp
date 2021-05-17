@@ -151,7 +151,10 @@ export default class EditSalary extends Component {
     if(emailValid != true || phnValid != true){
       alert("Incorrect Details");
       e.preventDefault()
+       
     }
+
+    
 
 
     const EmployeeObject = {
@@ -177,6 +180,10 @@ export default class EditSalary extends Component {
 
     // Redirect to Employee List 
     this.props.history.push('/Employee-list')
+
+  
+
+    
   }
 
 

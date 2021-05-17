@@ -157,7 +157,7 @@ export default class CreateEmployee extends Component {
      
     
 
-     
+      window.location = "/Employee-list";
   }
 
   render() {
