@@ -34,7 +34,7 @@ export default function home() {
                 <a className="nav-link active" href="/adminConsDash">Constructions |</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="/customers">Customers |</a>
+                <a className="nav-link active" href="/customers">Customers |</a>
                 </li>
               </ul>
             </div>

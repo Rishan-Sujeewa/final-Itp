@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import EmployeeTableRow from './EmployeeTableRow';
-import '../../css/IT19197760.css';
+import '../../css/IT19197760.css'
 import { Link } from "react-router-dom";
 
 
@@ -36,8 +36,8 @@ export default class EmployeeList extends Component {
 
 
   render() {
+    
     return (<div className="table-wrapper">
-
 <h2 className ="it19197760-head">EMPLOYEE LIST</h2>
 
     <br></br>

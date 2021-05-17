@@ -73,7 +73,7 @@ router.post('/edit/:id', validator.validate('editUser'), async(req, res) => {
             secure: true,
             auth: {
                 user: 'spremadasa334@gmail.com',
-                pass: 'sajith123'
+                pass: 'sajith@87654321'
             }
         });
         
@@ -136,7 +136,7 @@ router.post('/add', validator.validate('addUser'),async(req, res) => {
                 secure: true,
                 auth: {
                     user: 'spremadasa334@gmail.com',
-                    pass: 'sajith123'
+                    pass: 'sajith@87654321'
                 }
             });
 
@@ -158,7 +158,8 @@ router.post('/add', validator.validate('addUser'),async(req, res) => {
             }
                    
     } catch (errors) {
-        res.json(errors);   
+        res.json(errors); 
+        console.log(errors);  
     }
 });//add new customer
 router.delete('/delete/:id', async(req, res) => {

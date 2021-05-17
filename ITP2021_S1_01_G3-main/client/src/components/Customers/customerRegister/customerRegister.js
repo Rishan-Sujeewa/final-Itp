@@ -11,6 +11,7 @@ export default function CustomerRegister(props) {
     const [address, setaddress] = useState("");
     const [pNo, setpNo] = useState("");
     const [password, setpassword] = useState("");
+    const [repassword, setrepassword] = useState("");
     const [errors, seterrors] = useState([]);
     const [emailerror, setemailerror] = useState("");
    
@@ -19,9 +20,19 @@ export default function CustomerRegister(props) {
         setemailerror("")
         seterrors([]);
 
+        document.getElementById("passwordError").innerText = ""
+
+        if(password != repassword){
+            setpassword("");
+            setrepassword("");
+            document.getElementById("passwordError").innerText = "Password and Re-type Password fields Doesn't Match!"
+            return;
+        }
+
         const response = await axios.post('http://localhost:5000/customer/register', {fname, lname, email, password,address,pNo})
         if(response.data.errors){
             setpassword("");
+            setrepassword("");
             seterrors(response.data.errors);
         }
         if(response.data.success){
@@ -31,6 +42,7 @@ export default function CustomerRegister(props) {
         if(response.data.emailerror){
             setemailerror(response.data.emailerror);
             setpassword("");
+            setrepassword("");
         }  
     }
 
@@ -61,7 +73,10 @@ export default function CustomerRegister(props) {
                 <input type="text" className="form-control" name="pNo" onChange={(e) => {setpNo(e.target.value);}} value={pNo}/><br/>
                 <label>Password</label>
                 <input type="password" className="form-control" name = "password" onChange={(e) => {setpassword(e.target.value);}} value={password}/><br/>
-                <p className="it19951386-centerDiv">Already have an account? <Link className="it19951386-link" to="/customer/login"> Login here</Link></p>
+                <label>Re-type Password</label>
+                <div><span id="passwordError" style={{color:'red'}}></span></div>
+                <input className="form-control" type="password" name = "repassword" onChange={(e) => {setrepassword(e.target.value);}} value={repassword}/>
+                <p className="it19951386-centerDiv" style={{marginTop:'20px'}}>Already have an account? <Link className="it19951386-link" to="/customer/login"> Login here</Link></p>
                 <div className="it19951386-centerDiv"><input type="submit" value="Register" className="btn it19951386-green-btn it19951386-mybtn "/></div><br/>
             </form>
         </div>
