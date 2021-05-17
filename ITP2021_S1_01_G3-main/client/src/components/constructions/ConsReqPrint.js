@@ -37,7 +37,9 @@ export default function PrintConstruction(){
 
         <div className="container">
         <HeaderCom/>
+        
         <div className="it19140162-topicPrint">
+        
             <div className= "it19140162-tp1">
                 <p className = "it19140162-topic1">My Construction Requests</p>
             </div>
@@ -51,7 +53,7 @@ export default function PrintConstruction(){
         <br/>
 
         <div className="it19140162-formPrint">
-
+        <form className="shadow p-3 mb-5 bg-white rounded">
                         <div className="form-group">
                             <label for="it19140162-reqName">Request Name</label>
                             <input type="text" className="form-control" id="it19140162-reqName" 
@@ -103,10 +105,10 @@ export default function PrintConstruction(){
 
 
 
-
-
+                        </form>
+                       
         </div>
-
+        
     </div>
     )
 

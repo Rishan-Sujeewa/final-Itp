@@ -12,12 +12,13 @@ import CustomerUserProfile from './components/Customers/customerUserProfile/cust
 import PrivateRoute from './components/Customers/privateRoute/PrivateRoute';
 import PublicRoute from './components/Customers/publicRoute/PublicRoute';
 import CustomerPasswordReset from './components/Customers/customerPasswordReset/customerPasswordReset';
+
 //branches
 import AddBranch from './components/Branches/addBranch';
 import AllBranches from './components/Branches/allBranches';
 import ViewBranches from './components/Branches/viewBranch';
 import UpdateBranches from './components/Branches/updateBranch';
-import DownloadBranches from './components/Branches/downloadBranch';
+//import DownloadBranches from './components/Branches/downloadBranch';
 
 //employee
 
@@ -75,6 +76,7 @@ import myConsreq from './components/constructions/UserDashConstruction';
 import myConsreqPrint from './components/constructions/ConsReqPrint';
 import AdminConstructionDash from './components/constructions/adminDash';
 import insertDesign from './components/constructions/InsertSystemizedDesigns';
+import viewreq from './components/constructions/viewReq'
 
 
 //Orders
@@ -130,9 +132,9 @@ function App() {
       <PrivateRoute path="/customer/profile/password-reset" component = {CustomerPasswordReset} exact></PrivateRoute>
     
       {/* branches */}
-      <Route path="/view" exact component={ViewBranches}/>
-      <Route path="/download" exact component={DownloadBranches}/>
-      <Route path="/update" exact component={UpdateBranches}/>
+      <Route path="/view/:id" exact component={ViewBranches}/>
+      {/* <Route path="/download" exact component={DownloadBranches}/> */}
+      <Route path="/update/:id" exact component={UpdateBranches}/>
       <Route path="/add" exact component={AddBranch}/>
       <Route path="/branches" exact component={AllBranches}/>
 
@@ -148,50 +150,51 @@ function App() {
       <Route path="/edit-salary/:id" component={EditSalary} />
       <Route path="/salary-list" component={SalaryList} />
 
-       {/*Vehicle */}
-        <Route exact path='/vehicle/' component={CreateVehicle} />
-        <Route path="/create-vehicle" component={CreateVehicle} />
-        <Route path="/edit-vehicle/:id" component={EditVehicle} />
-        <Route path="/vehicle-list" component={VehicleList} />
+      {/*Vehicle */}
+      <Route exact path='/vehicle/' component={CreateVehicle} />
+      <Route path="/create-vehicle" component={CreateVehicle} />
+      <Route path="/edit-vehicle/:id" component={EditVehicle} />
+      <Route path="/vehicle-list" component={VehicleList} />
 
 
-        {/*dashboard*/}
-        <HOCPrivateRoute path="/" exact component={Home} />
-        <HOCPrivateRoute path="/page" exact component={NewPage} />
-        <HOCPrivateRoute path="/category" exact component={Category} />
-        <HOCPrivateRoute path="/products" exact component={Products} />
-        <HOCPrivateRoute path="/orders" exact component={Orders} />
+      {/*dashboard*/}
+      <HOCPrivateRoute path="/" exact component={Home} />
+      <HOCPrivateRoute path="/page" exact component={NewPage} />
+      <HOCPrivateRoute path="/category" exact component={Category} />
+      <HOCPrivateRoute path="/products" exact component={Products} />
+      <HOCPrivateRoute path="/orders" exact component={Orders} />
 
       <HOCPrivateRoute path="/admin_dash" exact component ={AdminDashBoard} />
       <Route path="/signup" exact component={Signup} />
 
 
-        {/* flipkart*/}
-        <Route path="/flip" exact component={HomePage} />
-        <Route path="/cart" exact component={CartPage} />
-        <Route path="/checkout" exact component={CheckoutPage} />
-        <Route path="/account/orders" exact component={OrderPage} />
-        <Route
-          path="/order_details/:orderId"
-          exact
-          component={OrderDetailsPage}
-        />
-        <Route
-          path="/:productSlug/:productId/p"
-          component={ProductDetailsPage}
-          exact
-        />
-        <Route path="productList/:slug" component={ProductListPage} exact />
+      {/* flipkart*/}
+      <Route path="/flip" exact component={HomePage} />
+      <Route path="/cart" exact component={CartPage} />
+      <Route path="/checkout" exact component={CheckoutPage} />
+      <Route path="/account/orders" exact component={OrderPage} />
+      <Route
+        path="/order_details/:orderId"
+        exact
+        component={OrderDetailsPage}
+      />
+      <Route
+        path="/:productSlug/:productId/p"
+        component={ProductDetailsPage}
+        exact
+      />
+      <Route path="productList/:slug" component={ProductListPage} exact />
 
-        {/* stock          
-     
-      </Switch> */}
+      {/* stock          
+    
+    </Switch> */}
       
       {/*constructions*/}
       
       <Route path="/Creq" exact component={AddCustomizedReqCom}/>
       <Route path="/findHome" exact component={findHome}/>
-      <Route path="/AddSystemizedReq" exact component={AddSystemizedReq}/>
+      <Route path="/AddSystemizedReq/:id" exact component={AddSystemizedReq}/>
+      <Route path="/viewreq/:id" exact component={viewreq}/>
       <Route path="/editSreq" exact component={editSysReq}/>
       <Route path="/editCreq/:id" exact component={editCusReq}/>
       <Route path="/userDashCons" exact component={myConsreq}/>

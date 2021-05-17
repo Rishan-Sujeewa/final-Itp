@@ -27,7 +27,12 @@ const systemizedDesignSchema = new Schema({
     bathRooms:{
         type:String,
         required:true
-    }
+    },
+
+    // productImage:{
+    //     type:String,
+    //     required:true
+    // }
 })
 
 const SystemizedD = mongoose.model("systemizedDesign",systemizedDesignSchema);

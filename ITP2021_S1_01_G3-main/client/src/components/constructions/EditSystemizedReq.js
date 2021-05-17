@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import axios from "axios";
 import './../../css/IT19140162.css';
 import  HeaderCom from './header';
+import bc from '../../images/bc.png'
 
 export default function EditCustemizedReq(){
 
@@ -34,15 +35,17 @@ export default function EditCustemizedReq(){
 
     return(
     
-
-        <div className="container"> <HeaderCom/>
+        <div><HeaderCom/> 
+        <div className="container"> 
             <br/>
-            <div className= "it19140162-sub1">
-                <p className = "it19140162-topic1">Edit Systemized Requests</p><br/><br/><br/><br/><br/><br/>
+            <div className= "it19140162-editCustomizedimgTopic">
+                <div className="it19140162-editCustomizedimgTopic1"><center><b><p className = "it19140162-topic1">Edit Systemized Requests</p></b></center></div><br/><br/><br/><br/><br/><br/>
+                <div className="it19140162-editCustomizedimgTopic1"><img className="it19140162-insertDesignBackGround" src={bc}></img> </div>
+
             </div><br/><br/>
             <div className = "it19140162-mainDiv">        
                 
-                     <form onSubmit={sendData}>  
+                     <form className="shadow p-3 mb-5 bg-white rounded" onSubmit={sendData}>  
                         
                         <div className="form-group">
                             <label for="it19140162-planNumber">Plan Number</label>
@@ -101,7 +104,7 @@ export default function EditCustemizedReq(){
                 </div><br/>
             </div>          
       
-
+            </div>
     )
-
+    
 }   
