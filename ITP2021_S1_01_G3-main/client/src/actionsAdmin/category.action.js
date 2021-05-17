@@ -37,7 +37,7 @@ export const addCategory = (form) => {
           type: categoryConstansts.ADD_NEW_CATEGORY_FAILURE,
           payload: res.data.error
         });
-        console.log("Hiiiiii------------", res.data.error);
+        // console.log("Hiiiiii------------", res.data.error);
       }
     } catch (error) {
       console.log(error.response);

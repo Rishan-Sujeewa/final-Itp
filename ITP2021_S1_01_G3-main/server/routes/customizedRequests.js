@@ -5,7 +5,7 @@ router.route("/add").post((req,res)=>{
     const name = req.body.name;
     const email = req.body.email;
     const phone = req.body.phone;
-    const otherComments = req.body.otherComments;
+    const otherComments = req.body.comments;
 
     const newRequest = new customized({
         name,
@@ -74,7 +74,7 @@ router.route("/delete/:customizedId").delete(async(req,res) => {
         console.log(err.message);
         res.status(500).send({status: "Error with delete Request",error:err.message});
     })
-
+})
     //eka user kenekge witharak data gannawa
     router.route("/get/:customizedId").get(async(req,res) => {
         let cReqId = req.params.customizedId;
@@ -85,7 +85,7 @@ router.route("/delete/:customizedId").delete(async(req,res) => {
             res.status(500).send({status:"Error with get request",error:err.message});
         })
     })
-})
+
 
 module.exports = router;
 

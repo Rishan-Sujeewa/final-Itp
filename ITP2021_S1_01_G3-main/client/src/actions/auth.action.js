@@ -2,22 +2,22 @@ import { authConstants, cartConstants } from "./constants";
 import axios from "../helpers/axios";
 
 // new update signup action
-export const signup = (user) => {
+export const signup = (admin) => {
   return async (dispatch) => {
     let res;
     try {
       dispatch({ type: authConstants.SIGNUP_REQUEST });
-      res = await axios.post(`/signup`, user);
+      res = await axios.post(`/signup`, admin);
       if (res.status === 201) {
         dispatch({ type: authConstants.SIGNUP_SUCCESS });
-        const { token, user } = res.data;
+        const { token, admin } = res.data;
         localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("admin", JSON.stringify(admin));
         dispatch({
           type: authConstants.LOGIN_SUCCESS,
           payload: {
             token,
-            user
+            admin
           }
         });
       } else {

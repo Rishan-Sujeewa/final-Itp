@@ -9,6 +9,7 @@ export default function AddCustomer() {
     const [address, setaddress] = useState("");
     const [pNo, setpNo] = useState("");
     const [password, setpassword] = useState("");
+    const [repassword, setrepassword] = useState("");
     const [errors, seterrors] = useState([]);
     const [emailerror, setemailerror] = useState("");
 
@@ -18,10 +19,21 @@ export default function AddCustomer() {
         seterrors([]);
         document.getElementById('customerAddLoadingBtn').removeAttribute("hidden");
         document.getElementById('customerAddBtn').setAttribute("hidden","true");
+        document.getElementById("passwordError").innerText = ""
+
+        if(password != repassword){
+            setpassword("");
+            setrepassword("");
+            document.getElementById('customerAddLoadingBtn').setAttribute("hidden","true");
+            document.getElementById('customerAddBtn').removeAttribute("hidden");
+            document.getElementById("passwordError").innerText = "Password and Re-type Password fields Doesn't Match!"
+            return;
+        }
         
         const response = await axios.post('http://localhost:5000/customers/add', {fname, lname, email, password,address, pNo});
         if(response.data.errors){
             setpassword("");
+            setrepassword("");
             seterrors(response.data.errors);
             document.getElementById('customerAddLoadingBtn').setAttribute("hidden","true");
             document.getElementById('customerAddBtn').removeAttribute("hidden");
@@ -35,6 +47,7 @@ export default function AddCustomer() {
         if(response.data.emailerror){
             setemailerror(response.data.emailerror);
             setpassword("");
+            setrepassword("");
             document.getElementById('customerAddLoadingBtn').setAttribute("hidden","true");
             document.getElementById('customerAddBtn').removeAttribute("hidden");
         }            
@@ -66,14 +79,17 @@ export default function AddCustomer() {
                 <label>Phone No</label>
                 <input className="form-control" type="text" name="pNo" onChange={(e) => {setpNo(e.target.value);}} value={pNo}/><br/>
                 <label>Password</label>
-                <input className="form-control" type="password" name = "password" onChange={(e) => {setpassword(e.target.value);}} value={password}/>
+                <input className="form-control" type="password" name = "password" onChange={(e) => {setpassword(e.target.value);}} value={password}/><br/>
+                <label>Re-type Password</label>
+                <div><span id="passwordError" style={{color:'red'}}></span></div>
+                <input className="form-control" type="password" name = "repassword" onChange={(e) => {setrepassword(e.target.value);}} value={repassword}/>
                 <div className="it19951386-centerDiv">
                 <button className="btn it19951386-green-btn it19951386-mybtn it19951386-btn" id="customerAddBtn">Add 
                 </button>
-                <button className="btn it19951386-green-btn it19951386-mybtn" id="customerAddLoadingBtn" hidden>
+                <button className="btn it19951386-green-btn it19951386-mybtn" id="customerAddLoadingBtn" hidden disabled>
                 <span className="spinner-border spinner-border-sm " id="loading" role="status" aria-hidden="true" style={{"margin-right":"5px"}}>
                 </span>
-                Adding
+                Adding 
                 </button>
                 </div>
             </form>
