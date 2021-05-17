@@ -13,8 +13,9 @@
     
 }
 .it19951386-myTable{
-    margin-top: 30px;
-    
+    margin-top: 90px;
+    margin-bottom: 60px;
+    clear: both;
 }
 .it19951386-myTable h2 {
     text-align: center;
@@ -62,7 +63,7 @@ font-weight: bolder;
     border: 1px solid black;
     overflow: hidden;
     box-shadow: 5px 8px 20px #888888;
-    
+   
 }
 
 .it19951386-td, .it19951386-th{
@@ -118,12 +119,11 @@ font-weight: bolder;
 }
 .it19951386-headerSection{
     width: 100%;
-    margin-bottom: 20px;
     text-align: center;
+    background-color:blue;
 }
-.it19951386-headerSection #it19951386-search-filter{
-    float: right;
-    width: 25%;
+.it19951386-search-filter{
+    width: 30%;
 }
 .it19951386-headerSection .it19951386-green-btn{
     margin: 0;
@@ -160,4 +160,12 @@ font-weight: bolder;
 }
 .it19951386-floatLeft{
 float: left;
+}
+
+.it19951386-floatRight{
+float: right;
+}
+.it19951386-alerts{
+    /* margin-top: 20px;
+    margin-bottom: 20px; */
 }

@@ -2,18 +2,21 @@ const Product = require("../models/product");
 const shortid = require("shortid");
 const slugify = require("slugify");
 const Category = require("../models/category");
+const Formdata = require('form-data')
 
 exports.createProduct = (req, res) => {
-  //res.status(200).json( { file: req.files, body: req.body } );
+  const { name, price, description, category, quantity } = req.body;
 
-  const { name, price, description, category, quantity, createdBy } = req.body;
-  let productPictures = [];
+  //res.status(200).json({ file: req.file, body: req.body });
 
-  if (req.files.length > 0) {
-    productPictures = req.files.map((file) => {
-      return { img: file.location };
-    });
-  }
+  let productPictures = [{ img: req.file.filename }];
+
+
+  // if (req.file.length > 0) {
+  //   productPictures = req.file.map((file) => {
+  //     return { img: file.filename };
+  //   });
+  // }
 
   const product = new Product({
     name: name,
@@ -29,7 +32,7 @@ exports.createProduct = (req, res) => {
   product.save((error, product) => {
     if (error) return res.status(400).json({ error });
     if (product) {
-      res.status(201).json({ product, files: req.files });
+      res.status(201).json({ product, files: req.file });
     }
   });
 };

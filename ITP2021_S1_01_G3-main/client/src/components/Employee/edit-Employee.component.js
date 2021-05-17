@@ -3,11 +3,36 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import '../../css/IT19197760.css';
+import ReactFormInputValidation from 'react-form-input-validation';
 
+
+let emailValid = true;
+let phnValid = true;
 export default class EditSalary extends Component {
 
   constructor(props) {
     super(props)
+
+    this.state = {
+      fields: {
+        FirstName: "",
+        email: "",
+        phoneNo: ""
+      },
+      errors: {}
+    };
+
+    this.form = new ReactFormInputValidation(this);
+    this.form.useRules({
+        FirstName: "required",
+        email: "required|email",
+        phoneNo: "required|numeric|digits_between:10,12",
+    });
+    this.form.onformsubmit = (fields) => {
+    
+    }
+
+
 
     this.onChangeEmployeeId = this.onChangeEmployeeId.bind(this);
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
@@ -32,7 +57,8 @@ export default class EditSalary extends Component {
       phoneNo: '',
       email: '',
       address: '',
-      branch: ''
+      branch: '',
+      valid : ''
     }
   }
 
@@ -79,9 +105,21 @@ export default class EditSalary extends Component {
   }
   onChangephoneNo(e) {
     this.setState({ phoneNo: e.target.value })
+
+    let param = e.target.value;
+
+    phnValid = this.validatePhn(e.target.value)
+   
+    console.log(param.length);
+
+    console.log(phnValid);
   }
   onChangeemail(e) {
+    if(!e.target.value){emailValid = ''} 
+
     this.setState({email : e.target.value })
+
+    emailValid = this.validateEmail(e.target.value);
   }
   
   onChangeaddress(e) {
@@ -92,8 +130,32 @@ export default class EditSalary extends Component {
     this.setState({ branch: e.target.value })
   }
 
+  validatePhn(phone) {
+    const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    console.log(regex.test(phone))
+    return regex.test(phone);
+  }
+
+  validateEmail (email) {
+    const regexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return regexp.test(email);
+  }
+
+
+
+
   onSubmit(e) {
-    e.preventDefault()
+    //e.preventDefault()
+
+    
+    if(emailValid != true || phnValid != true){
+      alert("Incorrect Details");
+      e.preventDefault()
+       
+    }
+
+    
+
 
     const EmployeeObject = {
       EmployeeId: this.state.EmployeeId,
@@ -118,6 +180,10 @@ export default class EditSalary extends Component {
 
     // Redirect to Employee List 
     this.props.history.push('/Employee-list')
+
+  
+
+    
   }
 
 
@@ -153,13 +219,15 @@ export default class EditSalary extends Component {
       </Form.Group>
      
       <Form.Group controlId="phoneNo">
-        <Form.Label>phoneNo</Form.Label>
-        <Form.Control typhoneNope="Number" value={this.state.phoneNo} onChange={this.onChangephoneNo} />
-      </Form.Group>
+      <Form.Label>phoneNo</Form.Label>
+        <Form.Control typhoneNope="Number" value={this.state.phoneNo} onChange={this.onChangephoneNo} required />
+        { phnValid==true ?   <></>  : <p style ={{color : "red"}}>Phone number is not valid!</p>  }
+        </Form.Group>
 
       <Form.Group controlId="email">
-        <Form.Label>Email</Form.Label>
-        <Form.Control type="text" value={this.state.email} onChange={this.onChangeemail} />
+      <Form.Label>Email</Form.Label>
+        <Form.Control type="text" value={this.state.email} onChange={this.onChangeemail} required />
+        { emailValid==true ?   <></>  : <p style ={{color : "red"}}>Email is not valid!</p>  }
       </Form.Group>
 
       <Form.Group controlId="address">

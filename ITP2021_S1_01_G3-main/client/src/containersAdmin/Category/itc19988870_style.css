@@ -14,9 +14,24 @@
     display: flex;
     align-items: center;
 }
+ .actionBtnContainer_cat{
+    background-color:#4CAF50 ;
+ }
 
 .actionBtnContainer > button{
     border: 0;
     margin: 0 5px;
-    font-size: 14px;
+    font-size: 20px;
+}
+.CAT {
+    background-color:#4CAF50 ;
+}
+.del{
+    background-color:red;
+}
+.add{
+    background-color:#4CAF50 ;
+}
+.edit{
+    background-color:#4CAF50 ;
 }

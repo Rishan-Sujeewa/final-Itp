@@ -12,14 +12,14 @@ import "./itc19988870_style.css";
  * @function ClothingAndAccessories
  **/
 
-const ClothingAndAccessories = (props) => {
-  const product = useSelector((state) => state.product);
-  const dispatch = useDispatch();
+const ClothingAndAccessories = ({products}) => {
+  // const product = useSelector((state) => state.product);
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    const { match } = props;
-    dispatch(getProductsBySlug(match.params.slug));
-  }, []);
+  // useEffect(() => {
+  //   const { match } = props;
+  //   dispatch(getProductsBySlug(match.params.slug));
+  // }, []);
 
   return (
     <div style={{ padding: "10px" }}>
@@ -30,11 +30,11 @@ const ClothingAndAccessories = (props) => {
           display: "flex"
         }}
       >
-        {product.products.map((product) => (
+        {products.length>0 && products.map((product) => (
           <div className="caContainer">
             <Link
               className="caImgContainer"
-              to={`/${product.slug}/${product._id}/p`}
+              to={`/productDetails/${product._id}`}
             >
               <img src={product.productPictures[0].img} />
             </Link>

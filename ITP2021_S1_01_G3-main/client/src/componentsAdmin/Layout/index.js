@@ -1,5 +1,6 @@
 import React from 'react';
-import Header from '../Header';
+//import Header from '../Header';
+import AdminDashHeader from "../../components/Admin_dash/home"; 
 import { Container, Row, Col } from 'react-bootstrap'; 
 import { NavLink } from 'react-router-dom';
 import './itc19988870_style.css';
@@ -13,7 +14,7 @@ import Footer from '../Footer';
 const Layout = (props) => {
   return(
     <>
-       <Header />
+      <AdminDashHeader />
        {
          props.sidebar ?
          <Container fluid>
