@@ -208,13 +208,13 @@ export default class CreateEmployee extends Component {
 
       <Form.Group controlId="address">
         <Form.Label>address</Form.Label>
-        <Form.Control type="text" value={this.state.address} onChange={this.onChangeaddress}  />
+        <Form.Control type="text" value={this.state.address} onChange={this.onChangeaddress}required  />
       </Form.Group>
 
       
       <Form.Group controlId="branch">
         <Form.Label>branch</Form.Label>
-        <Form.Control type="text" value={this.state.branch} onChange={this.onChangebranch}  />
+        <Form.Control type="text" value={this.state.branch} onChange={this.onChangebranch} required />
       </Form.Group>
 
       <Button variant="danger" size="lg" block="block" type="submit" className="btn it19197760-my-btn" >

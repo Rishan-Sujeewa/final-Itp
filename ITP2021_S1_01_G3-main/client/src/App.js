@@ -141,6 +141,8 @@ function App() {
       <Route path="/create-Employee"  component= {CreateEmployee} />
       <Route path="/edit-Employee/:id"  component= {EditEmployee} />
       <Route path="/Employee-list"  component= {EmployeeList} />
+      
+
 
       {/*Salary */}
       <Route path= "/generate-salary" exact component= {GenerateSalaryRepo}/>
@@ -153,6 +155,7 @@ function App() {
         <Route path="/create-vehicle" component={CreateVehicle} />
         <Route path="/edit-vehicle/:id" component={EditVehicle} />
         <Route path="/vehicle-list" component={VehicleList} />
+
 
 
         {/*dashboard*/}
