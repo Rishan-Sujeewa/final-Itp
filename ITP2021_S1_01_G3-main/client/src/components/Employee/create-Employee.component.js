@@ -126,7 +126,7 @@ export default class CreateEmployee extends Component {
     // e.preventDefault()
 
     if(emailValid != true || phnValid != true){
-      alert("Validation Fail");
+      alert("Incorrect Details");
       e.preventDefault()
     }
 

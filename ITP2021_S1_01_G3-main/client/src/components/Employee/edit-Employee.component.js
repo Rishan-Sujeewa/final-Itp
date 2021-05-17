@@ -149,7 +149,7 @@ export default class EditSalary extends Component {
 
     
     if(emailValid != true || phnValid != true){
-      alert("Validation Fail");
+      alert("Incorrect Details");
       e.preventDefault()
     }
 
