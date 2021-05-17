@@ -1,27 +1,29 @@
-// const express = require("express");
-// const {
-//   addItemToCart,
-//   addToCart,
-//   getCartItems,
-//   removeCartItems,
-// } = require("../controller/cart");
-// const { requireSignin, userMiddleware } = require("../common-middleware");
-// const router = express.Router();
+const router = require('express').Router();
 
-// router.post(
-//   "/user/cart/addtocart",
-//   requireSignin,
-//   userMiddleware,
-//   addItemToCart
-// );
-// //router.post('/user/cart/addToCartByLogin', requireSignin, userMiddleware, addToCart);
-// router.post("/user/getCartItems", requireSignin, userMiddleware, getCartItems);
-// //new update
-// router.post(
-//   "/user/cart/removeItem",
-//   requireSignin,
-//   userMiddleware,
-//   removeCartItems
-// );
+let cart = require('../models/cart');
 
-// module.exports = router;
+//insert cart
+router.route('/cart').post((req, res)=>{
+
+    //const cus_id = req.body.cus_id;
+    const cartItems = req.body.cartItems;   
+    const product = req.body.product;
+    const quantity = Number(req.body.quantity);
+    const price = Number(req.body.price);
+
+    const newCartItems = new cart({
+        //cus_id,
+        cartItems,
+        product,
+        quantity,
+        price
+    })
+
+    newCartItems.save().then(()=>{
+        res.json("Goods added in to the Carts");
+    }).catch((err)=>{
+        console.log(err);
+    })
+})
+
+module.exports = router;

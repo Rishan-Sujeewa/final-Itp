@@ -71,45 +71,12 @@ export default function Checkout(){
                                         setDeliveryAddress(e.target.value);
                                     }}/> </div>
 
-                <div className="form-group"> <label  className="small text-muted mb-1">PHONE NUMBER</label> <input type="text" className="form-control form-control-sm" name="NAME" id="NAME" aria-describedby="helpId" placeholder="Enter your phone number / Ex: 781234567" required onChange={(e)=>{
+                <div className="form-group"> <label  className="small text-muted mb-1">PHONE NUMBER</label> <input type="tel" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{3}" className="form-control form-control-sm" name="NAME" id="NAME" aria-describedby="helpId" placeholder="Enter your phone number / Ex: 781234567" required onChange={(e)=>{
                                         setPhNo(e.target.value);
                                     }}/> </div>
                  
                 <div className="row mb-md-5">
                   <div className="col"> <button type="submit" name id className="btn btn-lg btn-block ">PLACE THE ORDER</button> </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-5">
-            <div className="card border-0 ">
-              <div className="card-header DNcard-2">
-                <p className="card-text text-muted mt-md-4 mb-2 space">YOUR CART</p>
-                <hr className="my-2" />
-              </div>
-              <div className="card-body pt-0">
-                <hr className="my-2" />
-                <div className="row ">
-                  <div className="col">
-                    <div className="row justify-content-between">
-                      <div className="col-4">
-                        <p className="mb-1"><b>Subtotal</b></p>
-                      </div>
-                      <div className="flex-sm-col col-auto">
-                        <p className="mb-1"><b>Rs.0</b></p>
-                      </div>
-                    </div>
-                    
-                    <div className="row justify-content-between">
-                      <div className="col-4">
-                        <p><b>Total</b></p>
-                      </div>
-                      <div className="flex-sm-col col-auto">
-                        <p className="mb-1"><b>Rs.0</b></p>
-                      </div>
-                    </div>
-                    <hr className="my-0" />
-                  </div>
                 </div>
               </div>
             </div>
