@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useEffect,useState} from "react";
 import Header from "../../componentsFlip/Header";
 import Layout from "../../componentsFlip/Layout";
 import MenuHeader from "../../componentsFlip/MenuHeader";
+import AllProductsListPage from "../../containers/ProductListPage/ClothingAndAccessories/index";
+import ProductService from "../../services/ProductService";
 
 /**
  * @author
@@ -9,7 +11,20 @@ import MenuHeader from "../../componentsFlip/MenuHeader";
  **/
 
 const HomePage = (props) => {
-  return <Layout>Home Page</Layout>;
+
+  const [products,setProducts] = useState([]);
+
+  useEffect(()=>{
+    ProductService.getInitialData().then((res)=>{
+      if(res.status === 200){
+        setProducts(res.data.products)
+      }
+    })
+  },[])
+
+  return <Layout>
+  <AllProductsListPage products={products}/>
+  </Layout>;
 };
 
 export default HomePage;

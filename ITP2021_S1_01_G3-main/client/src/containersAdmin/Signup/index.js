@@ -34,14 +34,14 @@ const Signup = (props) => {
   const userSignup = (e) => {
     e.preventDefault();
 
-    const user = {
+    const admin = {
       firstName,
       lastName,
       email,
       password,
     };
 
-    dispatch(signup(user));
+    dispatch(signup(admin));
   };
 
   if (auth.authenticate) {
@@ -99,7 +99,7 @@ const Signup = (props) => {
                 <Button
                   variant="primary"
                   type="submit"
-                  style={{ backgroundColor: "#007bff", borderColor: "#007bff" }}
+                  style={{ backgroundColor: "#4CAF50", borderColor: "#007bff" }}
                 >
                   Submit
                 </Button>

@@ -4,13 +4,18 @@ import {Link} from 'react-router-dom';
 import img1 from '../../images/edit.png';
 import img2 from '../../images/delete.png';
 import './../../css/IT19140162.css';
+import Admin_dash from '../Admin_dash/home';
 
 export default function AdminConstruction(){
 
     return(
 
+        
+            
+        <div> <Admin_dash/> 
 
         <div className="container">
+       
 
                 <div className= "it19140162-sub1">
                     <p className = "it19140162-topic1">Construction Requests</p>
@@ -45,6 +50,6 @@ export default function AdminConstruction(){
 
         </div>
 
+        </div>
     )
-
 };

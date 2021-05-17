@@ -15,10 +15,13 @@ export default function CustomerUserProfile(props) {
     const [errors, seterrors] = useState([]);
     const [emailerror, setemailerror] = useState("");   
     const[loginMsg] = useState(localStorage.getItem("loginMsg"));//this sets logout msg if any
-    const[success,setsuccess] = useState("")
+    const[success,setsuccess] = useState("" || localStorage.getItem("success"));
 
     window.onload = function() {
-        localStorage.removeItem("loginMsg")
+        localStorage.removeItem("loginMsg");
+        localStorage.removeItem('success');
+        setemailerror('');
+        setsuccess('');
     }//this resets the state on refreshing
 
   
@@ -86,8 +89,10 @@ export default function CustomerUserProfile(props) {
     }
     return (
         <div name="userDetails-form">
+            <div className="it19951386-centerDiv">
             <Link to ="/userDashCons" className="btn it19951386-green-btn">My Constructions</Link>
             <Link to ="/myHistory" className="btn it19951386-green-btn">My Orders</Link>
+            </div>
             <form className="form-group it19951386-myForm">
                 <h2>User Profile</h2>
                 <button className="btn-danger btn it19951386-red-btn" id="it19951386-logout-btn" onClick={logoutHandler}>Log out</button>

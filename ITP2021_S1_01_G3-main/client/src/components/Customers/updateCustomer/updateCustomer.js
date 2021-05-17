@@ -9,6 +9,7 @@ export default function UpdateCustomer(props) {
     const [address, setaddress] = useState("");
     const [pNo, setphone] = useState("");
     const [password, setpassword] = useState("");
+    const [repassword, setrepassword] = useState("");
     const [errors, seterrors] = useState([]);
     const id = props.match.params.id;
 
@@ -27,9 +28,20 @@ export default function UpdateCustomer(props) {
     const customerFormSubmit = (async(e) => {
         e.preventDefault();
         seterrors([]);
+        document.getElementById("passwordError").innerText = ""
 
         document.getElementById('customerEditLoadingBtn').removeAttribute("hidden");
         document.getElementById('customerEditBtn').setAttribute("hidden","true");
+
+        if(password != repassword){
+            setpassword("");
+            setrepassword("");
+            document.getElementById('customerEditLoadingBtn').setAttribute("hidden","true");
+            document.getElementById('customerEditBtn').removeAttribute("hidden");
+            document.getElementById("passwordError").innerText = "Password and Re-type Password fields Doesn't Match!"
+            return;
+        }
+
         const response = await axios.post(`http://localhost:5000/customers/edit/${id}`, {fname, lname, email, password,address,pNo})
             if(response.data.success){
                 document.getElementById('customerEditLoadingBtn').setAttribute("hidden","true");
@@ -39,6 +51,8 @@ export default function UpdateCustomer(props) {
             }
             if(response.data.errors){
                 seterrors(response.data.errors);
+                setrepassword("");
+                setpassword("");
                 document.getElementById('customerEditLoadingBtn').setAttribute("hidden","true");
                 document.getElementById('customerEditBtn').removeAttribute("hidden");
             }
@@ -67,6 +81,9 @@ export default function UpdateCustomer(props) {
                 <input className="form-control" type="text" name="pNo" onChange={(e) => {setphone(e.target.value);}} value={pNo}/><br/>
                 <label>Password</label>
                 <input className="form-control" type="password" name="password" onChange={(e) => {setpassword(e.target.value);}} value={password}/><br/>
+                <label>Re-type Password</label>
+                <div><span id="passwordError" style={{color:'red'}}></span></div>
+                <input className="form-control" type="password" name = "repassword" onChange={(e) => {setrepassword(e.target.value);}} value={repassword}/><br/>
                 <button className="btn it19951386-green-btn it19951386-mybtn" id="customerEditBtn">Update 
                 </button>
                 <button className="btn it19951386-green-btn it19951386-mybtn" id="customerEditLoadingBtn" hidden disabled>

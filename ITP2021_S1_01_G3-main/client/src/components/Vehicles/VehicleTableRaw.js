@@ -39,7 +39,7 @@ export default class VehicleTableRaw extends Component {
                 <td>{this.props.obj.branchId}</td>
                 
                 <td>
-                    <Link className="it19142456-edit-btn" size="sm"  to={"/edit-vehicle/" + this.props.obj._id}>
+                    <Link className="it19142456-edit-btn"   to={"/edit-vehicle/" + this.props.obj._id}>
                         Edit
                     </Link>
                     <Button onClick={this.deleteVehicle} size="sm" className="it19142456-delete-button">Delete</Button>

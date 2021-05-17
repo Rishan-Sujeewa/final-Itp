@@ -3,23 +3,72 @@ import axios from 'axios';
 import Table from 'react-bootstrap/Table';
 import VehicleTableRaw from './VehicleTableRaw';
 import '../../css/it19142456.css';
-
 import { Link } from "react-router-dom";
+import Admin_dash from "../Admin_dash/home";
+
+
+
 export default class VehicleList  extends Component {
+
+  //Search field
+
+state = {
+  searchQuery : '',
+  query: '',
+  data: [],
+}
+
+handleInputChange = () => {
+  this.setState({
+      query: this.search.value
+  })
+  this.filterArray();
+}
+
+getData = () => {
+  fetch('http://localhost:5000/vehicles/')
+  .then(response => response.json())
+  .then(responseData => {
+      // console.log(responseData)
+      this.setState({
+          data:responseData
+      })
+  })
+}
+
+filterArray = () => {
+  var searchString = this.state.query;
+  var responseData = this.state.data
+  if(searchString.length > 0){
+      // console.log(responseData[i].name);
+      responseData = responseData.filter(l => {
+          console.log( l.vehicleId.toLowerCase().match(searchString));
+      })
+  }
+}
+
+componentWillMount() {
+  this.getData();
+}
+
+
+//
+
 
   constructor(props) {
     super(props)
     this.state = {
-      salaries: []
+     vehicle:[]
     };
   }
+ 
 
   componentDidMount() {
     axios.get('http://localhost:5000/vehicles/')
       .then(res => {
           console.log(res.data)
         this.setState({
-          salaries: res.data
+          vehicle: res.data
         });
       })
       .catch((error) => {
@@ -28,13 +77,39 @@ export default class VehicleList  extends Component {
   }
 
   DataTable() {
-    return this.state.salaries.map((res, i) => {
+
+    let dataToShow = this.state.vehicle;
+    let searchQuery = this.state.searchQuery;
+
+    console.log(searchQuery);
+
+   if(searchQuery){
+    dataToShow = dataToShow.filter(data => {
+
+      console.log(data.vehicleId); 
+      return data.vehicleId.includes(searchQuery)
+          || data.registrationNum.includes(searchQuery)
+    });
+   }
+
+   console.log(dataToShow);
+
+    return dataToShow.map((res, i) => {
       return <VehicleTableRaw obj={res} key={i} />;
     });
   }
-
+ 
+  
+//form
   render() {
-    return (<div className="table-wrapper">
+    return (
+    <div>
+      
+
+      <Admin_dash/> 
+    
+    <div className="table-wrapper">
+       
       <br/>
       <h2 className="it19142456-heading">Vehicle details</h2>
       <br/>
@@ -43,6 +118,18 @@ export default class VehicleList  extends Component {
               Add vehicle details
               </Link>
       </center>
+      <center>
+          <input type="text"
+          className="it19142456-search"
+          placeholder="Search by VehicleId or Registration Number"
+           onChange={(event) => {
+              this.setState({
+                 searchQuery: event.target.value
+              })
+          }}/>
+
+          </center>
+      
 
     <Table striped bordered hover className= "it19142456-displayTable">
       <thead>
@@ -66,6 +153,12 @@ export default class VehicleList  extends Component {
         {this.DataTable()}
       </tbody>
     </Table>
+    <center>
+    <Link to={"/generate-vehicle"} className="it1914256-report-link">
+       Generate Reports
+    </Link>
+    </center>
+  </div>
   </div>
      
     );
