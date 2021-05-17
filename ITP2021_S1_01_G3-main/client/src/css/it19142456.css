@@ -52,10 +52,10 @@
 .it19142456-displayTable{
     width: 80%;
    margin:0 auto ;
-   
     border: 1px solid transparent;
     box-shadow: 5px 8px 20px #888888;
     margin-top: 1cm;
+    margin-bottom: 20px;
     
 }
 
@@ -117,6 +117,8 @@
     margin: 5px auto;
     background-color:#4caf50 ;
     color: #ffffff;
+    width: 70px;
+    height: 30px;
 
 }
 .it1914256-add-link{
@@ -127,6 +129,17 @@
     padding: 10px 10px;
     border-radius: 0.2rem;
     margin-top: 50px;
+   
+}
+.it1914256-report-link{
+
+    background-color: #4caf50;
+    border-color: none;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 0.2rem;
+    margin-bottom: 20cm;
+    
 }
 .it1914256-add-link:hover{
     background-color: #4caf50;
@@ -144,4 +157,26 @@
     background-color:#4caf50 ;
     color: #ffffff;
     border-radius: 4px;
+    width: 70px;
+    height: 30px;
+    
+   
+}
+.it1914256-download-link{
+    background-color: #4caf50;
+    border-color: none;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 0.2rem;
+    margin-top: 50px;
+}
+#it19142456-search-filter{
+    float: right;
+    width: 20%;
+    
+}
+.it19142456-search{
+    width: 25%;
+    height: 30px;
+    margin-top: 30px;
 }

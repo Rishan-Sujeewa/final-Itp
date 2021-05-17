@@ -76,6 +76,21 @@
     font-weight: normal;
 }
 
+.it19519364-thead{
+    background-color: white;
+    color: black;
+    
+}
+
+.it19519364-th{
+    /* border: 1px solid black; */
+    text-align: center;
+    padding: 10px;
+}
+
+.it19519364-td{
+    font-weight: normal;
+}
 
 /*style display views AND download view*/
 .it19519364-display-branch-view{
@@ -126,4 +141,23 @@
   color:white;
   border-radius: 0.2rem;
   margin-left: 10px;
+}
+
+.it19519364-myRed-btn{
+    background-color:#dc3545;
+  border-color: none;
+  color:white;
+  border-radius: 0.2rem;
+}
+
+
+/* search filter */
+#it1951364-serach{
+    width: 25%;
+    float: right;
+}
+
+/* container */
+.iti9519364-container{
+   margin: 10px 10px;
 }

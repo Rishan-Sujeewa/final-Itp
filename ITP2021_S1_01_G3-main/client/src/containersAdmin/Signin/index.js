@@ -34,8 +34,9 @@ const Signin = (props) => {
     return <Redirect to={`/admin_dash`} />;
   }
 
+  let currentPath = props.location.pathname;
   return (
-    <Layout>
+    <Layout showHeader={currentPath==="/signin"?false:true}>
       <Container>
         <Row style={{ marginTop: "150px" }}>
           <Col md={{ span: 6, offset: 3 }}>
@@ -55,7 +56,7 @@ const Signin = (props) => {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <Button variant="primary" type="submit">
+              <Button variant="primary" type="submit"  style={{ backgroundColor: "#4CAF50", borderColor: "#007bff" }}>
                 Submit
               </Button>
             </Form>

@@ -28,6 +28,7 @@ export default function AddCustomizedReq(){
         
         axios.post("http://localhost:5000/customizedReq/add",newCRequest).then(()=>{
             alert("req added")
+            window.location = "/Creq"
             
         } ).catch((err)=>{
             alert(err)
@@ -56,17 +57,20 @@ export default function AddCustomizedReq(){
 
     return(
     
+        <div> <HeaderCom/>
 
-        <div className="container"> 
-        <HeaderCom/>
-            <br/>
+           
             <div className= "it19140162-sub1">
-            <br/> <p className = "it19140162-topic1">Get Ready To Discover Your Dream Home..</p><br/>
+             <p className = "it19140162-topic1">Get Ready To Discover Your Dream Home..</p><br/>
                 <Link to ="/findHome">
                     <button type= "submit" id = "it19140162-findHome" className = "btn btn-success" >Find A Home</button>
                 </Link>
                 <br/><br/><br/> <br/><br/>
             </div><br/>
+
+        <div className="container"> 
+        
+            
             <div className = "it19140162-mainDiv">        
                 
                 <div className = "it19140162-sub3">
@@ -141,7 +145,7 @@ export default function AddCustomizedReq(){
                 </div><br/>
             </div>          
       
-
+            </div>
     )
 
 }

@@ -232,15 +232,23 @@ const Category = (props) => {
               <h3>Category</h3>
               <div className="actionBtnContainer">
                 <span>Actions: </span>
-                <button onClick={handleShow}>
+                <button onClick={handleShow} className="btn it19951386-trans-green-btn"><IoIosAdd /><span className="spinner-border spinner-border-sm" id="loading" role="status" aria-hidden="true" style={{ display: 'none' }}></span> Add </button>
+
+                {/* <button onClick={handleShow} className ="add">
                   <IoIosAdd /> <span>Add</span>
-                </button>
-                <button onClick={deleteCategory}>
+                </button> */}
+                <button onClick={deleteCategory} className="btn btn-danger it19951386-mybtn it19951386-red-btn"><IoIosTrash /><span className="spinner-border spinner-border-sm" id="loading" role="status" aria-hidden="true" style={{ display: 'none' }}></span> Delete </button>
+
+                {/* <button onClick={deleteCategory} className ="del">
                   <IoIosTrash /> <span>Delete</span>
-                </button>
-                <button onClick={updateCategory}>
+                </button> */}
+
+                <button onClick={updateCategory} className="btn it19951386-trans-green-btn"><IoIosCloudUpload /><span className="spinner-border spinner-border-sm" id="loading" role="status" aria-hidden="true" style={{ display: 'none' }}></span> Edit </button>
+
+                {/* <button onClick={updateCategory} className ="edit">
                   <IoIosCloudUpload /> <span>Edit</span>
-                </button>
+                </button> */}
+                
               </div>
             </div>
           </Col>
