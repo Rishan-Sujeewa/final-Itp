@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import {setUserSession} from '../../../utils/common';
 import '../../../css/it19951386.css';
+import Header from '../../constructions/header'
 
 export default function CustomerLogin(props) {
 const [email, setemail] = useState("");
@@ -30,7 +31,7 @@ const formHandler = async(e) => {
         localStorage.setItem("userId", response.data.id);
         localStorage.setItem('loginMsg', "You have successfully logged in! 😃");
         console.log("User ID "+response.data.id);
-       // props.history.push('/customer/profile');
+        props.history.push('/customer/profile');
     }
     if(response.data.emailerror){
         setemailerror(response.data.emailerror);
@@ -39,6 +40,7 @@ const formHandler = async(e) => {
 } 
     return (
         <div>
+            <Header/>
             <form onSubmit={formHandler} className="it19951386-myForm form-group">
             <h2>Customer Login Form</h2>
                 {errors ? errors.map((error) => {

@@ -87,7 +87,7 @@ import userHistory from './components/userHistory/userHistory';
 import Order from './components/Order_dash/Order';
 
 
-
+import HomeComponent from './components/home/HomeComponent'
 
 function App() {
   const dispatch = useDispatch();
@@ -215,6 +215,7 @@ function App() {
 		<Route path="/myHistory" exact component={userHistory}/>
 		<Route path='/admin/orders' exact component = {Order}/>
 		
+    <Route path="/customerhome" exact component={HomeComponent}/>
       </Router>
     </div>
   );

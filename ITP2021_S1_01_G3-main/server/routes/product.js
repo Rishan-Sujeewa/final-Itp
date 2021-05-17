@@ -1,4 +1,6 @@
+const Product = require('../models/product');
 const express = require("express");
+
 //const {  } = require('../controller/category');
 const {
   requireSignin,
@@ -52,5 +54,21 @@ router.post(
   adminMiddleware,
   getProducts
 );
+router.get('/getAllPro',async(req, res) => {
+
+  try {
+      
+      const products = await Product.find();
+  
+      res.json({
+         // "cusID": cusID.email,
+          "products": products
+      });
+      
+  } catch (error) {
+      console.log(error);
+  }
+
+});
 
 module.exports = router;

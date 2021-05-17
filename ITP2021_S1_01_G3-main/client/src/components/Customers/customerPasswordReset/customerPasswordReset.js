@@ -2,6 +2,8 @@ import React, {useState}  from 'react';
 import axios from 'axios';
 import {getUser} from '../../../utils/common';
 import '../../../css/it19951386.css';
+import Header from '../../constructions/header'
+
 export default function CustomerPasswordReset(props) {
     const [password, setpassword] = useState("");
     const [repassword, setrepassword] = useState("");
@@ -37,6 +39,7 @@ export default function CustomerPasswordReset(props) {
 
     return (
         <div name="password-form">
+            <Header/>
             <form className="form-group it19951386-myForm">
             <h2>Reset Password</h2>
             {errors ? errors.map((error) => {
