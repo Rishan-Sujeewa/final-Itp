@@ -12,12 +12,13 @@ import CustomerUserProfile from './components/Customers/customerUserProfile/cust
 import PrivateRoute from './components/Customers/privateRoute/PrivateRoute';
 import PublicRoute from './components/Customers/publicRoute/PublicRoute';
 import CustomerPasswordReset from './components/Customers/customerPasswordReset/customerPasswordReset';
+
 //branches
 import AddBranch from './components/Branches/addBranch';
 import AllBranches from './components/Branches/allBranches';
 import ViewBranches from './components/Branches/viewBranch';
 import UpdateBranches from './components/Branches/updateBranch';
-import DownloadBranches from './components/Branches/downloadBranch';
+//import DownloadBranches from './components/Branches/downloadBranch';
 
 //employee
 
@@ -131,9 +132,9 @@ function App() {
       <PrivateRoute path="/customer/profile/password-reset" component = {CustomerPasswordReset} exact></PrivateRoute>
     
       {/* branches */}
-      <Route path="/view" exact component={ViewBranches}/>
-      <Route path="/download" exact component={DownloadBranches}/>
-      <Route path="/update" exact component={UpdateBranches}/>
+      <Route path="/view/:id" exact component={ViewBranches}/>
+      {/* <Route path="/download" exact component={DownloadBranches}/> */}
+      <Route path="/update/:id" exact component={UpdateBranches}/>
       <Route path="/add" exact component={AddBranch}/>
       <Route path="/branches" exact component={AllBranches}/>
 

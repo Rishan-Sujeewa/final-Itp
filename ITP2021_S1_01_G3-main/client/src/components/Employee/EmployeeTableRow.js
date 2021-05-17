@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import '../../css/IT19197760.css'
+import '../../css/IT19197760.css';
 
 export default class EmployeeTableRow extends Component {
 
